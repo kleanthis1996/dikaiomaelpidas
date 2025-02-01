@@ -55,7 +55,6 @@ video{
 /* Hover effect for boxes */
 .box:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
-    opacity: 0.9; /* Optional: slight transparency */
 }
 
 /* Container for the boxes at the bottom */
