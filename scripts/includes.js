@@ -12,3 +12,4 @@ function includeHTML() {
 // Load components when page is ready
 document.addEventListener("DOMContentLoaded", includeHTML);
 
+
