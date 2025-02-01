@@ -5,6 +5,63 @@
 body {
     padding-top: 80px;
 }
+body.home{
+    padding-top: 0px!important;
+}
+.navbar{
+    padding: 0!important;
+}
 .navbar-brand img {
-    height: 40px;
+    height: 80px;
+}
+
+video{
+    width: 100%!important;
+}
+
+/* Full screen video */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    overflow: hidden; /* Hide overflow to ensure video fills the screen */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire container */
+}
+
+/* Linkable boxes */
+.box {
+    padding: 20px;
+    color: #333; /* Dark text */
+    text-align: center;
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 8px; /* Rounded corners */
+    background-color: white; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: box-shadow 0.3s ease;
+    z-index: 1; /* Ensure boxes are on top of video */
+    margin: 10px; /* Spacing between boxes */
+    display: block;
+    height: 300px;
+}
+
+/* Hover effect for boxes */
+.box:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+    opacity: 0.9; /* Optional: slight transparency */
+}
+
+/* Container for the boxes at the bottom */
+.boxes-container {
+    position: relative;
+    bottom: 93px;
+    display: flex;
+    gap: 10px;
 }

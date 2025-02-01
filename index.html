@@ -9,7 +9,7 @@
             .catch(error => console.error("Error loading head:", error));
     </script>
 </head>
-<body>
+<body class="home">
 
 <!-- Load Header -->
 <div data-include="src/components/header.html"></div>
@@ -18,10 +18,34 @@
 <div data-include="src/components/nav.html"></div>
 
 <!-- Main Content -->
-<main class="container">
-    <h1>Welcome to My Website</h1>
-    <p>This is a simple static website with reusable components.</p>
-</main>
+<div class="home">
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <!-- Linkable Boxes at the Bottom -->
+    <div class="boxes-container container">
+        <div class="row w-100">
+            <!-- Bootstrap 5 Column for Box 1 -->
+            <div class="col-12 col-md-4 mb-4">
+                <a href="#" class="box d-block text-center">Box 1</a>
+            </div>
+
+            <!-- Bootstrap 5 Column for Box 2 -->
+            <div class="col-12 col-md-4 mb-4">
+                <a href="#" class="box d-block text-center">Box 2</a>
+            </div>
+
+            <!-- Bootstrap 5 Column for Box 3 -->
+            <div class="col-12 col-md-4 mb-4">
+                <a href="#" class="box d-block text-center">Box 3</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Load Footer -->
 <div data-include="src/components/footer.html"></div>
