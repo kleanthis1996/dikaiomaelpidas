@@ -9,7 +9,9 @@ body.home{
     padding-top: 0px!important;
 }
 .navbar{
-    padding: 0!important;
+    padding: 0;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 .navbar-brand img {
     height: 80px;
