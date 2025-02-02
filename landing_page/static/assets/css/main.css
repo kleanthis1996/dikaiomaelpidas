@@ -30,6 +30,13 @@ body {
 body.home{
     padding-top: 0px!important;
 }
+a{
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    font-size:14px;
+}
 .navbar{
     padding: 0;
     padding-left: 50px;
@@ -47,8 +54,8 @@ video{
 .video-container {
     position: relative;
     width: 100%;
-    height: 100vh; /* Full screen height */
-    overflow: hidden; /* Hide overflow to ensure video fills the screen */
+    height: 100vh;
+    overflow: hidden;
 }
 
 .video-container video {
@@ -62,7 +69,7 @@ video{
 
 /* Linkable boxes */
 .box {
-    padding: 20px;
+    padding: 32px 24px 24px 24px; /* top right bottom left */
     color: #333; /* Dark text */
     text-align: center;
     text-decoration: none; /* Remove underline from links */
@@ -73,7 +80,7 @@ video{
     z-index: 1; /* Ensure boxes are on top of video */
     margin: 10px; /* Spacing between boxes */
     display: block;
-    height: 300px;
+    min-height:300px;
 }
 
 /* Hover effect for boxes */
@@ -90,14 +97,19 @@ video{
 }
 .boxes-container .box-title{
     font-weight:600;
-    height:64px;
+    margin-bottom:15px;
+}
+.boxes-container .box-details{
+    font-weight:400;
+    height:50px;
+    color:#3C3C3C;
 }
 .box-icon{
     height: 70px;
     width: 70px;
     color: white;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,10 +118,33 @@ video{
     background-color:#23A9E2;
 }
 
+.meet-team .box-icon{
+    background-color: #ED028B;
+}
+
+.actions-europe .box-icon{
+    background-color: #8CC63E;
+}
+
 .break-line{
     height:2px;
     width:50px;
 }
 .about-us .break-line{
     background-color:#23A9E2;
+}
+
+.meet-team .break-line{
+    background-color: #ED028B;
+}
+
+.actions-europe .break-line{
+    background-color: #8CC63E;
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+    /* Styles for phones in landscape mode */
+    .navbar {
+        padding:0!important;
+    }
 }
