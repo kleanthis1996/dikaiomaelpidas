@@ -1,3 +1,12 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def index(request):
+    """
+    This view is used to render the index.html
+    :param request:
+    :return:
+    """
+    template = "landing_page/index.html"
+    context = {}
+    return render(request, template, context)
