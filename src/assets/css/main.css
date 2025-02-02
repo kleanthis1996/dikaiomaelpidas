@@ -1,7 +1,29 @@
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web");
-* {
-    font-family: "Titillium Web", sans-serif;
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Apply Roboto to the whole website */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
     padding-top: 80px;
 }
@@ -44,7 +66,7 @@ video{
     color: #333; /* Dark text */
     text-align: center;
     text-decoration: none; /* Remove underline from links */
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 20px; /* Rounded corners */
     background-color: white; /* White background */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: box-shadow 0.3s ease;
@@ -65,4 +87,29 @@ video{
     bottom: 93px;
     display: flex;
     gap: 10px;
+}
+.boxes-container .box-title{
+    font-weight:600;
+    height:64px;
+}
+.box-icon{
+    height: 70px;
+    width: 70px;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-us .box-icon{
+    background-color:#23A9E2;
+}
+
+.break-line{
+    height:2px;
+    width:50px;
+}
+.about-us .break-line{
+    background-color:#23A9E2;
 }
