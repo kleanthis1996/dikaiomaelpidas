@@ -141,3 +141,10 @@ video{
 .actions-europe .break-line{
     background-color: #8CC63E;
 }
+
+@media (max-width: 767px) and (orientation: portrait) {
+    /* Styles for phones in landscape mode */
+    .navbar {
+        padding:0!important;
+    }
+}
