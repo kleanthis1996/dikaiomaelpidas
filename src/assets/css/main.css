@@ -97,7 +97,7 @@ video{
 }
 .boxes-container .box-title{
     font-weight:600;
-    height:64px;
+    margin-bottom:15px;
 }
 .boxes-container .box-details{
     font-weight:400;
