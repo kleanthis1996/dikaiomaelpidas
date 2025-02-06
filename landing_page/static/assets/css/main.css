@@ -91,7 +91,7 @@ video{
 /* Container for the boxes at the bottom */
 .boxes-container {
     position: relative;
-    bottom: 93px;
+    bottom: 160px;
     display: flex;
     gap: 10px;
 }
@@ -99,11 +99,12 @@ video{
     font-weight:600;
     margin-bottom:15px;
 }
-.boxes-container .box-details{
+.box-details{
     font-weight:400;
-    height:50px;
+    line-height:24px;
     color:#3C3C3C;
 }
+
 .box-icon{
     height: 70px;
     width: 70px;
@@ -141,6 +142,38 @@ video{
 .actions-europe .break-line{
     background-color: #8CC63E;
 }
+
+.main-break-line{
+    height:7px;
+    width:94px;
+}
+
+#mission-section .main-break-line{
+    background-color:#23A9E2;
+}
+
+.main-title{
+    font-size:45px;
+    font-weight:600;
+    padding:0px!important;
+}
+
+.radius-40{
+    border-radius:40px;
+}
+
+.main-button{
+    width:141px;
+    height:44px;
+    border-radius:8px;
+    color:white;
+}
+
+.main-button.blue-btn{
+    background-color:#23A9E2;
+
+}
+
 
 @media (max-width: 767px) and (orientation: portrait) {
     /* Styles for phones in landscape mode */
