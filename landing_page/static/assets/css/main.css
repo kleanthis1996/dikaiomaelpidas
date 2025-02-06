@@ -78,7 +78,6 @@ video{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: box-shadow 0.3s ease;
     z-index: 1; /* Ensure boxes are on top of video */
-    margin: 10px; /* Spacing between boxes */
     display: block;
     min-height:300px;
 }
