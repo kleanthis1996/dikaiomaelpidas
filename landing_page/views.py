@@ -1,9 +1,10 @@
 from django.shortcuts import render
 
 
-def index(request):
+def index(request, lang="en"):
     """
     This view is used to render the index.html
+    :param lang:
     :param request:
     :return:
     """
@@ -12,9 +13,10 @@ def index(request):
     return render(request, template, context)
 
 
-def about(request):
+def about(request, lang="en"):
     """
     This view is used to render the about page
+    :param lang:
     :param request:
     :return:
     """
@@ -23,9 +25,10 @@ def about(request):
     return render(request, template, context)
 
 
-def services(request):
+def services(request, lang="en"):
     """
     This view is used to render the services page
+    :param lang:
     :param request:
     :return:
     """
@@ -34,9 +37,10 @@ def services(request):
     return render(request, template, context)
 
 
-def events(request):
+def events(request, lang="en"):
     """
     This view is used to render the events page
+    :param lang:
     :param request:
     :return:
     """
@@ -45,9 +49,10 @@ def events(request):
     return render(request, template, context)
 
 
-def news(request):
+def news(request, lang="en"):
     """
     This view is used to render the news page
+    :param lang:
     :param request:
     :return:
     """
@@ -56,9 +61,10 @@ def news(request):
     return render(request, template, context)
 
 
-def contact(request):
+def contact(request, lang="en"):
     """
     This view is used to render the contact page
+    :param lang:
     :param request:
     :return:
     """
@@ -67,9 +73,10 @@ def contact(request):
     return render(request, template, context)
 
 
-def support(request):
+def support(request, lang="en"):
     """
     This view is used to render the support page
+    :param lang:
     :param request:
     :return:
     """
