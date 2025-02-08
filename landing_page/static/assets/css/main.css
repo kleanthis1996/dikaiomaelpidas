@@ -219,7 +219,7 @@ video{
 
 .main-button{
     max-width:184px;
-    width:auto;
+    width:max-content;
     height:44px;
     border-radius:8px;
     color:white;
