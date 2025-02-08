@@ -21,3 +21,36 @@ def about(request):
     template = "landing_page/about.html"
     context = {}
     return render(request, template, context)
+
+
+def services(request):
+    """
+    This view is used to render the services page
+    :param request:
+    :return:
+    """
+    template = "landing_page/services.html"
+    context = {}
+    return render(request, template, context)
+
+
+def support(request):
+    """
+    This view is used to render the support page
+    :param request:
+    :return:
+    """
+    template = "landing_page/support.html"
+    context = {}
+    return render(request, template, context)
+
+
+def contact(request):
+    """
+    This view is used to render the contact page
+    :param request:
+    :return:
+    """
+    template = "landing_page/contact.html"
+    context = {}
+    return render(request, template, context)
