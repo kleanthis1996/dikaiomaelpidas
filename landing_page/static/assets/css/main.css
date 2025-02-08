@@ -37,6 +37,9 @@ a{
     align-items: center;
     font-size:14px;
 }
+section{
+    margin-top:300px;
+}
 .navbar{
     padding: 0;
     padding-left: 50px;
@@ -48,6 +51,12 @@ a{
 
 video{
     width: 100%!important;
+}
+
+.homepage img{
+    height:400px!important;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* Full screen video */
@@ -151,6 +160,10 @@ video{
     background-color:#23A9E2;
 }
 
+#meet-team .main-break-line{
+    background-color:#ED028B;
+}
+
 .main-title{
     font-size:45px;
     font-weight:600;
@@ -162,14 +175,22 @@ video{
 }
 
 .main-button{
-    width:141px;
+    max-width:184px;
+    width:auto;
     height:44px;
     border-radius:8px;
     color:white;
+    padding: 10px 24px 10px 24px;
+
 }
 
 .main-button.blue-btn{
     background-color:#23A9E2;
+
+}
+
+.main-button.pink-btn{
+    background-color:#ED028B;
 
 }
 

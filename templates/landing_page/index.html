@@ -12,80 +12,106 @@
 
 {% block BODY %}
     <!-- Main Content -->
-    <div class="home">
+    <div class="homepage">
         <div class="video-container">
             <video autoplay muted loop>
                 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
             </video>
         </div>
-        <!-- Linkable Boxes at the Bottom -->
+
         <div class="container">
 
-            <div class="boxes-container container justify-content-center p-0">
-                <div class="row w-100">
-                    <div class="col-12 col-md-4 mb-4 about-us ps-0">
-                        <div class="box d-block">
-                            <div class="box-icon">
-                                <i class="fa-solid fa-heart"></i>
+            <!-- Hero Boxes -->
+            <section style="margin-top:0px">
+                <div class="boxes-container container justify-content-center p-0">
+                    <div class="row w-100">
+                        <div class="col-12 col-md-4 mb-4 about-us ps-0">
+                            <div class="box d-block">
+                                <div class="box-icon">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                                <span class="d-block box-title fs-4 text-start mt-3">About Us</span>
+                                <div class="break-line"></div>
+                                <span class="d-block box-details fs-6 text-start mt-3">Learn about our journey, values, and commitment to transforming lives.</span>
+                                <a class="justify-content-end mt-5" href="#">
+                                    <span class="me-2">Read More</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
                             </div>
-                            <span class="d-block box-title fs-4 text-start mt-3">About Us</span>
-                            <div class="break-line"></div>
-                            <span class="d-block box-details fs-6 text-start mt-3">Learn about our journey, values, and commitment to transforming lives.</span>
-                            <a class="justify-content-end mt-5" href="#">
+                        </div>
+
+                        <div class="col-12 col-md-4 mb-4 meet-team">
+                            <div class="box d-block">
+                                <div class="box-icon">
+                                    <i class="fa-regular fa-face-smile"></i>
+                                </div>
+                                <span class="d-block box-title fs-4 text-start mt-3">Meet the team</span>
+                                <div class="break-line"></div>
+                                <span class="d-block box-details fs-6 text-start mt-3">Get to know the dedicated professionals behind our mission.</span>
+                                <a class="justify-content-end mt-5" href="#">
+                                    <span class="me-2">Meet Us</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 mb-4 actions-europe pe-0">
+                            <div class="box d-block">
+                                <div class="box-icon">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <span class="d-block box-title fs-4 text-start mt-3">Actions & European Programs</span>
+                                <div class="break-line"></div>
+                                <span class="d-block box-details fs-6 text-start mt-3">Explore the diverse activities and initiatives that shape our community.</span>
+                                <a class="justify-content-end mt-5" href="#">
+                                    <span class="me-2">Learn More</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Discover our Mission -->
+            <section style="margin-top:0px">
+                <div id="mission-section" class="row mt-5 justify-content-around"  >
+                    <div class="col-5">
+                        <img height="400" src="{% static 'assets/images/mission.webp' %}" class="img-fluid radius-40" alt="Mission of Dikaioma Elpidas">
+                    </div>
+                    <div class="col-5 d-flex align-items-center">
+                        <div class="row">
+                            <div class="main-break-line"></div>
+                            <span class="main-title mt-4">Discover Our Mission</span>
+                            <span class="d-block box-details fs-6 text-start mt-3 p-0">We are dedicated to making a difference in the lives of individuals with special needs by providing comprehensive educational and therapeutic programs. Our mission is to foster inclusion, independence, and personal growth through innovative and specialized support.</span>
+                            <a class="justify-content-center main-button blue-btn mt-5" href="#">
                                 <span class="me-2">Read More</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
-
-                    <div class="col-12 col-md-4 mb-4 meet-team">
-                        <div class="box d-block">
-                            <div class="box-icon">
-                                <i class="fa-regular fa-face-smile"></i>
-                            </div>
-                            <span class="d-block box-title fs-4 text-start mt-3">Meet the team</span>
-                            <div class="break-line"></div>
-                            <span class="d-block box-details fs-6 text-start mt-3">Get to know the dedicated professionals behind our mission.</span>
-                            <a class="justify-content-end mt-5" href="#">
-                                <span class="me-2">Meet Us</span>
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-4 mb-4 actions-europe pe-0">
-                        <div class="box d-block">
-                            <div class="box-icon">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </div>
-                            <span class="d-block box-title fs-4 text-start mt-3">Actions & European Programs</span>
-                            <div class="break-line"></div>
-                            <span class="d-block box-details fs-6 text-start mt-3">Explore the diverse activities and initiatives that shape our community.</span>
-                            <a class="justify-content-end mt-5" href="#">
-                                <span class="me-2">Learn More</span>
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
                 </div>
-            </div>
+            </section>
 
-            <div id="mission-section" class="row mt-5 justify-content-around"  >
-                <div class="col-5">
-                    <img height="400" src="{% static 'assets/images/mission.webp' %}" class="img-fluid radius-40" alt="Mission of Dikaioma Elpidas">
+            <!-- Meet our team -->
+            <section>
+                <div id="meet-team" class="row justify-content-center">
+                    <div class="main-break-line"></div>
+                    <span class="main-title mt-4 text-center">Meet Our Team</span>
+                    <span class="d-block box-details fs-6 text-center mt-3 p-0">We are proud to have a dedicated team of professionals who are committed to making a difference.</span>
+                    <img src="{% static 'assets/images/meet-team.webp' %}" class="img-fluid radius-40 mt-5" alt="Team of Dikaioma Elpidas">
+                    <span class="d-block box-details fs-6 text-center mt-4 p-0">Learn more about our passionate educators, therapists, and staff members who bring our vision to life.</span>
+                    <a class="justify-content-center main-button pink-btn mt-5" href="#">
+                        <span class="me-2">Meet the team</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="col-5 d-flex align-items-center">
-                    <div class="row">
-                        <div class="main-break-line"></div>
-                        <span class="main-title mt-4">Discover Our Mission</span>
-                        <span class="d-block box-details fs-6 text-start mt-3 p-0">We are dedicated to making a difference in the lives of individuals with special needs by providing comprehensive educational and therapeutic programs. Our mission is to foster inclusion, independence, and personal growth through innovative and specialized support.</span>
-                        <a class="justify-content-center main-button blue-btn mt-5" href="#">
-                            <span class="me-2">Read More</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            </section>
+
+            <!-- What we offer -->
+            <section>
+                <div id="programs-section" class="row"></div>
+            </section>
 
         </div>
 
