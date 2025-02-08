@@ -14,8 +14,6 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from landing_page.middleware import LanguageMiddleware
-
 # Load environment variables from .env file
 load_dotenv()
 
@@ -49,7 +47,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "landing_page.middleware.LanguageMiddleware",
+    "translations.middleware.LanguageMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",

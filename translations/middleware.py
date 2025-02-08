@@ -5,6 +5,9 @@ class LanguageMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        # Check if the request URL is for the CMS section
+        if request.path.startswith('/admin/'):
+            return self.get_response(request)  # Skip language handling for CMS URLs
         path_parts = request.path.strip("/").split("/")
         valid_languages = ["en", "gr"]  # Define supported languages
 
