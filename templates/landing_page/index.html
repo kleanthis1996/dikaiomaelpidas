@@ -15,7 +15,7 @@
     <div class="homepage">
         <div class="video-container">
             <video autoplay muted loop>
-                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -33,7 +33,7 @@
                                 <span class="d-block box-title fs-4 text-start mt-3">About Us</span>
                                 <div class="break-line"></div>
                                 <span class="d-block box-details fs-6 text-start mt-3">Learn about our journey, values, and commitment to transforming lives.</span>
-                                <a class="justify-content-end mt-5" href="#">
+                                <a class="card-btn justify-content-end mt-5" href="#">
                                     <span class="me-2">Read More</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
@@ -48,7 +48,7 @@
                                 <span class="d-block box-title fs-4 text-start mt-3">Meet the team</span>
                                 <div class="break-line"></div>
                                 <span class="d-block box-details fs-6 text-start mt-3">Get to know the dedicated professionals behind our mission.</span>
-                                <a class="justify-content-end mt-5" href="#">
+                                <a class="card-btn justify-content-end mt-5" href="#">
                                     <span class="me-2">Meet Us</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
@@ -63,7 +63,7 @@
                                 <span class="d-block box-title fs-4 text-start mt-3">Actions & European Programs</span>
                                 <div class="break-line"></div>
                                 <span class="d-block box-details fs-6 text-start mt-3">Explore the diverse activities and initiatives that shape our community.</span>
-                                <a class="justify-content-end mt-5" href="#">
+                                <a class="card-btn justify-content-end mt-5" href="#">
                                     <span class="me-2">Learn More</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
@@ -74,7 +74,7 @@
             </section>
 
             <!-- Discover our Mission -->
-            <section style="margin-top:0px">
+            <section style="margin-top:120px">
                 <div id="mission-section" class="row mt-5 justify-content-around"  >
                     <div class="col-5">
                         <img height="400" src="{% static 'assets/images/mission.webp' %}" class="img-fluid radius-40" alt="Mission of Dikaioma Elpidas">
@@ -84,7 +84,7 @@
                             <div class="main-break-line"></div>
                             <span class="main-title mt-4">Discover Our Mission</span>
                             <span class="d-block box-details fs-6 text-start mt-3 p-0">We are dedicated to making a difference in the lives of individuals with special needs by providing comprehensive educational and therapeutic programs. Our mission is to foster inclusion, independence, and personal growth through innovative and specialized support.</span>
-                            <a class="justify-content-center main-button blue-btn mt-5" href="#">
+                            <a class="justify-content-center main-button blue-btn" href="#">
                                 <span class="me-2">Read More</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
@@ -101,7 +101,7 @@
                     <span class="d-block box-details fs-6 text-center mt-3 p-0">We are proud to have a dedicated team of professionals who are committed to making a difference.</span>
                     <img src="{% static 'assets/images/meet-team.webp' %}" class="img-fluid radius-40 mt-5" alt="Team of Dikaioma Elpidas">
                     <span class="d-block box-details fs-6 text-center mt-4 p-0">Learn more about our passionate educators, therapists, and staff members who bring our vision to life.</span>
-                    <a class="justify-content-center main-button pink-btn mt-5" href="#">
+                    <a class="justify-content-center main-button pink-btn" href="#">
                         <span class="me-2">Meet the team</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -110,7 +110,92 @@
 
             <!-- What we offer -->
             <section>
-                <div id="programs-section" class="row"></div>
+                <div id="programs-section" class="row">
+                    <span class="hero-subtitle box-details green-text p-0">Educational & Therapeutic Programs</span>
+                    <span class="main-title mt-2">What We Offer</span>
+                    <span class="d-block box-details fs-6 mt-2 mb-5 p-0">Our programs are designed to support individuals with special needs through:</span>
+                    <div class="p-0">
+                        {% for i in '0123456789'|make_list|slice:"9" %}
+                            <span class="program-tag">Program Example {{ forloop.counter }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a class="justify-content-center main-button text-dark" href="#">
+                            <span class="me-2">Explore programs</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Support Us -->
+            <section>
+                <div id="support-section" class="row">
+                    <div class="main-break-line"></div>
+                    <span class="main-title mt-4">Get Involved & Support Us</span>
+                    <span class="d-block box-details fs-6 mt-3 p-0">Your support makes a difference! Choose how you’d like to contribute:</span>
+                    <div class="row w-100 mt-5">
+                        <div class="col-12 col-md-4 mb-4 support-box ps-0 pe-4">
+                            <div class="box d-flex flex-column justify-content-center">
+                                <div class="box-icon">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <span class="d-block box-title fs-4 text-start mt-3">Donate Funds</span>
+                                <div class="break-line"></div>
+                                <span class="d-block box-details fs-6 text-start mt-3">Support our mission financially.</span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-4 support-box ps-0 pe-4">
+                            <div class="box d-flex flex-column justify-content-center">
+                                <div class="box-icon">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <span class="d-block box-title fs-4 text-start mt-3">Alternative Gift Giving</span>
+                                <div class="break-line"></div>
+                                <span class="d-block box-details fs-6 text-start mt-3">Dedicate your celebration gifts to a cause.</span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-4 support-box ps-0">
+                            <div class="box d-flex flex-column justify-content-center">
+                                <div class="box-icon">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <span class="d-block box-title fs-4 text-start mt-3">Memorial Donations</span>
+                                <div class="break-line"></div>
+                                <span class="d-block box-details fs-6 text-start mt-3">Honor a loved one by making a difference.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 mb-4 support-box ps-0 pe-2">
+                            <div class="box d-flex flex-column justify-content-center">
+                                <div class="box-icon">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <span class="d-block box-title fs-4 text-start mt-3">Volunteer with Us</span>
+                                <div class="break-line"></div>
+                                <span class="d-block box-details fs-6 text-start mt-3">Become part of our growing family.</span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-4 support-box ps-3">
+                            <div class="box d-flex flex-column justify-content-center">
+                                <div class="box-icon">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <span class="d-block box-title fs-4 text-start mt-3">Corporate Giving</span>
+                                <div class="break-line"></div>
+                                <span class="d-block box-details fs-6 text-start mt-3">Partner with us for social responsibility.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a class="justify-content-center main-button blue-btn" href="#">
+                            <span class="me-2">Get involved</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </section>
 
         </div>
