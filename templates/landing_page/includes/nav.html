@@ -12,19 +12,32 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'landing_page:index' %}">Home</a>
+                    <a class="nav-link {% if  request.resolver_match.url_name == 'index' %}active{% endif %}"
+                       aria-current="page" href="{% url 'landing_page:index' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'landing_page:about' %}">About</a>
-                </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{% url 'landing_page:services' %}">Services</a>
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'about' %}active{% endif %}"
+                       href="{% url 'landing_page:about' %}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'landing_page:support' %}">Support Us</a>
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'services' %}active{% endif %}"
+                       href="{% url 'landing_page:services' %}">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'landing_page:contact' %}">Contact Us</a>
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'events' %}active{% endif %}"
+                       href="{% url 'landing_page:events' %}">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'news' %}active{% endif %}"
+                       href="{% url 'landing_page:news' %}">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %}active{% endif %}"
+                       href="{% url 'landing_page:contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'support' %}active{% endif %}"
+                       href="{% url 'landing_page:support' %}">Support</a>
                 </li>
             </ul>
         </div>

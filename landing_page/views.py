@@ -34,13 +34,24 @@ def services(request):
     return render(request, template, context)
 
 
-def support(request):
+def events(request):
     """
-    This view is used to render the support page
+    This view is used to render the events page
     :param request:
     :return:
     """
-    template = "landing_page/support.html"
+    template = "landing_page/events.html"
+    context = {}
+    return render(request, template, context)
+
+
+def news(request):
+    """
+    This view is used to render the news page
+    :param request:
+    :return:
+    """
+    template = "landing_page/news.html"
     context = {}
     return render(request, template, context)
 
@@ -52,5 +63,16 @@ def contact(request):
     :return:
     """
     template = "landing_page/contact.html"
+    context = {}
+    return render(request, template, context)
+
+
+def support(request):
+    """
+    This view is used to render the support page
+    :param request:
+    :return:
+    """
+    template = "landing_page/support.html"
     context = {}
     return render(request, template, context)
