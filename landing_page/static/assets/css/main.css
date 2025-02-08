@@ -214,7 +214,7 @@ video{
 }
 
 .radius-40{
-    border-radius:40px;
+    border-radius:20px;
 }
 
 .main-button{
@@ -292,9 +292,41 @@ footer .social-icon:hover{
 }
 
 
-@media (max-width: 767px) and (orientation: portrait) {
-    /* Styles for phones in landscape mode */
+@media (max-width: 767px)  {
     .navbar {
         padding:0!important;
+    }
+
+    section{
+        margin-top:150px;
+    }
+    #mission-section{
+        margin-top:-120px!important;
+    }
+    .main-title{
+        font-size:36px!important;
+    }
+    .navbar-nav{
+        height:100vh;
+        padding-top:30px;
+    }
+    .nav-link{
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .program-tag{
+        margin-right:13px!important;
+    }
+    .homepage #meet-team img{
+        height:150px!important;
+    }
+    #mission-section img{
+        height:340px!important;
+    }
+    #programs-section .main-button{
+        margin-top:0px!important;
+    }
+    footer{
+        margin-top:150px;
     }
 }
