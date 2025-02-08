@@ -279,6 +279,12 @@ footer .social-icon{
     background-color: #494949;
     align-items: center;
     justify-content: center;
+    transition:0.3s;
+}
+
+footer .social-icon:hover{
+    filter: brightness(1.1);
+    transition:0.3s;
 }
 
 .social-media-icons a{
