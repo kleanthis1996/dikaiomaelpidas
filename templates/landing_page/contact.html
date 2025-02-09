@@ -11,6 +11,8 @@
 {% endblock %}
 
 {% block BODY %}
-
+    <script>
+        let submitContactUsMessageAPI = {% url 'client_messages:api-submit-contact-us-messages' %}
+    </script>
 
 {% endblock %}
