@@ -8,7 +8,8 @@ class TranslationInline(admin.StackedInline):
 
 @admin.register(Language)
 class LanguageAdmin(admin.ModelAdmin):
-    list_display = ("code", "name")
+    list_display = ("code", "name", "status")
+    list_filter = ("status",)
 
 
 @admin.register(Translation)

@@ -1,7 +1,9 @@
 from django.db import models
 
+from webtools.models import StatusAbstract
 
-class Language(models.Model):
+
+class Language(StatusAbstract):
     code = models.CharField(
         max_length=2,
         unique=True,
