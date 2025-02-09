@@ -43,7 +43,7 @@
 
             <dropdown>
                 <input id="toggle2" type="checkbox">
-                <label for="toggle2" class="animate">EN<i id="lang-arrow" class="ms-2 fa-solid fa-angle-down"></i> </label>
+                <label for="toggle2" class="animat text-uppercase">{{request.language}}<i id="lang-arrow" class="ms-2 fa-solid fa-angle-down"></i> </label>
                 <ul class="animate">
                     {% for lang_code, lang_name in request.available_languages %}
                         <li class="animate lang-item text-uppercase" data-value="{{ lang_code }}" {% if lang_code == request.language %}selected{% endif %}> {{ lang_code }}</li>
