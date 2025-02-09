@@ -132,7 +132,6 @@ video{
     position: relative;
     bottom: 160px;
     display: flex;
-    gap: 10px;
 }
 .boxes-container .box-title,
 #support-section .box-title {
@@ -291,6 +290,75 @@ footer .social-icon:hover{
     width:max-content!important;
 }
 
+#language-select{
+    border: 0;
+    background-color: transparent;
+}
+
+
+dropdown{
+    display: inline-block;
+    position: relative;
+}
+dropdown label, dropdown ul li{
+    display: block;
+    background: transparent;
+}
+dropdown label:hover, dropdown ul li:hover{
+    cursor: pointer;
+}
+dropdown label{
+    color: #000000;
+    position: relative;
+    z-index: 2;
+    width: 50px;
+    text-align: center;
+}
+dropdown input{
+    display: none;
+}
+dropdown input ~ ul{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    top: 30px;
+    padding: 0;
+    z-index: 1;
+}
+dropdown input:checked + label{
+    color: #000000;
+}
+
+dropdown input:checked ~ ul{
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    padding: 0;
+    top: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition:0.3s;
+}
+dropdown input ~ ul li{
+    padding: 15px 20px;
+}
+dropdown input:checked ~ ul li{
+    padding: 15px 20px;
+}
+
+.animate{
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden; /* Chrome and Safari */
+    -moz-backface-visibility:hidden; /* Firefox */
+    -ms-backface-visibility:hidden; /* Internet Explorer */
+}
+
 
 @media (max-width: 767px)  {
     .navbar {
@@ -331,3 +399,40 @@ footer .social-icon:hover{
         margin-top:150px;
     }
 }
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .box {
+        min-height:400px;
+    }
+    .middle-spacing{
+        margin-left:10px;
+        margin-right:10px;
+    }
+    .box .box-title{
+        height:70px;
+    }
+    .box .box-details{
+        height:72px;
+    }
+    .support-box .box-title,
+    .support-box .box-details{
+        height:auto;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+    .box {
+        min-height:386px;
+    }
+    .box .box-title{
+        height:70px;
+    }
+    .box .box-details{
+        height:72px;
+    }
+    .support-box .box-title,
+    .support-box .box-details{
+        height:auto;
+    }
+}
+

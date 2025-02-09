@@ -40,22 +40,33 @@
                        href="{% url 'landing_page:support' lang=request.language %}">Support</a>
                 </li>
             </ul>
-            <form id="language-form">
-                <select name="language" id="language-select">
+
+            <dropdown>
+                <input id="toggle2" type="checkbox">
+                <label for="toggle2" class="animate">EN<i id="lang-arrow" class="ms-2 fa-solid fa-angle-down"></i> </label>
+                <ul class="animate">
                     {% for lang_code, lang_name in request.available_languages %}
-                        <option value="{{ lang_code }}" {% if lang_code == request.language %}selected{% endif %}>
-                            {{ lang_name }}
-                        </option>
+                        <li class="animate lang-item text-uppercase" data-value="{{ lang_code }}" {% if lang_code == request.language %}selected{% endif %}> {{ lang_code }}</li>
                     {% endfor %}
-                </select>
-            </form>
+                </ul>
+            </dropdown>
+
         </div>
     </div>
 </nav>
 <script>
-    document.getElementById("language-select").addEventListener("change", function () {
-        let selectedLang = this.value;
-        let currentPath = window.location.pathname.split('/').slice(2).join('/'); // Remove first part (language)
-        window.location.href = `/${selectedLang}/${currentPath}`;
+
+    document.querySelectorAll(".lang-item").forEach(item => {
+        item.addEventListener("click", function() {
+            let selectedLang = this.dataset.value;
+            let currentPath = window.location.pathname.split('/').slice(2).join('/'); // Remove first part (language)
+            window.location.href = `/${selectedLang}/${currentPath}`;
+        });
     });
+    document.getElementById("toggle2").addEventListener("change", function() {
+        const arrow = document.getElementById("lang-arrow");
+        arrow.style.transform = this.checked ? "rotate(180deg)" : "rotate(0deg)";
+        arrow.style.transition = "transform 0.3s ease-in-out";
+    });
+
 </script>
