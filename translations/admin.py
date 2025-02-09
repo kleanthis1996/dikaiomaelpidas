@@ -20,6 +20,12 @@ class TranslationAdmin(admin.ModelAdmin):
 
 @admin.register(Slug)
 class SlugAdmin(admin.ModelAdmin):
-    list_display = ("code", "description",)
+    list_display = ("code", "description", "get_available_translation_languages")
+    list_filter = ("translation__language",)
     search_fields = ("code", "description")
     inlines = [TranslationInline]
+
+    def get_available_translation_languages(self, obj):
+        available_languages = Translation.objects.filter(slug=obj).values_list("language__code", flat=True)
+        return list(available_languages)
+    get_available_translation_languages.short_description = "Available languages"
