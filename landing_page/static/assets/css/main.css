@@ -432,6 +432,12 @@ dropdown input:checked ~ ul li{
     }
 }
 
+@media  (max-width: 991px) {
+    dropdown{
+        display:none;
+    }
+}
+
 @media (min-width: 992px) and (max-width: 1399px) {
     .box {
         min-height:386px;
