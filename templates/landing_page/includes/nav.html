@@ -12,38 +12,38 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link {% if  request.resolver_match.url_name == 'index' %}active{% endif %}"
+                    <a class="nav-link {% if  request.resolver_match.url_name == 'index' %} active{% endif %}"
                        aria-current="page" href="{% url 'landing_page:index' lang=request.language %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'about' %}active{% endif %}"
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'about' %} active{% endif %}"
                        href="{% url 'landing_page:about' lang=request.language %}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'services' %}active{% endif %}"
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'services' %} active{% endif %}"
                        href="{% url 'landing_page:services' lang=request.language %}">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'events' %}active{% endif %}"
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'events' %} active{% endif %}"
                        href="{% url 'landing_page:events' lang=request.language %}">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'news' %}active{% endif %}"
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'news' %} active{% endif %}"
                        href="{% url 'landing_page:news' lang=request.language %}">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %}active{% endif %}"
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %} active{% endif %}"
                        href="{% url 'landing_page:contact' lang=request.language %}">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'support' %}active{% endif %}"
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'support' %} active{% endif %}"
                        href="{% url 'landing_page:support' lang=request.language %}">Support</a>
                 </li>
             </ul>
 
             <dropdown>
                 <input id="toggle2" type="checkbox">
-                <label for="toggle2" class="animat text-uppercase">{{request.language}}<i id="lang-arrow" class="ms-2 fa-solid fa-angle-down"></i> </label>
+                <label for="toggle2" class="animate text-uppercase">{{request.language}}<i id="lang-arrow" class="ms-2 fa-solid fa-angle-down"></i> </label>
                 <ul class="animate">
                     {% for lang_code, lang_name in request.available_languages %}
                         <li class="animate lang-item text-uppercase" data-value="{{ lang_code }}" {% if lang_code == request.language %}selected{% endif %}> {{ lang_code }}</li>

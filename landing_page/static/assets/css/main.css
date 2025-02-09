@@ -304,15 +304,23 @@ dropdown label, dropdown ul li{
     display: block;
     background: transparent;
 }
-dropdown label:hover, dropdown ul li:hover{
+dropdown label:hover{
     cursor: pointer;
+    background-color: #ececec;
+    transition: 0.3s;
+}
+dropdown ul li:hover{
+    cursor: pointer;
+    background-color: #f4f4f4;
+    transition: 0.3s;
 }
 dropdown label{
     color: #000000;
     position: relative;
     z-index: 2;
-    width: 50px;
+    padding: 8px 16px 8px 16px;
     text-align: center;
+    border-radius: 4px;
 }
 dropdown input{
     display: none;
@@ -324,9 +332,11 @@ dropdown input ~ ul{
     top: 30px;
     padding: 0;
     z-index: 1;
+
 }
 dropdown input:checked + label{
     color: #000000;
+    text-align: center;
 }
 
 dropdown input:checked ~ ul{
@@ -334,11 +344,13 @@ dropdown input:checked ~ ul{
     opacity: 1;
     position: absolute;
     padding: 0;
-    top: 30px;
+    top: 40px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width:100%;
     transition:0.3s;
+    overflow: hidden;
 }
 dropdown input ~ ul li{
     padding: 15px 20px;
