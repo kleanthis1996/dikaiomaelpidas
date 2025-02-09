@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Language(models.Model):
     code = models.CharField(
         max_length=2,
@@ -16,21 +17,6 @@ class Language(models.Model):
         return self.name
 
 
-class Translation(models.Model):
-    language = models.ForeignKey(
-        Language,
-        on_delete=models.CASCADE,
-        help_text="Please select the language of this translation",
-    )
-
-    text = models.CharField(
-        max_length=255,
-        help_text="Please enter the text of this translation",
-    )
-
-    def __str__(self):
-        return f"{self.language.code}-{self.text}"
-
 class Slug(models.Model):
     code = models.CharField(
         max_length=255,
@@ -44,12 +30,27 @@ class Slug(models.Model):
         help_text="Please enter a description of the slug.",
     )
 
-    translations = models.ManyToManyField(
-        Translation,
-        blank=True,
-        related_name="slug_translations",
-        help_text="Please select a translation for the slug.",
+    def __str__(self):
+        return self.code
+
+
+class Translation(models.Model):
+    slug = models.ForeignKey(
+        Slug,
+        on_delete=models.CASCADE,
+        help_text="Please select the slug identifying the translation."
+    )
+
+    language = models.ForeignKey(
+        Language,
+        on_delete=models.CASCADE,
+        help_text="Please select the language of this translation",
+    )
+
+    text = models.CharField(
+        max_length=255,
+        help_text="Please enter the text of this translation",
     )
 
     def __str__(self):
-        return self.code
+        return f"{self.slug.code}-{self.language.code}"

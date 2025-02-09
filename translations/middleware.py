@@ -9,7 +9,7 @@ class LanguageMiddleware:
         if request.path.startswith('/admin/'):
             return self.get_response(request)  # Skip language handling for CMS URLs
         path_parts = request.path.strip("/").split("/")
-        valid_languages = ["en", "gr"]  # Define supported languages
+        valid_languages = ["en", "el"]  # Define supported languages
 
         if path_parts and path_parts[0] in valid_languages:
             lang = path_parts[0]  # Valid language found in URL
@@ -19,6 +19,6 @@ class LanguageMiddleware:
 
         request.session.setdefault("language", lang)  # Store in session
         request.language = lang  # Attach to request object
-        request.available_languages = [("en", "English"), ("gr", "Greek")]
+        request.available_languages = [("en", "English"), ("el", "Greek")]
 
         return self.get_response(request)

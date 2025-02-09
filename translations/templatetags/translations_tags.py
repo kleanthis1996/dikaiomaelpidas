@@ -13,14 +13,16 @@ def translate(context, slug_code):
     :param context:
     :return:
     """
-    try:
-        request = context["request"]
-        lang = getattr(request, "language", "en")
-        # Get slug
-        slug = Slug.objects.get(code=slug_code)
-        # Get translation for requested language
-        translation = slug.translations.get(language__code=lang)
-        return translation.text
-    except ValueError as e:
-        print(f"Translation for {slug_code} not found")
-        return slug_code
+    # Get language of user's request
+    request = context.get("request")
+    lang = getattr(request, "language", "en")
+
+    # Fetch the translation in one query, avoiding multiple lookups
+    translation = (
+        Translation.objects
+        .select_related("slug", "language")
+        .filter(slug__code=slug_code, language__code=lang)
+        .first()
+    )
+
+    return translation.text if translation else slug_code
