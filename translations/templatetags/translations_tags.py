@@ -4,7 +4,7 @@ from translations.models import Slug, Translation
 
 register = template.Library()
 
-@register.simple_tag(takes_context=True)
+@register.simple_tag(takes_context=True, name="trans")
 def translate(context, slug_code):
     """
     Given a slug code, get request language,
