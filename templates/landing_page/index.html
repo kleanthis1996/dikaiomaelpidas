@@ -1,5 +1,6 @@
 {% extends "landing_page/base.html" %}
 {% load static %}
+{% load translations_tags %}
 
 {% block SEO %}
     <title>My Static Website</title>
@@ -45,7 +46,7 @@
                                 <div class="box-icon">
                                     <i class="fa-regular fa-face-smile"></i>
                                 </div>
-                                <span class="d-block box-title fs-4 text-start mt-3">Meet the team</span>
+                                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'test_slug' %}</span>
                                 <div class="break-line"></div>
                                 <span class="d-block box-details fs-6 text-start mt-3">Get to know the dedicated professionals behind our mission.</span>
                                 <a class="card-btn justify-content-end mt-5" href="#">
