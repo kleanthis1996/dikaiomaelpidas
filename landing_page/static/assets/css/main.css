@@ -37,6 +37,17 @@ a{
     align-items: center;
     font-size:14px;
 }
+section{
+    margin-top:300px;
+}
+
+.mt-6{
+    margin-top:50px;
+}
+
+.green-text{
+    color:#8CC63E!important;
+}
 .navbar{
     padding: 0;
     padding-left: 50px;
@@ -46,8 +57,32 @@ a{
     height: 80px;
 }
 
+.nav-link{
+    padding: 8px 16px 8px 16px;
+    margin-right:10px;
+    transition:0.3s;
+    border-radius:4px;
+}
+
+.nav-item:hover .nav-link{
+    background-color: #ececec;
+    transition:0.3s;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+    background-color: #ED028B;
+    color:white;
+    border-radius: 4px;
+}
+
 video{
     width: 100%!important;
+}
+
+.homepage img{
+    height:400px!important;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* Full screen video */
@@ -67,6 +102,7 @@ video{
     object-fit: cover; /* Cover the entire container */
 }
 
+
 /* Linkable boxes */
 .box {
     padding: 32px 24px 24px 24px; /* top right bottom left */
@@ -81,9 +117,13 @@ video{
     display: block;
     min-height:300px;
 }
+.support-box .box{
+    min-height:268px!important;
+    padding:24px!important;
+}
 
 /* Hover effect for boxes */
-.box:hover {
+.support-box .box:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
 }
 
@@ -94,7 +134,8 @@ video{
     display: flex;
     gap: 10px;
 }
-.boxes-container .box-title{
+.boxes-container .box-title,
+#support-section .box-title {
     font-weight:600;
     margin-bottom:15px;
 }
@@ -126,9 +167,16 @@ video{
     background-color: #8CC63E;
 }
 
+.support-box .box-icon{
+    background-color: #777777;
+}
+
 .break-line{
     height:2px;
     width:50px;
+}
+.support-box .break-line{
+    background-color: #23A9E2;;
 }
 .about-us .break-line{
     background-color:#23A9E2;
@@ -151,6 +199,14 @@ video{
     background-color:#23A9E2;
 }
 
+#meet-team .main-break-line{
+    background-color:#ED028B;
+}
+
+#support-section .main-break-line{
+    background-color:#23A9E2;
+}
+
 .main-title{
     font-size:45px;
     font-weight:600;
@@ -158,14 +214,24 @@ video{
 }
 
 .radius-40{
-    border-radius:40px;
+    border-radius:20px;
 }
 
 .main-button{
-    width:141px;
+    max-width:184px;
+    width:max-content;
     height:44px;
     border-radius:8px;
     color:white;
+    padding: 10px 24px 10px 24px;
+    font-weight: 500;
+    margin-top:38px;
+    transition:0.3s;
+}
+
+.main-button:hover{
+    filter: brightness(1.1);
+    transition:0.3s;
 }
 
 .main-button.blue-btn{
@@ -173,10 +239,95 @@ video{
 
 }
 
+.main-button.pink-btn{
+    background-color:#ED028B;
+}
 
-@media (max-width: 767px) and (orientation: portrait) {
-    /* Styles for phones in landscape mode */
+.program-tag{
+    background-color:#D9FDA8;
+    font-weight: 500;
+    font-size:16px;
+    color:black;
+    padding:12px 20px 12px 20px;
+    width:max-content;
+    border-radius:6px;
+    display:inline-block;
+    margin-right:20px;
+    margin-bottom:20px;
+}
+
+footer{
+    background-color:#333333;
+    padding-top:68px;
+    padding-bottom:68px;
+    margin-top:300px;
+}
+
+.footer-text{
+    color:#F5F7FA;
+    font-weight:400;
+}
+
+footer .social-icon{
+    height: 32px;
+    width: 32px;
+    border-radius: 100%;
+    color: white;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    background-color: #494949;
+    align-items: center;
+    justify-content: center;
+    transition:0.3s;
+}
+
+footer .social-icon:hover{
+    filter: brightness(1.1);
+    transition:0.3s;
+}
+
+.social-media-icons a{
+    width:max-content!important;
+}
+
+
+@media (max-width: 767px)  {
     .navbar {
         padding:0!important;
+    }
+
+    section{
+        margin-top:150px;
+    }
+    #mission-section{
+        margin-top:-120px!important;
+    }
+    .main-title{
+        font-size:36px!important;
+    }
+    .navbar-nav{
+        height:100vh;
+        padding-top:30px;
+    }
+    .nav-link{
+        text-align: center;
+        margin-bottom: 15px;
+        width:100%;
+    }
+    .program-tag{
+        margin-right:13px!important;
+    }
+    .homepage #meet-team img{
+        height:150px!important;
+    }
+    #mission-section img{
+        height:340px!important;
+    }
+    #programs-section .main-button{
+        margin-top:0px!important;
+    }
+    footer{
+        margin-top:150px;
     }
 }
