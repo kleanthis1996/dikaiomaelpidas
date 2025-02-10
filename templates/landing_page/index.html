@@ -77,10 +77,10 @@
             <!-- Discover our Mission -->
             <section style="margin-top:120px">
                 <div id="mission-section" class="row mt-5 justify-content-around"  >
-                    <div class="col-12 col-md-5 order-1 order-md-0">
+                    <div class="col-12 col-md-5 order-1 order-md-0" data-aos="fade-right" >
                         <img height="400" src="{% static 'assets/images/mission.webp' %}" class="img-fluid radius-40" alt="Mission of Dikaioma Elpidas">
                     </div>
-                    <div class="col-12 col-md-5 d-flex align-items-center order-0 order-md-1">
+                    <div class="col-12 col-md-5 d-flex align-items-center order-0 order-md-1" data-aos="fade-left">
                         <div class="row">
                             <div class="col-12 mb-4 mb-lg-0">
                                 <div class="main-break-line"></div>
@@ -102,7 +102,7 @@
 
             <!-- Meet our team -->
             <section>
-                <div id="meet-team" class="row justify-content-center">
+                <div id="meet-team" class="row justify-content-center" data-aos="fade-up">
                     <div class="main-break-line"></div>
                     <span class="main-title mt-4 text-center">Meet Our Team</span>
                     <span class="d-block box-details fs-6 text-center mt-3 p-0">We are proud to have a dedicated team of professionals who are committed to making a difference.</span>
@@ -117,7 +117,7 @@
 
             <!-- What we offer -->
             <section>
-                <div id="programs-section" class="row">
+                <div id="programs-section" class="row" data-aos="fade-up">
                     <span class="hero-subtitle box-details green-text p-0 text-center text-lg-start">Educational & Therapeutic Programs</span>
                     <span class="main-title mt-2 text-center text-lg-start">What We Offer</span>
                     <span class="d-block box-details fs-6 mt-2 mb-5 p-0 text-center text-lg-start">Our programs are designed to support individuals with special needs through:</span>
@@ -146,7 +146,7 @@
 
             <!-- Support Us -->
             <section>
-                <div id="support-section" class="row">
+                <div id="support-section" class="row" data-aos="fade-up">
                     <div class="col-12">
                         <div class="main-break-line mx-auto mx-lg-0"></div>
                         <span class="d-block main-title mt-4 text-center text-lg-start">Get Involved & Support Us</span>
@@ -218,5 +218,10 @@
         </div>
 
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
 {% endblock %}

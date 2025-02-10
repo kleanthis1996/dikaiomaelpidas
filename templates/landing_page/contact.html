@@ -11,6 +11,80 @@
 {% endblock %}
 
 {% block BODY %}
+    <div class="nav-margin">
+        <div class="container-lg container-xlarge">
+            <span class="d-block main-title">Get in Touch with Us</span>
+            <span class="d-block sub-title mt-3">Have questions or want to support our mission? Reach out, we’d love to hear from you!</span>
+        </div>
+        <div class="container-lg mt-165 mb-165">
+            <div class="row justify-content-around align-items-center">
+                <div class="col-12 col-md-4">
+                    <span class="d-block secondary-title">Contact Information</span>
+                    <span class="d-block box-details fs-6 text-start mt-4">Questions, comments, or suggestions? Simply fill in the form and we’ll be in touch shortly.</span>
+                    <div class="d-flex mt-3 align-items-center">
+                        <i class="contact-icons blue-text fa-solid fa-location-dot me-2"></i>
+                        <span class="d-block fs-6">Omonoias 9, Larnaca 6058, Cyprus</span>
+                    </div>
+                    <div class="d-flex mt-3 align-items-center">
+                        <i class="contact-icons pink-text fa-solid fa-phone me-2"></i>
+                        <span class="d-block fs-6">+357 24653526</span>
+                    </div>
+                    <div class="d-flex mt-3 align-items-center">
+                        <i class="contact-icons green-text fa-envelope fa-solid me-2"></i>
+                        <span class="d-block fs-6">dikaiomaelpidas@gmail.com</span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-container">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" placeholder="Placeholder">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" placeholder="Placeholder">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="example@email.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" placeholder="Type your message here"></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMrw0g8Z2_QsNOQ5qrl3YSNgfd1_aGNRE&callback=initMap" async defer></script>
+        <script>
+            function initMap() {
+                var location = { lat: 34.9179, lng: 33.6363 }; // Example coordinates (Larnaca)
+                var map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 14,
+                    center: location
+                });
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+            }
+        </script>
+
+        <div id="map"></div>
+
+
+    </div>
+
     <script>
         let submitContactUsMessageAPI = {% url 'client_messages:api-submit-contact-us-messages' %}
     </script>

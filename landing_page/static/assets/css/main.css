@@ -45,8 +45,8 @@ section{
     margin-top:50px;
 }
 
-.green-text{
-    color:#8CC63E!important;
+.nav-margin{
+    margin-top:220px;
 }
 .navbar{
     padding: 0;
@@ -61,18 +61,16 @@ section{
     padding: 8px 16px 8px 16px;
     margin-right:10px;
     transition:0.3s;
-    border-radius:4px;
+    border-bottom:2px solid #f8f9fa;
 }
 
 .nav-item:hover .nav-link{
-    background-color: #ececec;
+    border-bottom: 2px solid #bbb9b9;
     transition:0.3s;
 }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
-    background-color: #ED028B;
-    color:white;
-    border-radius: 4px;
+    border-bottom:2px solid #ED028B
 }
 
 video{
@@ -154,6 +152,17 @@ video{
     align-items: center;
     justify-content: center;
 }
+
+.blue-text{
+    color:#23A9E2;
+}
+.pink-text{
+    color:#ED028B;
+}
+.green-text{
+    color:#8CC63E!important;
+}
+
 .about-us .box-icon{
     background-color:#23A9E2;
 }
@@ -209,7 +218,30 @@ video{
 .main-title{
     font-size:45px;
     font-weight:600;
+}
+
+.sub-title{
+    font-size:20px;
+    font-weight:400;
+    color:#3C3C3C;
+}
+
+.secondary-title{
+    font-size:36px;
+    font-weight:600;
+    color:#0A0A0A;
+}
+
+.homepage .main-title{
     padding:0px!important;
+}
+
+.mt-165{
+    margin-top:165px;
+}
+
+.mb-165{
+    margin-bottom:165px!important;
 }
 
 .radius-40{
@@ -260,6 +292,10 @@ footer{
     padding-top:68px;
     padding-bottom:68px;
     margin-top:300px;
+}
+
+#contact-page footer{
+    margin-top:0px!important;
 }
 
 .footer-text{
@@ -371,6 +407,67 @@ dropdown input:checked ~ ul li{
     -ms-backface-visibility:hidden; /* Internet Explorer */
 }
 
+.contact-icons{
+    width: 20px;
+    font-size: 20px;
+}
+
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border:1px solid #CCCCCC;
+}
+.form-container .form-group {
+    margin-bottom: 15px;
+}
+.form-container .form-row {
+    display: flex;
+    justify-content: space-between;
+}
+.form-container .form-row .form-group {
+    width: 48%;
+}
+.form-container label {
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 5px;
+}
+.form-container input, .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+.form-container input:focus, .form-container textarea:focus {
+    border-color: #d63384;
+}
+.form-container textarea {
+    height: 100px;
+    resize: none;
+}
+.form-container .submit-btn {
+    width: 100%;
+    background: #e6007e;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.form-container .submit-btn:hover {
+    background: #c4006b;
+}
+#map {
+    height: 400px;
+    width: 100%;
+}
 
 @media (max-width: 767px)  {
     .navbar {
@@ -435,6 +532,12 @@ dropdown input:checked ~ ul li{
 @media  (max-width: 991px) {
     dropdown{
         display:none;
+    }
+}
+@media  (min-width: 1515px) {
+    .container-xlarge{
+        max-width:1400px!important;
+        margin:0 auto;
     }
 }
 
