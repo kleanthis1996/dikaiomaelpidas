@@ -513,6 +513,15 @@ dropdown input:checked ~ ul li{
     font-weight:400;
 }
 
+.contact-social-icons a{
+    font-size: 20px;
+    border-radius: 100%;
+    border: 1px solid #B7B7B7;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+}
+
 #contact .success-msg-subtitle{
     font-size:16px;
     color:#0A0A0A;
