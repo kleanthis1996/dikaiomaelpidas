@@ -186,7 +186,7 @@
 
                 // Email validation
                 let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!email || !emailPattern.test(email)) {
+                if (!emailPattern.test(email)) {
                     $("#email").addClass("error");
                     firstErrorField = firstErrorField || $("#email");
                     isValid = false;
@@ -214,6 +214,22 @@
             // Remove error when user types
             $("input, textarea").on("input", function() {
                 $(this).removeClass("error").addClass("success");
+
+            });
+
+            $("#email").on("input", function() {
+                $(this).removeClass("error").addClass("success");
+                let email = $("#email").val().trim();
+
+                let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    $("#email").addClass("error");
+                    firstErrorField = firstErrorField || $("#email");
+                    isValid = false;
+                } else {
+                    $("#email").addClass("success");
+                }
+
             });
         });
 
