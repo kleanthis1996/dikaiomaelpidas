@@ -18,7 +18,7 @@
         </div>
         <div class="container-lg mt-165 mb-165">
             <div class="row justify-content-around align-items-center">
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-lg-6 col-xxl-4 order-1 order-lg-0 mt-5 mt-lg-0">
                     <span class="d-block secondary-title">Contact Information</span>
                     <span class="d-block box-details fs-6 text-start mt-4">Questions, comments, or suggestions? Simply fill in the form and we’ll be in touch shortly.</span>
                     <div class="d-flex mt-3 align-items-center">
@@ -34,32 +34,40 @@
                         <span class="d-block fs-6">dikaiomaelpidas@gmail.com</span>
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-lg-6">
                     <div class="form-container">
-                        <form>
+                        <form id="contact-us-form">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="first-name">First Name</label>
-                                    <input type="text" id="first-name" placeholder="Placeholder">
+                                    <input type="text" id="first-name" name="first-name" placeholder="Placeholder">
                                 </div>
                                 <div class="form-group">
                                     <label for="last-name">Last Name</label>
-                                    <input type="text" id="last-name" placeholder="Placeholder">
+                                    <input type="text" id="last-name" name="last-name" placeholder="Placeholder">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="example@email.com">
+                                <input type="email" id="email" name="email" placeholder="example@email.com">
                             </div>
 
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" placeholder="Type your message here"></textarea>
+                                <textarea id="message" name="message" placeholder="Type your message here"></textarea>
                             </div>
 
                             <button type="submit" class="submit-btn">Submit</button>
                         </form>
+                        <div id="contact-us-loader"></div>
+                        <div id="contact-us-message-sent">
+                            <span class="d-block text-center success-msg-title">Thanks for getting in touch</span>
+                            <span class="d-block text-center success-msg-subtitle mt-2">Your email has been sent</span>
+                            <a class="justify-content-center main-button pink-btn mx-auto" href="#" onclick="window.location.reload();"">
+                                <span class="me-2">Send again</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,9 +76,9 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMrw0g8Z2_QsNOQ5qrl3YSNgfd1_aGNRE&callback=initMap" async defer></script>
         <script>
             function initMap() {
-                var location = { lat: 34.9179, lng: 33.6363 }; // Example coordinates (Larnaca)
+                var location = { lat: 34.932219, lng: 33.633636 };
                 var map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 14,
+                    zoom: 19,
                     center: location
                 });
                 var marker = new google.maps.Marker({
@@ -86,7 +94,115 @@
     </div>
 
     <script>
-        let submitContactUsMessageAPI = {% url 'client_messages:api-submit-contact-us-messages' %}
+        let submitContactUsMessageAPI = 'https://reqres.in/api/users';
+        $(document).ready(function () {
+            $('#contact-us-form').on('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Perform validation
+                var form = this;
+                var isValid = checkValidity();
+                $(form).addClass('was-validated');
+
+                if (!isValid) return;
+
+                // Ensure API URL is set
+                if (typeof submitContactUsMessageAPI === "undefined" || !submitContactUsMessageAPI) {
+                    console.error("Error: API URL is missing.");
+                    return;
+                }
+
+                let formData = $(this).serialize(); // Serialize the form data
+
+                $("#contact-us-form").hide();
+                $("#contact-us-loader").show();
+
+                $.ajax({
+                    url: submitContactUsMessageAPI,
+                    method: "POST",
+                    data: formData,
+                    success: function (response) {
+                        $("#contact-us-loader").hide();
+                        $("#contact-us-message-sent").show();
+
+                        // Send event to dataLayer (Google Tag Manager)
+                        window.dataLayer = window.dataLayer || [];
+                        window.dataLayer.push({
+                            event: "submit_contact_us_message_success"
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        $("#contact-us-loader").hide();
+                        $("#contact-us-form").show();
+                        alert("An error occurred: " + xhr.responseText);
+                        console.log("AJAX Error:", error, xhr.responseText);
+                    }
+                });
+            });
+
+
+            function checkValidity() {
+                let isValid = true;
+                let firstErrorField = null;
+
+                // Reset previous errors
+                $("input, textarea").removeClass("error").removeClass("success");
+
+                // Get form values
+                let first_name = $("#first-name").val().trim();
+                let last_name = $("#last-name").val().trim();
+                let email = $("#email").val().trim();
+                let message = $("#message").val().trim();
+
+                if (!first_name) {
+                    $("#first-name").addClass("error");
+                    firstErrorField = firstErrorField || $("#first-name");
+                    isValid = false;
+                } else {
+                    $("#first_name").addClass("success");
+                }
+
+                if (!last_name) {
+                    $("#last-name").addClass("error");
+                    firstErrorField = firstErrorField || $("#last-name");
+                    isValid = false;
+                } else {
+                    $("#last_name").addClass("success");
+                }
+
+                // Email validation
+                let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email || !emailPattern.test(email)) {
+                    $("#email").addClass("error");
+                    firstErrorField = firstErrorField || $("#email");
+                    isValid = false;
+                } else {
+                    $("#email").addClass("success");
+                }
+
+                // Message length check
+                if (!message || message.length > 500) {
+                    $("#message").addClass("error");
+                    firstErrorField = firstErrorField || $("#message");
+                    isValid = false;
+                } else {
+                    $("#message").addClass("success");
+                }
+
+                // Focus on the first error field
+                if (firstErrorField) {
+                    firstErrorField.focus();
+                }
+
+                return isValid;
+            }
+
+            // Remove error when user types
+            $("input, textarea").on("input", function() {
+                $(this).removeClass("error").addClass("success");
+            });
+        });
+
     </script>
 
 {% endblock %}

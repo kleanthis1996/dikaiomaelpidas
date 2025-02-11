@@ -19,12 +19,16 @@
     <!-- AOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
+    <!-- Add this inside <head> or before closing </body> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 
     {% block EXTRA_HEAD %}
         {# to be extended in templates #}
     {% endblock %}
 </head>
-<body class="home">
+<body class="{{ request.resolver_match.url_name }}" id="{{ request.resolver_match.url_name }}">
 
 {% include "landing_page/includes/nav.html" %}
 {% block BODY %}
