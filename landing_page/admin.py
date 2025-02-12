@@ -1,13 +1,33 @@
 from django.contrib import admin
-
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.admin import GroupAdmin as BaseGroupAdmin
+from django.contrib.auth.models import User, Group
 from landing_page.models import Post, PostCategory, PostVariation
 
-class PostVariationInline(admin.StackedInline):
+from unfold.admin import ModelAdmin
+from unfold.admin import StackedInline
+
+admin.site.unregister(User)
+admin.site.unregister(Group)
+
+
+@admin.register(User)
+class UserAdmin(BaseUserAdmin, ModelAdmin):
+    pass
+
+
+@admin.register(Group)
+class GroupAdmin(BaseGroupAdmin, ModelAdmin):
+    pass
+
+class PostVariationInline(StackedInline):
     model = PostVariation
     extra = 0
 
+
 @admin.register(PostCategory)
-class PostCategoryAdmin(admin.ModelAdmin):
+class PostCategoryAdmin(ModelAdmin):
     list_display = ("code", "internal_name", "get_number_of_posts")
 
     def get_number_of_posts(self, obj):
@@ -16,7 +36,7 @@ class PostCategoryAdmin(admin.ModelAdmin):
 
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(ModelAdmin):
     list_display = ("title", "internal_name", "category", "get_status", "published_date")
     inlines = [PostVariationInline]
 
