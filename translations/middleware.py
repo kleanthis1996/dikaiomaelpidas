@@ -6,7 +6,7 @@ class LanguageMiddleware:
 
     def __call__(self, request):
         # Check if the request URL is for the CMS section or client_messages URLs
-        if request.path.startswith('/admin/') or request.path.startswith('/client_messages/'):
+        if request.path.startswith('/admin/') or request.path.startswith('/client_messages/') or request.path.startswith('/ckeditor5/'):
             return self.get_response(request)  # Skip language handling for CMS URLs
         path_parts = request.path.strip("/").split("/")
         valid_languages = ["en", "el"]  # Define supported languages

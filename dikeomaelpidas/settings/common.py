@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "webtools",
     "client_messages",
     "news_and_events",
-    "ckeditor"
+    "django_ckeditor_5"
 ]
 
 MIDDLEWARE = [
@@ -128,4 +128,28 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 UNFOLD = {
     "SITE_TITLE": "Dikaioma Elpidas",
     "SITE_HEADER": "Dikaioma Elpidas CMS",
+}
+
+CKEDITOR_5_CONFIGS = {
+    "default": {
+        "toolbar": [
+            "heading",
+            "|",
+            "bold",
+            "italic",
+            "underline",
+            "link",
+            "blockQuote",
+            "codeBlock",
+            "imageUpload",
+            "bulletedList",
+            "numberedList",
+            "horizontalLine",
+            "insertTable",
+            "mediaEmbed",
+            "undo",
+            "redo",
+        ],
+        "upload_url": "/ckeditor5/image_upload/",
+    }
 }

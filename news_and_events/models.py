@@ -4,7 +4,7 @@ from django.db import models
 from translations.models import Slug, Language
 from webtools.models import StatusAbstract
 # third party
-from ckeditor.fields import RichTextField
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 class PostCategory(models.Model):
@@ -76,4 +76,4 @@ class PostVariation(StatusAbstract):
         help_text=f"Choose the language of this variation of the selected post."
     )
 
-    content = RichTextField()
+    content = CKEditor5Field("Content", config_name="default")

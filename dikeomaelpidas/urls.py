@@ -21,4 +21,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("landing_page.urls")),
     path("client_messages/", include("client_messages.urls")),
+
+    path("ckeditor5/", include("django_ckeditor_5.urls")),
 ]
