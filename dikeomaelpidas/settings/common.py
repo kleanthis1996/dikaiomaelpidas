@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "translations",
     "webtools",
     "client_messages",
+    "news_and_events",
     "ckeditor"
 ]
 
