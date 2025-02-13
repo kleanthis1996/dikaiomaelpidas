@@ -214,12 +214,12 @@ video{
 }
 
 .main-title{
-    font-size:45px;
+    font-size:64px;
     font-weight:600;
 }
 
-#contact .main-title{
-    font-size:64px;
+#index .main-title{
+    font-size:45px;
 }
 
 .sub-title{
@@ -313,7 +313,6 @@ footer .social-icon{
     display: flex;
     font-size: 20px;
     text-align: center;
-    background-color: #494949;
     align-items: center;
     justify-content: center;
     transition:0.3s;
@@ -514,7 +513,8 @@ dropdown input:checked ~ ul li{
     font-weight:400;
 }
 
-.contact-social-icons a{
+.contact-social-icons a,
+.footer-social-icons a{
     font-size: 20px;
     border-radius: 100%;
     border: 1px solid #B7B7B7;
@@ -523,10 +523,77 @@ dropdown input:checked ~ ul li{
     justify-content: center;
 }
 
+.footer-social-icons a{
+    border-color: white!important;
+}
+
 #contact .success-msg-subtitle{
     font-size:16px;
     color:#0A0A0A;
     font-weight:400;
+}
+
+.featured-blog {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.featured-blog img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.featured-blog .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: white;
+}
+.featured-blog .overlay h3 {
+    font-weight: 600;
+    max-width:720px;
+    font-size:36px;
+}
+.featured-blog .overlay p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.featured-blog img{
+    height:400px;
+    object-position: center;
+    object-fit: cover;
+}
+
+.article-card {
+    transition: transform 0.3s ease-in-out;
+    border-radius: 12px;
+}
+.article-card:hover {
+    transform: translateY(-5px);
+}
+.article-img {
+    height: 200px;
+    object-fit: cover;
+    border-radius:6px
+}
+
+.card-body{
+    padding-left:0px;
+    padding-bottom:0px;
+}
+
+.card-title{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
 }
 
 @keyframes spin {

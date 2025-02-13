@@ -11,6 +11,88 @@
 {% endblock %}
 
 {% block BODY %}
+<div class="nav-margin">
+    <div class="container-lg container-xlarge">
+        <div>
+            <span class="d-block main-title">News & Announcements</span>
+        </div>
+
+        <!-- Featured Blog -->
+        <div class="featured-blog mt-4">
+            <img src="{% static 'assets/images/meet-team.webp' %}" alt="Featured Blog Image" loading="lazy">
+            <div class="overlay px-5">
+                <h3>Featured blog, this should be the blog that will stay for a longer time!</h3>
+                <p class="mt-4">February 07, 2025</p>
+            </div>
+        </div>
+
+        <div class="mt-5 pt-5">
+            <!-- Sort Dropdown -->
+            <div class="d-flex justify-content-end mb-3">
+                <label for="sortSelect" class="me-2">Sort by:</label>
+                <select class="form-select w-auto" id="sortSelect">
+                    <option value="latest" selected>Latest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+            </div>
+
+            <!-- Article Grid -->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="articlesContainer">
+                {% for article in page_obj %}
+                <div class="col">
+                    <div class="card article-card shadow-sm p-3">
+                        <img src="{{ article.image_url }}" class="card-img-top article-img" alt="{{ article.title }}" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.title }}</h5>
+                            <p class="text-muted mb-0 mt-4">{{ article.published_date }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Pagination -->
+            <nav class="mt-4">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                    </li>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                    <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Sorting JavaScript -->
+<script>
+    document.getElementById("sortSelect").addEventListener("change", function() {
+        const selectedSort = this.value;
+        window.location.href = "?sort=" + selectedSort;
+    });
+</script>
 
 
 {% endblock %}
