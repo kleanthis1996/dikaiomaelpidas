@@ -51,7 +51,7 @@ class Post(models.Model):
     )
 
     image = models.ImageField(
-        upload_to='posts/',
+        upload_to='images/posts/',
         blank=True,
         null=True,
         help_text=f"Upload the image of the post."
