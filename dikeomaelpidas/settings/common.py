@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     "translations",
     "webtools",
     "client_messages",
-    "ckeditor"
+    "news_and_events",
+    "django_ckeditor_5",
+    "ckeditor_uploader",
 ]
 
 MIDDLEWARE = [
@@ -117,7 +119,7 @@ STATIC_URL = "/staticfiles/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = "/mediafiles/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -127,4 +129,28 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 UNFOLD = {
     "SITE_TITLE": "Dikaioma Elpidas",
     "SITE_HEADER": "Dikaioma Elpidas CMS",
+}
+
+CKEDITOR_5_CONFIGS = {
+    "default": {
+        "toolbar": [
+            "heading",
+            "|",
+            "bold",
+            "italic",
+            "underline",
+            "link",
+            "blockQuote",
+            "codeBlock",
+            "imageUpload",
+            "bulletedList",
+            "numberedList",
+            "horizontalLine",
+            "insertTable",
+            "mediaEmbed",
+            "undo",
+            "redo",
+        ],
+        "upload_url": "/ckeditor5/image_upload/",
+    }
 }
