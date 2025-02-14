@@ -33,18 +33,23 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Django custom theme
     "unfold",
+    # Django apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Local apss
     "landing_page",
     "translations",
     "webtools",
     "client_messages",
     "news_and_events",
+    "team_members",
+    # Third party apps
     "django_ckeditor_5",
     "ckeditor_uploader",
 ]
