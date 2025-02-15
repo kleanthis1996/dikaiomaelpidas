@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from landing_page.functions import get_team_members_data
+from landing_page.functions import get_team_members_data, get_posts_data
 
 
 def index(request, lang="en"):
@@ -47,7 +47,8 @@ def events(request, lang="en"):
     :return:
     """
     template = "landing_page/events.html"
-    context = {}
+    events_data = get_posts_data(lang, "events_category")
+    context = {"events_data": events_data}
     return render(request, template, context)
 
 
