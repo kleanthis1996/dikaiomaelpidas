@@ -39,17 +39,21 @@
 
             <!-- Article Grid -->
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="articlesContainer">
-                {% for article in page_obj %}
-                <div class="col">
-                    <div class="card article-card shadow-sm p-3">
-                        <img src="{{ article.image_url }}" class="card-img-top article-img" alt="{{ article.title }}" loading="lazy">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ article.title }}</h5>
-                            <p class="text-muted mb-0 mt-4">{{ article.published_date }}</p>
+                {% if page_obj %}
+                    {% for article in page_obj %}
+                    <div class="col">
+                        <div class="card article-card shadow-sm p-3">
+                            <img src="{{ article.image_url }}" class="card-img-top article-img" alt="{{ article.title }}" loading="lazy">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ article.title }}</h5>
+                                <p class="text-muted mb-0 mt-4">{{ article.published_date }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center">No articles available yet. Stay tuned!</p>
+                {% endif %}
             </div>
 
             <!-- Pagination -->
