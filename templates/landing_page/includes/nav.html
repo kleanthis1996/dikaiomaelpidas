@@ -17,7 +17,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'about' %} active{% endif %}"
-                       href="{% url 'landing_page:about' lang=request.language %}">About</a>
+                       href="{% url 'landing_page:about' lang=request.language %}">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'services' %} active{% endif %}"
@@ -32,13 +32,14 @@
                        href="{% url 'landing_page:news' lang=request.language %}">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %} active{% endif %}"
-                       href="{% url 'landing_page:contact' lang=request.language %}">Contact</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'support' %} active{% endif %}"
                        href="{% url 'landing_page:support' lang=request.language %}">Support</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %} active{% endif %}"
+                       href="{% url 'landing_page:contact' lang=request.language %}">Contact</a>
+                </li>
+
             </ul>
 
             <dropdown>

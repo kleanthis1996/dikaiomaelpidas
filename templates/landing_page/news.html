@@ -28,10 +28,10 @@
 
         <div class="mt-5 pt-5">
             <!-- Sort Dropdown -->
-            <div class="d-flex justify-content-end mb-3">
+            <div class="d-flex justify-content-end mb-3 align-items-center">
                 <label for="sortSelect" class="me-2">Sort by:</label>
                 <select class="form-select w-auto" id="sortSelect">
-                    <option value="latest" selected>Latest</option>
+                    <option value="latest">Latest</option>
                     <option value="oldest">Oldest</option>
                     <option value="popular">Most Popular</option>
                 </select>
@@ -52,13 +52,15 @@
                     </div>
                     {% endfor %}
                 {% else %}
-                    <p class="text-center">No articles available yet. Stay tuned!</p>
+                    <div class="col not-available-text">
+                        <p class="text-center">No articles available yet. Stay tuned!</p>
+                    </div>
                 {% endif %}
             </div>
 
             <!-- Pagination -->
             <nav class="mt-4">
-                <ul class="pagination justify-content-center">
+                <ul class="pagination justify-content-end">
                     {% if page_obj.has_previous %}
                     <li class="page-item">
                         <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
@@ -90,11 +92,28 @@
     </div>
 </div>
 
-<!-- Sorting JavaScript -->
 <script>
-    document.getElementById("sortSelect").addEventListener("change", function() {
+    // Function to get URL parameters
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Get the select element
+    const sortSelect = document.getElementById("sortSelect");
+
+    // Set the selected option based on the URL parameter
+    const currentSort = getQueryParam("sort");
+    if (currentSort) {
+        sortSelect.value = currentSort;
+    }
+
+    // Redirect when an option is selected
+    sortSelect.addEventListener("change", function() {
         const selectedSort = this.value;
-        window.location.href = "?sort=" + selectedSort;
+        const url = new URL(window.location.href);
+        url.searchParams.set("sort", selectedSort);
+        window.location.href = url.toString();
     });
 </script>
 
