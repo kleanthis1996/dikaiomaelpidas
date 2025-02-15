@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from landing_page.functions import get_team_members_data
+
 
 def index(request, lang="en"):
     """
@@ -82,4 +84,17 @@ def support(request, lang="en"):
     """
     template = "landing_page/support.html"
     context = {}
+    return render(request, template, context)
+
+
+def meet_the_team(request, lang="en"):
+    """
+    This view is used to render the meet_the_team page
+    :param request:
+    :param lang:
+    :return:
+    """
+    template = "landing_page/meet_the_team.html"
+    team_members_data = get_team_members_data()
+    context = {"team_members_data": team_members_data}
     return render(request, template, context)

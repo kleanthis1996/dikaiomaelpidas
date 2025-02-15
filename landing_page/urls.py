@@ -13,4 +13,5 @@ urlpatterns = [
     path("<str:lang>/news/", views.news, name="news"),
     path("<str:lang>/contact/", views.contact, name="contact"),
     path("<str:lang>/support/", views.support, name="support"),
+    path("<str:lang>/meet-the-team/", views.meet_the_team, name="meet-the-team"),
 ]
