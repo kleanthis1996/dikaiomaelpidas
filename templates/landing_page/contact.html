@@ -49,6 +49,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="form-container">
                         <form id="contact-us-form">
+                            {% csrf_token %}
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="first-name">First Name</label>
@@ -106,8 +107,7 @@
     </div>
 
     <script>
-        let submitContactUsMessageAPI = 'https://reqres.in/api/users';
-        //let submitContactUsMessageAPI = '{% url 'client_messages:api-submit-contact-us-messages' %}';
+        let submitContactUsMessageAPI = '{% url 'client_messages:api-submit-contact-us-messages' %}';
 
         $(document).ready(function () {
             $('#contact-us-form').on('submit', function (event) {
@@ -138,12 +138,6 @@
                     success: function (response) {
                         $("#contact-us-loader").hide();
                         $("#contact-us-message-sent").show();
-
-                        // Send event to dataLayer (Google Tag Manager)
-                        window.dataLayer = window.dataLayer || [];
-                        window.dataLayer.push({
-                            event: "submit_contact_us_message_success"
-                        });
                     },
                     error: function (xhr, status, error) {
                         $("#contact-us-loader").hide();

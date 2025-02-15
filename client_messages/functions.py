@@ -19,8 +19,8 @@ def get_user_input_contact_us_form(request) -> tuple or None:
     :return:
     """
     # Get user input from POST request
-    first_name = request.POST["first_name"]
-    last_name = request.POST["last_name"]
+    first_name = request.POST["first-name"]
+    last_name = request.POST["last-name"]
     email = request.POST["email"]
     message = request.POST["message"]
 
