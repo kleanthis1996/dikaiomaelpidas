@@ -60,7 +60,8 @@ def news(request, lang="en"):
     :return:
     """
     template = "landing_page/news.html"
-    context = {}
+    news_data = get_posts_data(lang, "news_category")
+    context = {"news_data": news_data}
     return render(request, template, context)
 
 
