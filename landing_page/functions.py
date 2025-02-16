@@ -41,7 +41,6 @@ def get_posts_data(lang, posts_category):
             post_variation = PostVariation.objects.filter(post=post,
                                                           language=language,
                                                           status=True).first()
-            post_content = post_variation.content
             if post_variation:
                 response.append({
                     "id": post.id,
