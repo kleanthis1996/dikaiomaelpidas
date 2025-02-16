@@ -14,7 +14,11 @@
 <div class="nav-margin">
     <div class="container-lg container-xlarge">
         <div>
-            <span class="d-block main-title">News & Announcements</span>
+            {% if  request.resolver_match.url_name == 'news' %}
+                <span class="d-block main-title">News & Announcements</span>
+            {% elif request.resolver_match.url_name == 'events' %}
+                <span class="d-block main-title">Events</span>
+            {% endif %}
         </div>
 
         <!-- Featured Blog -->
@@ -39,14 +43,14 @@
 
             <!-- Article Grid -->
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="articlesContainer">
-                {% if page_obj %}
-                    {% for article in page_obj %}
+                {% if posts_data %}
+                    {% for post in posts_data %}
                     <div class="col">
                         <div class="card article-card shadow-sm p-3">
-                            <img src="{{ article.image_url }}" class="card-img-top article-img" alt="{{ article.title }}" loading="lazy">
+                            <img src="{{ post.image_url }}" class="card-img-top article-img" alt="{{ post.title }}" loading="lazy">
                             <div class="card-body">
-                                <h5 class="card-title">{{ article.title }}</h5>
-                                <p class="text-muted mb-0 mt-4">{{ article.published_date }}</p>
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="text-muted mb-0 mt-4">{{ post.published_date }}</p>
                             </div>
                         </div>
                     </div>
@@ -61,6 +65,11 @@
             <!-- Pagination -->
             <nav class="mt-4">
                 <ul class="pagination justify-content-end">
+                    {% if posts_data.has_previous %}
+                        <a href="">First</a>
+                        <a href="?page={{ posts_data.previous_page_number }}">Previous</a>
+                    {% endif %}
+
                     {% if page_obj.has_previous %}
                     <li class="page-item">
                         <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
@@ -71,11 +80,18 @@
                     </li>
                     {% endif %}
 
+
+                     <span>Page {{ posts_data.number }} of {{ posts_data.paginator.num_pages }}</span>
                     {% for num in page_obj.paginator.page_range %}
                     <li class="page-item {% if page_obj.number == num %}active{% endif %}">
                         <a class="page-link" href="?page={{ num }}">{{ num }}</a>
                     </li>
                     {% endfor %}
+
+                    {% if posts_data.has_next %}
+                        <a href="?page={{ posts_data.next_page_number }}">Next</a>
+                        <a href="?page={{ posts_data.paginator.num_pages }}">Last</a>
+                    {% endif %}
 
                     {% if page_obj.has_next %}
                     <li class="page-item">

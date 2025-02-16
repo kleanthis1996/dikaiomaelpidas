@@ -49,13 +49,12 @@ def posts_list(request, lang="en", page=1):
     :param request:
     :return:
     """
+    template = "landing_page/posts_list.html"
     # Get full URL from request, to determine content logic
     full_url = request.get_full_path()
     if "events" in full_url:
-        template = "landing_page/events.html"
         posts_category = "events_category"
     elif "news" in full_url:
-        template = "landing_page/news.html"
         posts_category = "news_category"
     else:
         # In case of wrong url usage, send user to homepage
@@ -77,6 +76,7 @@ def posts_detail(request, lang="en", post_id=None):
     :param post_id:
     :return:
     """
+    template = "landing_page/post_detail.html"
     # Get full URL from request, to determine content logic
     full_url = request.get_full_path()
     if "event" in full_url:
@@ -90,6 +90,8 @@ def posts_detail(request, lang="en", post_id=None):
     else:
         return redirect(reverse("landing_page:index"))
     post_data = get_single_post_data(lang, post_id)
+    context = {"post_data": post_data}
+    return render(request, template, context)
 
 
 
