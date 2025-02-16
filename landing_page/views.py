@@ -2,7 +2,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from landing_page.functions import get_team_members_data, get_posts_data
+from landing_page.functions import get_team_members_data, get_posts_data, get_single_post_data
 
 
 def index(request, lang="en"):
@@ -68,6 +68,29 @@ def posts_list(request, lang="en", page=1):
     posts_current_page = posts_paginator.get_page(page)
     context = {"posts_data": posts_current_page}
     return render(request, template, context)
+
+def posts_detail(request, lang="en", post_id=None):
+    """
+    View used to handle single post view
+    :param request:
+    :param lang:
+    :param post_id:
+    :return:
+    """
+    # Get full URL from request, to determine content logic
+    full_url = request.get_full_path()
+    if "event" in full_url:
+        # Redirect to homepage if post detail is accessed without id
+        if not post_id:
+            return redirect(reverse("landing_page:events"))
+    elif "news" in full_url:
+        # Redirect to homepage if post detail is accessed without id
+        if not post_id:
+            return redirect(reverse("landing_page:news"))
+    else:
+        return redirect(reverse("landing_page:index"))
+    post_data = get_single_post_data(lang, post_id)
+
 
 
 def contact(request, lang="en"):

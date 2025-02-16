@@ -48,9 +48,16 @@ def get_posts_data(lang, posts_category):
                     "title": post.title,
                     "image_url": post.image.url,
                     "published_date": post.published_date,
-                    "post_variation": post_content,
-
                 })
     except Exception as e:
         print(e)
     return response
+
+
+def get_single_post_data(lang, post_id):
+    """
+    Function to get single post data from db for the events or news page
+    :param lang:
+    :param post_id:
+    :return:
+    """
