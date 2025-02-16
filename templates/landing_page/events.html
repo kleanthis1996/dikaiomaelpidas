@@ -15,25 +15,25 @@
     <br>
     <br>
     <br>
-{% for article in events_data %}
-    <h2>{{ article.id }}</h2>
-    <p>{{ article.title }}</p>
-    <p>{{ article.image_url }}</p>
-    <p>{{ article.published_date }}</p>
-    <p>{{ article.post_variation|safe }}</p>
+{% for post in posts_data %}
+    <h2>{{ post.id }}</h2>
+    <p>{{ post.title }}</p>
+    <p>{{ post.image_url }}</p>
+    <p>{{ post.published_date }}</p>
+    <p>{{ post.post_variation|safe }}</p>
 {% endfor %}
 
 <div class="pagination">
-    {% if events_data.has_previous %}
+    {% if posts_data.has_previous %}
         <a href="?page=1">First</a>
-        <a href="?page={{ events_data.previous_page_number }}">Previous</a>
+        <a href="?page={{ posts_data.previous_page_number }}">Previous</a>
     {% endif %}
 
-    <span>Page {{ events_data.number }} of {{ events_data.paginator.num_pages }}</span>
+    <span>Page {{ posts_data.number }} of {{ posts_data.paginator.num_pages }}</span>
 
-    {% if events_data.has_next %}
-        <a href="?page={{ events_data.next_page_number }}">Next</a>
-        <a href="?page={{ events_data.paginator.num_pages }}">Last</a>
+    {% if posts_data.has_next %}
+        <a href="?page={{ posts_data.next_page_number }}">Next</a>
+        <a href="?page={{ posts_data.paginator.num_pages }}">Last</a>
     {% endif %}
 </div>
 {% endblock %}
