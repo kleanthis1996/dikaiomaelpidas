@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 
 from landing_page.functions import get_team_members_data, get_posts_data
@@ -39,16 +40,23 @@ def services(request, lang="en"):
     return render(request, template, context)
 
 
-def events(request, lang="en"):
+def events(request, lang="en", page=1):
     """
     This view is used to render the events page
+    :param page:
     :param lang:
     :param request:
     :return:
     """
     template = "landing_page/events.html"
+    # Get all events data
     events_data = get_posts_data(lang, "events_category")
-    context = {"events_data": events_data}
+    # Paginate based on requested page
+    events_paginator = Paginator(events_data, 12)
+    events_current_page = events_paginator.get_page(page)
+    for page_data in events_current_page:
+        print(page_data)
+    context = {"events_data": events_current_page}
     return render(request, template, context)
 
 

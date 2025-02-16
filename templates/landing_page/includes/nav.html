@@ -25,7 +25,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'events' %} active{% endif %}"
-                       href="{% url 'landing_page:events' lang=request.language %}">Events</a>
+                       href="{% url 'landing_page:events' lang=request.language page=1 %}">Events</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'news' %} active{% endif %}"
