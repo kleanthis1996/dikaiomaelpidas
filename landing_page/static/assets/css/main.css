@@ -94,6 +94,7 @@ section{
     background: transparent;
     border: none;
     margin-right:10px;
+    display:none;
 }
 
 .bar {
@@ -936,6 +937,7 @@ dropdown input:checked ~ ul li{
         width: 100%;
     }
 
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -995,6 +997,9 @@ dropdown input:checked ~ ul li{
     .navbar-nav{
         height:100vh;
         padding-top:30px;
+    }
+    .navbar-toggler.custom-toggler{
+        display: flex;
     }
 
 }
