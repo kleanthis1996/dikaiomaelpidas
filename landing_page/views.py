@@ -116,15 +116,14 @@ def support(request, lang="en"):
     context = {}
     return render(request, template, context)
 
-
-def meet_the_team(request, lang="en"):
+def team(request, lang="en"):
     """
-    This view is used to render the meet_the_team page
-    :param request:
+    This view is used to render the support page
     :param lang:
+    :param request:
     :return:
     """
-    template = "landing_page/meet_the_team.html"
+    template = "landing_page/team.html"
     team_members_data = get_team_members_data()
     context = {"team_members_data": team_members_data}
     return render(request, template, context)

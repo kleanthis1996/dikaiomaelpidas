@@ -15,5 +15,5 @@ urlpatterns = [
     path("<str:lang>/new/<int:page>/", views.posts_detail, name="new_detail"),
     path("<str:lang>/contact/", views.contact, name="contact"),
     path("<str:lang>/support/", views.support, name="support"),
-    path("<str:lang>/meet-the-team/", views.meet_the_team, name="meet-the-team"),
+    path("<str:lang>/team/", views.team, name="team"),
 ]
