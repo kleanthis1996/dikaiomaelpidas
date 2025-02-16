@@ -83,3 +83,14 @@ def support(request, lang="en"):
     template = "landing_page/support.html"
     context = {}
     return render(request, template, context)
+
+def team(request, lang="en"):
+    """
+    This view is used to render the support page
+    :param lang:
+    :param request:
+    :return:
+    """
+    template = "landing_page/team.html"
+    context = {}
+    return render(request, template, context)

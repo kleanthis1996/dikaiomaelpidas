@@ -1,0 +1,78 @@
+{% extends "landing_page/base.html" %}
+{% load static %}
+
+{% block SEO %}
+    <title>My Static Website</title>
+    <meta name="description" content="A simple static website with reusable components">
+{% endblock %}
+
+{% block EXTRA_HEAD %}
+    {# to be extended in templates #}
+{% endblock %}
+
+{% block BODY %}
+
+<div class="nav-margin">
+    <div class="container-lg container-xlarge">
+        <div>
+            <span class="d-block main-title text-center">Meet the Team at Δικαίωμα Ελπίδας</span>
+            <span class="d-block sub-title mt-3 text-center">Dedicated professionals, united by a passion for inclusion and education.</span>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-165 mb-165">
+                <img class="team-img radius-40 img-fluid" src="{% static 'assets/images/meet-team.webp' %}" alt="Featured Blog Image" loading="lazy">
+            </div>
+            <div class="col-12">
+                <span class="team-grid-title">Our Team Members</span>
+                <div class="row mt-3 g-4">
+                    <!-- Team Member 1 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="team-card">
+                            <img src="{% static 'assets/images/meet-team.webp' %}" alt="Team Member">
+                            <div class="team-info">
+                                <h5>John Doe</h5>
+                                <p>Software Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="team-card">
+                            <img src="{% static 'assets/images/meet-team.webp' %}" alt="Team Member">
+                            <div class="team-info">
+                                <h5>Michael Smith</h5>
+                                <p>UI/UX Designer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="team-card">
+                            <img src="{% static 'assets/images/meet-team.webp' %}" alt="Team Member">
+                            <div class="team-info">
+                                <h5>Robert Brown</h5>
+                                <p>Project Manager</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="team-card">
+                            <img src="{% static 'assets/images/meet-team.webp' %}" alt="Team Member">
+                            <div class="team-info">
+                                <h5>Jane Doe</h5>
+                                <p>Marketing Lead</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

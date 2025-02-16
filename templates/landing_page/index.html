@@ -108,7 +108,7 @@
                     <span class="d-block box-details fs-5 text-center mt-3 p-0">We are proud to have a dedicated team of professionals who are committed to making a difference.</span>
                     <img src="{% static 'assets/images/meet-team.webp' %}" class="img-fluid radius-40 mt-5" alt="Team of Dikaioma Elpidas">
                     <span class="d-block box-details fs-5 text-center mt-4 p-0">Learn more about our passionate educators, therapists, and staff members who bring our vision to life.</span>
-                    <a class="justify-content-center main-button pink-btn" href="#">
+                    <a class="justify-content-center main-button pink-btn" href="{% url 'landing_page:team' lang=request.language %}">
                         <span class="me-2">Meet the team</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
