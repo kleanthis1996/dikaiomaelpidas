@@ -5,10 +5,13 @@
         <a class="navbar-brand" href="#">
             <img src="{% static 'assets/images/logo.webp' %}" alt="Dikaioma Elpidas Logo">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="bar bar1"></span>
+            <span class="bar bar2"></span>
+            <span class="bar bar3"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -69,5 +72,7 @@
         arrow.style.transform = this.checked ? "rotate(180deg)" : "rotate(0deg)";
         arrow.style.transition = "transform 0.3s ease-in-out";
     });
-
+    document.querySelector('.navbar-toggler').addEventListener('click', function() {
+        this.classList.toggle('active');
+    });
 </script>
