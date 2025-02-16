@@ -11,6 +11,28 @@
 {% endblock %}
 
 {% block BODY %}
+    <br>
+    <br>
+    <br>
+    <br>
+{% for post in posts_data %}
+    <h2>{{ post.id }}</h2>
+    <p>{{ post.title }}</p>
+    <p>{{ post.image_url }}</p>
+    <p>{{ post.published_date }}</p>
+{% endfor %}
 
+<div class="pagination">
+    {% if posts_data.has_previous %}
+        <a href="?page=1">First</a>
+        <a href="?page={{ posts_data.previous_page_number }}">Previous</a>
+    {% endif %}
 
+    <span>Page {{ posts_data.number }} of {{ posts_data.paginator.num_pages }}</span>
+
+    {% if posts_data.has_next %}
+        <a href="?page={{ posts_data.next_page_number }}">Next</a>
+        <a href="?page={{ posts_data.paginator.num_pages }}">Last</a>
+    {% endif %}
+</div>
 {% endblock %}
