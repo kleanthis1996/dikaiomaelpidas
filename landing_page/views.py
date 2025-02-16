@@ -54,22 +54,25 @@ def events(request, lang="en", page=1):
     # Paginate based on requested page
     events_paginator = Paginator(events_data, 12)
     events_current_page = events_paginator.get_page(page)
-    for page_data in events_current_page:
-        print(page_data)
     context = {"events_data": events_current_page}
     return render(request, template, context)
 
 
-def news(request, lang="en"):
+def news(request, lang="en", page=1):
     """
     This view is used to render the news page
+    :param page:
     :param lang:
     :param request:
     :return:
     """
     template = "landing_page/news.html"
+    # Get all news data
     news_data = get_posts_data(lang, "news_category")
-    context = {"news_data": news_data}
+    # Paginate based on requested page
+    news_paginator = Paginator(news_data, 12)
+    news_current_page = news_paginator.get_page(page)
+    context = {"news_data": news_current_page}
     return render(request, template, context)
 
 
