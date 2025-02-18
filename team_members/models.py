@@ -1,16 +1,12 @@
+# django
 from django.db import models
-
-from translations.models import Slug
+# local
+from translations.functions import get_english_text
+from translations.models import Slug, Translation
 from webtools.models import StatusAbstract
 
 
 class JobRole(models.Model):
-    code = models.CharField(
-        max_length=255,
-        unique=True,
-        help_text="Enter the code to distinguish the job role."
-    )
-
     name = models.ForeignKey(
         Slug,
         on_delete=models.CASCADE,
@@ -18,7 +14,7 @@ class JobRole(models.Model):
     )
 
     def __str__(self):
-        return self.code
+       return get_english_text(self.name)
 
 
 class Member(StatusAbstract):
@@ -46,4 +42,4 @@ class Member(StatusAbstract):
     )
 
     def __str__(self):
-        return self.full_name
+        return f"{self.full_name} - {get_english_text(self.job_role.name)}"

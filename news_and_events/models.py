@@ -1,8 +1,9 @@
 # django
 from django.db import models
 # local
-from translations.models import Slug, Language
+from translations.models import Slug, Language, Translation
 from webtools.models import StatusAbstract
+from translations.functions import get_english_text
 # third party
 from django_ckeditor_5.fields import CKEditor5Field
 
@@ -20,16 +21,11 @@ class PostCategory(models.Model):
         help_text=f"Select the slug of the post category"
     )
 
-    internal_name = models.CharField(
-        max_length=255,
-        help_text=f"Enter the name of the category, for use in this admin area."
-    )
-
     class Meta:
         verbose_name_plural = 'Post Categories'
 
     def __str__(self):
-        return self.internal_name
+        return get_english_text(self.name)
 
 
 class Post(models.Model):
@@ -45,11 +41,6 @@ class Post(models.Model):
         help_text=f"Choose the slug of the post title."
     )
 
-    internal_name = models.CharField(
-        max_length=255,
-        help_text=f"Enter the name of the post, for use in this admin area."
-    )
-
     image = models.ImageField(
         upload_to='images/posts/',
         blank=True,
@@ -57,10 +48,10 @@ class Post(models.Model):
         help_text=f"Upload the image of the post."
     )
 
-    published_date = models.DateTimeField()
+    published_date = models.DateField()
 
     def __str__(self):
-        return self.internal_name
+        return get_english_text(self.title)
 
 
 class PostVariation(StatusAbstract):
@@ -76,4 +67,10 @@ class PostVariation(StatusAbstract):
         help_text=f"Choose the language of this variation of the selected post."
     )
 
-    content = CKEditor5Field("Content", config_name="default")
+    content = CKEditor5Field(
+        "Content",
+        config_name="default"
+    )
+
+    def __str__(self):
+        return f"{self.post} - {self.language}"

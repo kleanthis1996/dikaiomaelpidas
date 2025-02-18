@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+from translations.forms import SlugForm
 from translations.models import Translation, Language, Slug
 
 from unfold.admin import ModelAdmin
@@ -23,6 +25,7 @@ class TranslationAdmin(ModelAdmin):
 
 @admin.register(Slug)
 class SlugAdmin(ModelAdmin):
+    form = SlugForm
     list_display = ("code", "description", "get_available_translation_languages")
     list_filter = ("translation__language",)
     search_fields = ("code", "description")
