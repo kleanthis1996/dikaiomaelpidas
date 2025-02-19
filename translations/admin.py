@@ -1,14 +1,18 @@
+# django
 from django.contrib import admin
-
+# local
 from translations.forms import SlugForm
 from translations.models import Translation, Language, Slug
-
+# third party
 from unfold.admin import ModelAdmin
 from unfold.admin import StackedInline
+
 
 class TranslationInline(StackedInline):
     model = Translation
     extra = 0
+    tab = True
+
 
 @admin.register(Language)
 class LanguageAdmin(ModelAdmin):
@@ -34,4 +38,5 @@ class SlugAdmin(ModelAdmin):
     def get_available_translation_languages(self, obj):
         available_languages = Translation.objects.filter(slug=obj).values_list("language__code", flat=True)
         return list(available_languages)
+
     get_available_translation_languages.short_description = "Available languages"

@@ -10,6 +10,7 @@ from unfold.admin import StackedInline
 class PostVariationInline(StackedInline):
     model = PostVariation
     extra = 0
+    tab=True
 
 
 @admin.register(PostCategory)
@@ -32,6 +33,7 @@ class PostCategoryAdmin(ModelAdmin):
 @admin.register(Post)
 class PostAdmin(ModelAdmin):
     list_display = ("id", "get_title", "category", "get_status", "published_date")
+    list_filter = ("category",)
     inlines = [PostVariationInline]
 
     def get_status(self, obj):
