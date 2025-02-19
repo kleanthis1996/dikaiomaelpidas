@@ -911,6 +911,7 @@ dropdown input:checked ~ ul li{
     }
     #mission-section img{
         height:340px!important;
+        width:100%!important;
     }
     #programs-section .main-button{
         margin-top:0px!important;
