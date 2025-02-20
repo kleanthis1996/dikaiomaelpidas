@@ -32,6 +32,15 @@ class Slug(models.Model):
         help_text="Please enter a description of the slug.",
     )
 
+    def save(self, *args, **kwargs):
+        if not self.code:
+            try:
+                latest_id = Slug.objects.latest('id').id + 1
+            except Exception:
+                latest_id = 0
+            self.code = f"slug_{latest_id}"
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.code
 

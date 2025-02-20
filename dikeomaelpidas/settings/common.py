@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+from django.urls import reverse_lazy
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -134,6 +135,103 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 UNFOLD = {
     "SITE_TITLE": "Dikaioma Elpidas",
     "SITE_HEADER": "Dikaioma Elpidas CMS",
+    "TABS": [
+        {
+            "page": "news_and_events",
+            "models": ["news_and_events.post", "news_and_events.postcategory"],
+            "items": [
+                {
+                    "title": "Posts",
+                    "link": reverse_lazy("admin:news_and_events_post_changelist"),
+                },
+                {
+                    "title": "Posts Categories",
+                    "link": reverse_lazy("admin:news_and_events_postcategory_changelist"),
+                },
+            ],
+        },
+        {
+            "page": "team_members",
+            "models": ["team_members.member", "team_members.jobrole"],
+            "items": [
+                {
+                    "title": "Team Members",
+                    "link": reverse_lazy("admin:team_members_member_changelist"),
+                },
+                {
+                    "title": "Job Roles",
+                    "link": reverse_lazy("admin:team_members_jobrole_changelist"),
+                }
+            ]
+        },
+        {
+            "page": "translations",
+            "models": ["translations.language", "translations.slug", ],
+            "items": [
+                {
+                    "title": "Slugs",
+                    "link": reverse_lazy("admin:translations_slug_changelist"),
+                },
+                {
+                    "title": "Languages",
+                    "link": reverse_lazy("admin:translations_language_changelist"),
+                },
+            ]
+        }
+    ],
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": True,
+        "navigation": [
+            {
+                "title": "Navigation",
+                "items": [
+                    {
+                        "title": "Dashboard",
+                        "icon": "dashboard",
+                        "link": reverse_lazy("admin:index"),
+                    },
+                    {
+                        "title": "Client Messages",
+                        "icon": "mail",
+                        "badge": "client_messages.utils.client_messages_badge_callback",
+                        "link": reverse_lazy("admin:client_messages_contactusmessage_changelist"),
+                    },
+                    {
+                        "title": "Posts",
+                        "icon": "article",
+                        "link": reverse_lazy("admin:news_and_events_post_changelist"),
+                    },
+                    {
+                        "title": "Team Members",
+                        "icon": "groups",
+                        "link": reverse_lazy("admin:team_members_member_changelist"),
+                    },
+                    {
+                        "title": "Translations",
+                        "icon": "language",
+                        "link": reverse_lazy("admin:translations_slug_changelist"),
+                    }
+                ],
+            },
+            {
+                "title": "Users & Groups",
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": "Users",
+                        "icon": "person",
+                        "link": reverse_lazy("admin:auth_user_changelist"),
+                    },
+                    {
+                        "title": "Groups",
+                        "icon": "group",
+                        "link": reverse_lazy("admin:auth_group_changelist"),
+                    },
+                ],
+            },
+        ],
+    },
 }
 
 CKEDITOR_5_CONFIGS = {

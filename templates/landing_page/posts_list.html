@@ -1,6 +1,6 @@
 {% extends "landing_page/base.html" %}
 {% load static %}
-
+{% load translations_tags %}
 {% block SEO %}
     <title>My Static Website</title>
     <meta name="description" content="A simple static website with reusable components">
@@ -49,7 +49,7 @@
                         <div class="card article-card shadow-sm p-3">
                             <img src="{{ post.image_url }}" class="card-img-top article-img" alt="{{ post.title }}" loading="lazy">
                             <div class="card-body">
-                                <h5 class="card-title">{{ post.title }}</h5>
+                                <h5 class="card-title">{% trans post.title %}</h5>
                                 <p class="text-muted mb-0 mt-4">{{ post.published_date }}</p>
                             </div>
                         </div>

@@ -68,6 +68,7 @@ def posts_list(request, lang="en", page=1):
     context = {"posts_data": posts_current_page}
     return render(request, template, context)
 
+
 def posts_detail(request, lang="en", post_id=None):
     """
     View used to handle single post view
@@ -83,16 +84,24 @@ def posts_detail(request, lang="en", post_id=None):
         # Redirect to homepage if post detail is accessed without id
         if not post_id:
             return redirect(reverse("landing_page:events"))
+        posts_category = "events_category"
     elif "news" in full_url:
         # Redirect to homepage if post detail is accessed without id
         if not post_id:
             return redirect(reverse("landing_page:news"))
+        posts_category = "news_category"
     else:
         return redirect(reverse("landing_page:index"))
     post_data = get_single_post_data(lang, post_id)
-    context = {"post_data": post_data}
-    return render(request, template, context)
 
+    # Get more articles data
+    posts_data = get_posts_data(lang, posts_category)
+    # Paginate based on requested page
+    posts_paginator = Paginator(posts_data, 12)
+    extra_posts = posts_paginator.get_page(1)
+    context = {"post_data": post_data,
+               "extra_posts": extra_posts}
+    return render(request, template, context)
 
 
 def contact(request, lang="en"):
@@ -117,6 +126,7 @@ def support(request, lang="en"):
     template = "landing_page/support.html"
     context = {}
     return render(request, template, context)
+
 
 def team(request, lang="en"):
     """
