@@ -1,5 +1,6 @@
 {% extends "landing_page/base.html" %}
 {% load static %}
+{% load translations_tags %}
 
 {% block SEO %}
     <title>My Static Website</title>
@@ -12,5 +13,27 @@
 
 {% block BODY %}
 
-
+    <br>
+    <br>
+    <br>
+    <br>
+    {{ post_data.content }}
+    {% if extra_posts %}
+        {% for post in extra_posts %}
+            <div class="col">
+                <div class="card article-card shadow-sm p-3">
+                    <img src="{{ post.image_url }}" class="card-img-top article-img" alt="{{ post.title }}"
+                         loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans post.title %}</h5>
+                        <p class="text-muted mb-0 mt-4">{{ post.published_date }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="col not-available-text">
+            <p class="text-center">No articles available yet. Stay tuned!</p>
+        </div>
+    {% endif %}
 {% endblock %}

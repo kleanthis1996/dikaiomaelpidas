@@ -16,7 +16,6 @@ def get_team_members_data():
             "full_name": member.full_name,
             "profile_image_url": member.profile_image.url,
             "description": member.description,
-            "job_role_code": member.job_role.code,
             "job_role_name": member.job_role.name.code,
 
         })
@@ -60,3 +59,7 @@ def get_single_post_data(lang, post_id):
     :param post_id:
     :return:
     """
+    post_data = PostVariation.objects.filter(post__id=post_id, language__code=lang).only("content").first()
+    if not post_data:
+        return None
+    return post_data

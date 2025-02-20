@@ -58,7 +58,7 @@ def posts_list(request, lang="en", page=1):
         posts_category = "news_category"
     else:
         # In case of wrong url usage, send user to homepage
-        return redirect(reverse("landing_page:index"))
+        return redirect(reverse("landing_page:index",kwargs={"lang": lang}))
 
     # Get all posts data
     posts_data = get_posts_data(lang, posts_category)
@@ -83,16 +83,22 @@ def posts_detail(request, lang="en", post_id=None):
     if "event" in full_url:
         # Redirect to homepage if post detail is accessed without id
         if not post_id:
-            return redirect(reverse("landing_page:events"))
+            return redirect(reverse("landing_page:events",kwargs={"lang": lang, "page": 1}))
         posts_category = "events_category"
-    elif "news" in full_url:
+    elif "new" in full_url:
         # Redirect to homepage if post detail is accessed without id
         if not post_id:
-            return redirect(reverse("landing_page:news"))
+            return redirect(reverse("landing_page:news", kwargs={"lang": lang, "page": 1}))
         posts_category = "news_category"
     else:
-        return redirect(reverse("landing_page:index"))
+        return redirect(reverse("landing_page:index",kwargs={"lang": lang}))
     post_data = get_single_post_data(lang, post_id)
+    # If no post data found redirect to the correct post page
+    if not post_data:
+        if "event" in full_url:
+            return redirect(reverse("landing_page:events",kwargs={"lang": lang, "page": 1}))
+        elif "new" in full_url:
+            return redirect(reverse("landing_page:news",kwargs={"lang": lang, "page": 1}))
 
     # Get more articles data
     posts_data = get_posts_data(lang, posts_category)
