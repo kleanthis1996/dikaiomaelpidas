@@ -94,7 +94,6 @@ def posts_detail(request, lang="en", post_id=None):
         return redirect(reverse("landing_page:index",kwargs={"lang": lang}))
     post_data = get_single_post_data(lang, post_id)
     # If no post data found redirect to the correct post page
-    print(post_data)
     if not post_data:
         if "event" in full_url:
             return redirect(reverse("landing_page:events",kwargs={"lang": lang, "page": 1}))
