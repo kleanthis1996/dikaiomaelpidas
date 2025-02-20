@@ -60,3 +60,7 @@ def get_single_post_data(lang, post_id):
     :param post_id:
     :return:
     """
+    post_data = PostVariation.objects.filter(post__id=post_id, language__code=lang).only("content").first()
+    if not post_data:
+        return None
+    return post_data
