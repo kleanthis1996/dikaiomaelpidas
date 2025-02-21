@@ -1,7 +1,8 @@
+# django
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.urls import reverse
-
+# local
 from landing_page.functions import get_team_members_data, get_posts_data, get_single_post_data, \
     get_available_programs_data
 

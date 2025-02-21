@@ -8,3 +8,45 @@ class StatusAbstract(models.Model):
 
     class Meta:
         abstract = True
+
+
+class ContactInformation(models.Model):
+    SOCIAL_CATEGORY = "social_category"
+    CONTACT_CATEGORY = "contact_category"
+
+    LOCATION = "location"
+    PHONE = "phone"
+    EMAIL = "email"
+    FACEBOOK = "facebook"
+    INSTAGRAM = "instagram"
+
+    contact_information_categories = (
+        (SOCIAL_CATEGORY, "Social Category"),
+        (CONTACT_CATEGORY, "Contact Category"),
+    )
+
+    contact_value_type = (
+        (LOCATION, "Location"),
+        (PHONE, "Phone"),
+        (EMAIL, "Email"),
+        (FACEBOOK, "Facebook"),
+        (INSTAGRAM, "Instagram"),
+    )
+
+    category = models.CharField(
+        max_length=50,
+        choices=contact_information_categories,
+    )
+
+    type = models.CharField(
+        max_length=50,
+        choices=contact_value_type,
+    )
+
+    value = models.CharField(
+        max_length=255,
+    )
+
+    def __str__(self):
+        return self.type
+
