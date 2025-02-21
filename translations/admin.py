@@ -10,9 +10,7 @@ from unfold.admin import StackedInline
 
 class TranslationInline(StackedInline):
     model = Translation
-    extra = 0
-    tab = True
-
+    extra = 1
 
 @admin.register(Language)
 class LanguageAdmin(ModelAdmin):

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "client_messages",
     "news_and_events",
     "team_members",
+    "programs",
     # Third party apps
     "django_ckeditor_5",
     "ckeditor_uploader",
@@ -211,6 +212,11 @@ UNFOLD = {
                         "title": "Translations",
                         "icon": "language",
                         "link": reverse_lazy("admin:translations_slug_changelist"),
+                    },
+                    {
+                        "title": "Programs",
+                        "icon": "book",
+                        "link": reverse_lazy("admin:programs_program_changelist"),
                     }
                 ],
             },

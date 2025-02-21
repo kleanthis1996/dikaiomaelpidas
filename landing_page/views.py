@@ -2,7 +2,8 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from landing_page.functions import get_team_members_data, get_posts_data, get_single_post_data
+from landing_page.functions import get_team_members_data, get_posts_data, get_single_post_data, \
+    get_available_programs_data
 
 
 def index(request, lang="en"):
@@ -37,7 +38,8 @@ def services(request, lang="en"):
     :return:
     """
     template = "landing_page/services.html"
-    context = {}
+    available_programs = get_available_programs_data()
+    context = {"available_programs": available_programs}
     return render(request, template, context)
 
 

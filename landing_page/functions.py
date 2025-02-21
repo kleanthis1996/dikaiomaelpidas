@@ -1,4 +1,5 @@
 from news_and_events.models import PostCategory, Post, PostVariation
+from programs.models import Program
 from team_members.models import Member
 from translations.models import Language
 
@@ -63,3 +64,11 @@ def get_single_post_data(lang, post_id):
     if not post_data:
         return None
     return post_data
+
+
+def get_available_programs_data():
+    """
+    Function to get available programs data from db for programs page
+    :return:
+    """
+    return Program.objects.filter(status=True).values_list("name", "description", "image")
