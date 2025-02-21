@@ -30,7 +30,7 @@ class Member(StatusAbstract):
     )
 
     profile_image = models.ImageField(
-        upload_to="team_members/images/",
+        upload_to="images/team_members/",
         null=True,
         help_text="Upload the profile image of the team member.",
     )

@@ -11,7 +11,6 @@ from unfold.admin import StackedInline
 class TranslationInline(StackedInline):
     model = Translation
     extra = 1
-    tab = True
 
 @admin.register(Language)
 class LanguageAdmin(ModelAdmin):

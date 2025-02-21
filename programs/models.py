@@ -3,9 +3,10 @@ from django.db import models
 # local
 from translations.functions import get_english_text
 from translations.models import Slug
+from webtools.models import StatusAbstract
 
 
-class Program(models.Model):
+class Program(StatusAbstract):
     name = models.ForeignKey(
         Slug,
         related_name='program_name_slug',
@@ -21,7 +22,7 @@ class Program(models.Model):
     )
 
     image = models.ImageField(
-        upload_to="programs/images/",
+        upload_to="images/programs/",
         null=True,
         help_text="Upload the image of the program.",
     )
