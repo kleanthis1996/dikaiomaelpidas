@@ -217,6 +217,11 @@ UNFOLD = {
                         "title": "Programs",
                         "icon": "book",
                         "link": reverse_lazy("admin:programs_program_changelist"),
+                    },
+                    {
+                        "title": "Contact Information",
+                        "icon": "phone",
+                        "link": reverse_lazy("admin:webtools_contactinformation_changelist"),
                     }
                 ],
             },
