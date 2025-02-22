@@ -646,11 +646,14 @@ dropdown input:checked ~ ul li{
 }
 
 .article-card {
-    transition: transform 0.3s ease-in-out;
     border-radius: 12px;
+    transition:0.3s;
+    transition: box-shadow 0.3s ease-in-out;
 }
 .article-card:hover {
-    transform: translateY(-5px);
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition:0.3s;
 }
 .article-img {
     height: 200px;

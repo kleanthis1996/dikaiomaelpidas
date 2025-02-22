@@ -43,10 +43,12 @@
 
             <!-- Article Grid -->
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="articlesContainer">
+
                 {% if posts_data %}
                     {% for post in posts_data %}
+
                     <div class="col">
-                        <div class="card article-card shadow-sm p-3">
+                        <div class="card article-card shadow-sm p-3" onclick="window.location.href=window.location.origin + '/en/new/{{ post.id }}';">
                             <img src="{{ post.image_url }}" class="card-img-top article-img" alt="{{ post.title }}" loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title">{% trans post.title %}</h5>
