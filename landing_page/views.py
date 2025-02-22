@@ -19,7 +19,9 @@ def index(request, lang="en"):
     :return:
     """
     template = "landing_page/index.html"
-    context = {"contact_information": request.contact_information}
+    available_programs = get_available_programs_data()
+    context = {"contact_information": request.contact_information,
+               "available_programs": available_programs}
     return render(request, template, context)
 
 
