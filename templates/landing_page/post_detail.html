@@ -13,14 +13,25 @@
 
 {% block BODY %}
 
-    <br>
-    <br>
-    <br>
-    <br>
-    {{ post_data.content }}
-    {% if extra_posts %}
-        {% for post in extra_posts %}
-            <div class="col">
+
+    <div class="nav-margin mb-5 pb-5">
+        <div class="container-lg">
+            <div>
+                <span class="d-block article-title text-start">Featured blog, this should be the blog that will stay for a longer time!</span>
+                <span class="d-block article-datetime mt-4 text-start">August 20, 2022</span>
+            </div>
+            <img src="{% static 'assets/images/meet-team.webp' %}" class="article-details-img my-5" alt="{{ post.title }}" loading="lazy">
+            <div class="article-details">
+                {{ post_data.content|safe }}
+            </div>
+        </div>
+    </div>
+
+
+    <div id="multiItemCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for post in extra_posts %}
+            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
                 <div class="card article-card shadow-sm p-3">
                     <img src="{{ post.image_url }}" class="card-img-top article-img" alt="{{ post.title }}"
                          loading="lazy">
@@ -30,10 +41,8 @@
                     </div>
                 </div>
             </div>
-        {% endfor %}
-    {% else %}
-        <div class="col not-available-text">
-            <p class="text-center">No articles available yet. Stay tuned!</p>
+            {% endfor %}
         </div>
-    {% endif %}
+    </div>
+
 {% endblock %}

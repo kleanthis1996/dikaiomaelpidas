@@ -660,7 +660,26 @@ dropdown input:checked ~ ul li{
     object-fit: cover;
     border-radius:6px
 }
-
+.article-title{
+    font-size: 36px;
+    font-weight: 600;
+    line-height:40px;
+}
+.article-datetime{
+    font-size: 14px;
+    color:#3C3C3C;
+}
+.article-details{
+    font-size:20px;
+    line-height:24px;
+}
+.article-details-img{
+    height:460px!important;
+    object-fit: cover;
+    object-position: center;
+    width:100%;
+    border-radius: 12px;
+}
 .card-body{
     padding-left:0px;
     padding-bottom:0px;
@@ -680,6 +699,19 @@ dropdown input:checked ~ ul li{
     align-items: center;
     font-size: 28px;
     color: gainsboro;
+}
+
+.carousel-inner {
+    display: flex;
+}
+.carousel-item {
+    display: flex;
+    justify-content: center;
+}
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 
