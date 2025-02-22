@@ -1,8 +1,10 @@
+# django
 from django import template
-
+# local
 from translations.models import Slug, Translation
 
 register = template.Library()
+
 
 @register.simple_tag(takes_context=True, name="trans")
 def translate(context, slug_code):
@@ -15,14 +17,7 @@ def translate(context, slug_code):
     """
     # Get language of user's request
     request = context.get("request")
-    lang = getattr(request, "language", "en")
-
-    # Fetch the translation in one query, avoiding multiple lookups
-    translation = (
-        Translation.objects
-        .select_related("slug", "language")
-        .filter(slug__code=slug_code, language__code=lang)
-        .first()
-    )
-
-    return translation.text if translation else slug_code
+    # Get all translations from request
+    translations = getattr(request, "translations", {})
+    # Get translation for requested slug and return it else return the slug code
+    return translations.get(slug_code, slug_code)

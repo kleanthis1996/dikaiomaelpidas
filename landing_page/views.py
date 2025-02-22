@@ -5,10 +5,12 @@ from django.urls import reverse
 # local
 from landing_page.functions import get_team_members_data, get_posts_data, get_single_post_data, \
     get_available_programs_data
+from translations.decorators import get_translations_information
 from webtools.decorators import get_contact_information
 
 
 @get_contact_information
+@get_translations_information
 def index(request, lang="en"):
     """
     This view is used to render the index.html
@@ -22,6 +24,7 @@ def index(request, lang="en"):
 
 
 @get_contact_information
+@get_translations_information
 def about(request, lang="en"):
     """
     This view is used to render the about page
@@ -35,6 +38,7 @@ def about(request, lang="en"):
 
 
 @get_contact_information
+@get_translations_information
 def services(request, lang="en"):
     """
     This view is used to render the services page
@@ -50,6 +54,7 @@ def services(request, lang="en"):
 
 
 @get_contact_information
+@get_translations_information
 def posts_list(request, lang="en", page=1):
     """
     This view is used to render the events page
@@ -80,6 +85,7 @@ def posts_list(request, lang="en", page=1):
 
 
 @get_contact_information
+@get_translations_information
 def posts_detail(request, lang="en", post_id=None):
     """
     View used to handle single post view
@@ -123,6 +129,7 @@ def posts_detail(request, lang="en", post_id=None):
 
 
 @get_contact_information
+@get_translations_information
 def contact(request, lang="en"):
     """
     This view is used to render the contact page
@@ -136,6 +143,7 @@ def contact(request, lang="en"):
 
 
 @get_contact_information
+@get_translations_information
 def support(request, lang="en"):
     """
     This view is used to render the support page
@@ -149,6 +157,7 @@ def support(request, lang="en"):
 
 
 @get_contact_information
+@get_translations_information
 def team(request, lang="en"):
     """
     This view is used to render the support page
