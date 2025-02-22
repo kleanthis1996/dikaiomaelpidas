@@ -44,7 +44,7 @@ def get_posts_data(lang, posts_category):
             if post_variation:
                 response.append({
                     "id": post.id,
-                    "title": post.title,
+                    "title": post.title.code,
                     "image_url": post.image.url,
                     "published_date": post.published_date,
                 })
