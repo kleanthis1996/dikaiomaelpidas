@@ -2,7 +2,7 @@
 <!-- Sticky Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'landing_page:index' lang=request.language %}">
             <img src="{% static 'assets/images/logo.webp' %}" alt="Dikaioma Elpidas Logo">
         </a>
         <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -15,34 +15,29 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link {% if  request.resolver_match.url_name == 'index' %} active{% endif %}"
-                       aria-current="page" href="{% url 'landing_page:index' lang=request.language %}">Home</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'about' %} active{% endif %}"
-                       href="{% url 'landing_page:about' lang=request.language %}">About Us</a>
+                       href="{% url 'landing_page:about' lang=request.language %}">About us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'services' %} active{% endif %}"
-                       href="{% url 'landing_page:services' lang=request.language %}">Services</a>
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %} active{% endif %}"
+                       href="{% url 'landing_page:contact' lang=request.language %}">Contact us</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'support' %} active{% endif %}"
+                       href="{% url 'landing_page:support' lang=request.language %}">Support us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'events' %} active{% endif %}"
                        href="{% url 'landing_page:events' lang=request.language page=1 %}">Events</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'services' %} active{% endif %}"
+                       href="{% url 'landing_page:services' lang=request.language %}">Actions & European Programs</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'news' %} active{% endif %}"
-                       href="{% url 'landing_page:news' lang=request.language page=1 %}">News</a>
+                       href="{% url 'landing_page:news' lang=request.language page=1 %}">News & Announcements</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'support' %} active{% endif %}"
-                       href="{% url 'landing_page:support' lang=request.language %}">Support</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %} active{% endif %}"
-                       href="{% url 'landing_page:contact' lang=request.language %}">Contact</a>
-                </li>
-
             </ul>
 
             <dropdown>
