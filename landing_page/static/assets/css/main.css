@@ -365,12 +365,7 @@ footer{
     background-color:#333333;
     padding-top:68px;
     padding-bottom:68px;
-    margin-top:300px;
-}
-
-#contact footer,
-#about footer{
-    margin-top:160px!important;
+    margin-top:160px;
 }
 
 .footer-text{
@@ -689,6 +684,7 @@ dropdown input:checked ~ ul li{
     font-size: 24px;
     font-weight: 600;
     line-height: 32px;
+    height:95px;
 }
 
 .not-available-text{
@@ -713,7 +709,19 @@ dropdown input:checked ~ ul li{
     height: auto;
     border-radius: 10px;
 }
-
+.nav-buttons{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width:92px;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    background-size: cover;
+}
+.filter-black .carousel-control-prev-icon,
+.filter-black .carousel-control-next-icon {
+    filter: invert(1);
+}
 
 /* Individual image styling */
 .image-box {
@@ -914,6 +922,42 @@ dropdown input:checked ~ ul li{
 .flip-card-back p {
     margin: 0;
     font-size: 14px;
+}
+
+.main-pagination-btn{
+    background-color: #EBEBEB!important;
+    padding:8px!important;
+    border-radius: 6px!important;
+}
+
+.main-pagination-btn a{
+    font-size: 14px;
+    color:#0A0A0A;
+}
+.page-link{
+    border:0!important;
+    padding:0px!important;
+    background-color: unset!important;
+    color:#3C3C3C;
+    text-decoration:none;
+    line-height: normal;
+}
+.page-item{
+    padding:8px;
+    background-color:white;
+    width:36px;
+    height:36px;
+    text-align:center;
+    border-radius:6px;
+    margin-right:6px;
+}
+.page-item.main-pagination-btn{
+    width:auto;
+    height:36px;
+}
+.page-item.active{
+    background-color:#ED028B;
+    color:white!important;
 }
 @media (max-width: 767px)  {
     .navbar {

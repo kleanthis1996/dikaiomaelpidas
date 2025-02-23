@@ -3,50 +3,63 @@
 {% load translations_tags %}
 
 {% block SEO %}
-    <title>Post | Dikaioma Elpidas</title>
-     <meta name="description" content="Dikaioma Elpidas is a school dedicated to inclusive education
-     and therapeutic support for individuals with special needs. Our vision is to empower every student with the skills,
-     care, and opportunities they deserve in a nurturing and supportive environment.">
+<title>Post | Dikaioma Elpidas</title>
+<meta name="description" content="Dikaioma Elpidas is a school dedicated to inclusive education
+    and therapeutic support for individuals with special needs. Our vision is to empower every student with the skills,
+    care, and opportunities they deserve in a nurturing and supportive environment.">
 {% endblock %}
 
 {% block EXTRA_HEAD %}
-    {# to be extended in templates #}
+{# to be extended in templates #}
 {% endblock %}
 
 {% block BODY %}
-
-
-    <div class="nav-margin mb-5 pb-5">
-        <div class="container-lg">
-            <div>
-                <span class="d-block article-title text-start">Featured blog, this should be the blog that will stay for a longer time!</span>
-                <span class="d-block article-datetime mt-4 text-start">August 20, 2022</span>
-            </div>
-            <img src="{% static 'assets/images/meet-team.webp' %}" class="article-details-img my-5" alt="{{ post.title }}" loading="lazy">
-            <div class="article-details">
-                {{ post_data.content|safe }}
-            </div>
+<div class="nav-margin mb-5 pb-5">
+    <div class="container-lg">
+        <div>
+            <span class="d-block article-title text-start">
+               {{ post_data.title }}
+            </span>
+            <span class="d-block article-datetime mt-4 text-start">August 20, 2022</span>
+        </div>
+        <img src="{{ post_data.image_url }}" class="article-details-img my-5"
+             alt="{{ post_data.title }}" loading="lazy">
+        <div class="article-details">
+            {{ post_data.content|safe }}
         </div>
     </div>
+</div>
 
-
-    <div id="multiItemCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            {% for post in extra_posts %}
-                {% if post.id != post_data.parent_post_id %}
-                    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
-                        <div class="card article-card shadow-sm p-3">
-                            <img src="{{ post.image_url }}" class="card-img-top article-img" alt="{{ post.title }}"
-                                 loading="lazy">
-                            <div class="card-body">
-                                <h5 class="card-title">{% trans post.title %}</h5>
-                                <p class="text-muted mb-0 mt-4">{{ post.published_date }}</p>
-                            </div>
-                        </div>
+<div>
+    <span class="d-block article-title text-start mx-3">Continue reading</span>
+    <div class="your-slider">
+        {% for post in extra_posts %}
+        {% if post.id != post_data.parent_post_id|default:0 %}
+        <div class="mt-4 ms-3"> <!-- Each box takes 1/4th of the row -->
+            <a href="{{ post.post_detail_url }}" class="text-decoration-none">
+                <div class="card p-3">
+                    <img src="{{ post.image_url }}" class="card-img-top article-img"
+                         alt="{{ post.title }}" loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans post.title %}</h5>
+                        <p class="text-muted mb-0 mt-4">{{ post.published_date }}</p>
                     </div>
-                {% endif %}
-            {% endfor %}
+                </div>
+            </a>
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
-
+</div>
+<script>
+    $(document).ready(function(){
+        $('.your-slider').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 2000,
+            arrows: true
+        });
+    });
+</script>
 {% endblock %}

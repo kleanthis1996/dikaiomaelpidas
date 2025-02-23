@@ -38,7 +38,6 @@
                 <p class="mt-4">February 07, 2025</p>
             </div>
         </div>
-
         <div class="mt-5 pt-5">
             <!-- Sort Dropdown -->
             <div class="d-flex justify-content-end mb-3 align-items-center">
@@ -56,7 +55,7 @@
                 {% if posts_data %}
                     {% for post in posts_data %}
                     <div class="col">
-                        <a href="{{ post.post_detail_url }}">
+                        <a style="height:100%" href="{{ post.post_detail_url }}">
                             <div class="card article-card shadow-sm p-3">
                                 <img src="{{ post.image_url }}" class="card-img-top article-img" alt="{{ post.title }}" loading="lazy">
                                 <div class="card-body">
@@ -74,48 +73,9 @@
                 {% endif %}
             </div>
 
-            <!-- Pagination -->
-            <nav class="mt-4">
-                <ul class="pagination justify-content-end">
-                    {% if posts_data.has_previous %}
-                        <a href="">First</a>
-                        <a href="?page={{ posts_data.previous_page_number }}">Previous</a>
-                    {% endif %}
+            <!-- Include Pagination -->
+            {% include "landing_page/includes/pagination.html" %}
 
-                    {% if page_obj.has_previous %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link">Previous</a>
-                    </li>
-                    {% endif %}
-
-
-                     <span>Page {{ posts_data.number }} of {{ posts_data.paginator.num_pages }}</span>
-                    {% for num in page_obj.paginator.page_range %}
-                    <li class="page-item {% if page_obj.number == num %}active{% endif %}">
-                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
-                    </li>
-                    {% endfor %}
-
-                    {% if posts_data.has_next %}
-                        <a href="?page={{ posts_data.next_page_number }}">Next</a>
-                        <a href="?page={{ posts_data.paginator.num_pages }}">Last</a>
-                    {% endif %}
-
-                    {% if page_obj.has_next %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link">Next</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
         </div>
     </div>
 </div>

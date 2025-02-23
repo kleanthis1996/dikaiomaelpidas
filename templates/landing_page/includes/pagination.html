@@ -1,0 +1,31 @@
+{% if posts_data.paginator.num_pages > 1 %}
+<nav>
+    <ul class="pagination justify-content-end mt-4">
+
+
+        <!-- Previous Page -->
+        <li class="page-item {% if not posts_data.has_previous %}disabled{% endif %} main-pagination-btn">
+            <a class="page-link" href="{% if posts_data.has_previous %}{% url 'landing_page:'|add:request.resolver_match.url_name lang=request.language page=posts_data.previous_page_number %}{% else %}#{% endif %}">
+               Previous
+            </a>
+        </li>
+
+        <!-- Page Numbers -->
+        {% for num in posts_data.paginator.page_range %}
+        {% if num == posts_data.number %}
+            <li class="page-item active"><a class="page-link" href="{% url 'landing_page:'|add:request.resolver_match.url_name lang=request.language page=num %}">{{ num }}</a></li>
+        {% elif num > posts_data.number|add:'-3' and num < posts_data.number|add:'3' %}
+            <li class="page-item"><a class="page-link" href="{% url 'landing_page:'|add:request.resolver_match.url_name lang=request.language page=num %}">{{ num }}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        <!-- Next Page -->
+        <li class="page-item {% if not posts_data.has_next %}disabled{% endif %} main-pagination-btn">
+            <a class="page-link" href="{% if posts_data.has_next %}{% url 'landing_page:'|add:request.resolver_match.url_name lang=request.language page=posts_data.next_page_number %}{% else %}#{% endif %}">
+                Next
+            </a>
+        </li>
+
+    </ul>
+</nav>
+{% endif %}
