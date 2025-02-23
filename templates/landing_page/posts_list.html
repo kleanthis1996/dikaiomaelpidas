@@ -55,10 +55,9 @@
 
                 {% if posts_data %}
                     {% for post in posts_data %}
-
                     <div class="col">
-                        <a href="{% if  request.resolver_match.url_name == 'news' %} {% url 'landing_page:new_detail' lang=request.language post_id=post.id %}{% endif %}">
-                            <div class="card article-card shadow-sm p-3" onclick="">
+                        <a href="{{ post.post_detail_url }}">
+                            <div class="card article-card shadow-sm p-3">
                                 <img src="{{ post.image_url }}" class="card-img-top article-img" alt="{{ post.title }}" loading="lazy">
                                 <div class="card-body">
                                     <h5 class="card-title">{% trans post.title %}</h5>

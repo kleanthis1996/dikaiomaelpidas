@@ -33,16 +33,18 @@
     <div id="multiItemCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             {% for post in extra_posts %}
-            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
-                <div class="card article-card shadow-sm p-3">
-                    <img src="{{ post.image_url }}" class="card-img-top article-img" alt="{{ post.title }}"
-                         loading="lazy">
-                    <div class="card-body">
-                        <h5 class="card-title">{% trans post.title %}</h5>
-                        <p class="text-muted mb-0 mt-4">{{ post.published_date }}</p>
+                {% if post.id != post_data.parent_post_id %}
+                    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                        <div class="card article-card shadow-sm p-3">
+                            <img src="{{ post.image_url }}" class="card-img-top article-img" alt="{{ post.title }}"
+                                 loading="lazy">
+                            <div class="card-body">
+                                <h5 class="card-title">{% trans post.title %}</h5>
+                                <p class="text-muted mb-0 mt-4">{{ post.published_date }}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

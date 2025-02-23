@@ -1,4 +1,6 @@
 # local
+from django.urls import reverse_lazy
+
 from news_and_events.models import Post, PostVariation
 from programs.models import Program
 from team_members.models import Member
@@ -42,9 +44,18 @@ def get_posts_data(lang, posts_category):
             post_variation = PostVariation.objects.filter(post=post,
                                                           language=language,
                                                           status=True).first()
+            # Parse the post detail URL
+            post_detail_url = "#"
+            if posts_category == "events_category":
+                post_detail_url = reverse_lazy("landing_page:event_detail",
+                                               kwargs={"lang": lang, "post_id": post.id})
+            elif posts_category == "news_category":
+                post_detail_url = reverse_lazy("landing_page:new_detail",
+                                               kwargs={"lang": lang, "post_id": post.id})
             if post_variation:
                 response.append({
                     "id": post.id,
+                    "post_detail_url": post_detail_url,
                     "title": post.title.code,
                     "image_url": post.image.url,
                     "published_date": post.published_date,
