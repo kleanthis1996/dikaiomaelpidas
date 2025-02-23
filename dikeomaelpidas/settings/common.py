@@ -181,17 +181,11 @@ UNFOLD = {
         }
     ],
     "SIDEBAR": {
-        "show_search": True,
         "show_all_applications": True,
         "navigation": [
             {
                 "title": "Navigation",
                 "items": [
-                    {
-                        "title": "Dashboard",
-                        "icon": "dashboard",
-                        "link": reverse_lazy("admin:index"),
-                    },
                     {
                         "title": "Client Messages",
                         "icon": "mail",
