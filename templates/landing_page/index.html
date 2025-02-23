@@ -36,7 +36,7 @@
                                 <span class="d-block box-title fs-4 text-start mt-3">About Us</span>
                                 <div class="break-line"></div>
                                 <span class="d-block box-details fs-5 text-start mt-3">Learn about our journey, values, and commitment to transforming lives.</span>
-                                <a class="card-btn justify-content-end mt-5" href="#">
+                                <a class="card-btn justify-content-end mt-5" href="{% url 'landing_page:about' lang=request.language %}">
                                     <span class="me-2">Read More</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
@@ -51,7 +51,7 @@
                                 <span class="d-block box-title fs-4 text-start mt-3">{% trans 'test_slug' %}</span>
                                 <div class="break-line"></div>
                                 <span class="d-block box-details fs-5 text-start mt-3">Get to know the dedicated professionals behind our mission.</span>
-                                <a class="card-btn justify-content-end mt-5" href="#">
+                                <a class="card-btn justify-content-end mt-5" href="{% url 'landing_page:team' lang=request.language %}">
                                     <span class="me-2">Meet Us</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
@@ -66,7 +66,7 @@
                                 <span class="d-block box-title fs-4 text-start mt-3">Actions & European Programs</span>
                                 <div class="break-line"></div>
                                 <span class="d-block box-details fs-5 text-start mt-3">Explore the diverse activities and initiatives that shape our community.</span>
-                                <a class="card-btn justify-content-end mt-5" href="#">
+                                <a class="card-btn justify-content-end mt-5" href="{% url 'landing_page:services' lang=request.language %}">
                                     <span class="me-2">Learn More</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
@@ -88,7 +88,7 @@
                                 <div class="main-break-line"></div>
                                 <span class="d-block main-title mt-4">Discover Our Mission</span>
                                 <span class="d-block box-details fs-5  text-start mt-3 p-0">We are dedicated to making a difference in the lives of individuals with special needs by providing comprehensive educational and therapeutic programs. Our mission is to foster inclusion, independence, and personal growth through innovative and specialized support.</span>
-                                <a class="justify-content-center main-button blue-btn d-none d-md-block" href="#">
+                                <a class="justify-content-center main-button blue-btn d-none d-md-block" href="{% url 'landing_page:about' lang=request.language %}">
                                     <span class="me-2">Read More</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
@@ -126,18 +126,14 @@
                     <div>
                         <div class="row">
                             <div class="col-12 p-0 px-3 px-lg-0">
-                                <span class="program-tag">Physical Education & Gymnastics</span>
-                                <span class="program-tag">Special Education</span>
-                                <span class="program-tag">Music Therapy</span>
-
-                                {% for i in '0123456789'|make_list|slice:"9" %}
-                                    <span class="program-tag">Program {{ forloop.counter }}</span>
+                                {% for program in available_programs %}
+                                    <span class="program-tag">{% trans program.name %}</span>
                                 {% endfor %}
                             </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <a class="justify-content-center main-button text-dark" href="#">
+                        <a class="justify-content-center main-button text-dark" href="{% url 'landing_page:services' lang=request.language %}">
                             <span class="me-2">Explore programs</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
@@ -208,7 +204,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <a class="justify-content-center main-button blue-btn" href="#">
+                            <a class="justify-content-center main-button blue-btn" href="{% url 'landing_page:support' lang=request.language %}">
                                 <span class="me-2">Get involved</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>

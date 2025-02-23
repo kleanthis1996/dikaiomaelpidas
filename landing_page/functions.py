@@ -1,4 +1,5 @@
-from news_and_events.models import PostCategory, Post, PostVariation
+# local
+from news_and_events.models import Post, PostVariation
 from programs.models import Program
 from team_members.models import Member
 from translations.models import Language
@@ -60,10 +61,18 @@ def get_single_post_data(lang, post_id):
     :param post_id:
     :return:
     """
-    post_data = PostVariation.objects.filter(post__id=post_id, language__code=lang).only("content").first()
+    # Get requested post variation
+    post_data = PostVariation.objects.filter(post__id=post_id, language__code=lang).first()
     if not post_data:
         return None
-    return post_data
+    # Prepare result for post detail page
+    result = {
+        "parent_post_id": post_data.post.id,
+        "title": post_data.post.title.code,
+        "image_url": post_data.post.image.url,
+        "content": post_data.content
+    }
+    return result
 
 
 def get_available_programs_data():
@@ -71,4 +80,13 @@ def get_available_programs_data():
     Function to get available programs data from db for programs page
     :return:
     """
-    return Program.objects.filter(status=True).values_list("name", "description", "image")
+    available_programs_data = Program.objects.filter(status=True)
+    result = []
+    for program in available_programs_data:
+        result.append({
+            "id": program.id,
+            "name": program.name.code,
+            "description": program.description,
+            "image_url": program.image.url,
+        })
+    return result
