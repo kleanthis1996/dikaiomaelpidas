@@ -42,7 +42,7 @@ class Slug(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.code
+        return self.description if self.description else self.code
 
 
 class Translation(models.Model):

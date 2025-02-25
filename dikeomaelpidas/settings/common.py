@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+from django.templatetags.static import static
 from django.urls import reverse_lazy
 from dotenv import load_dotenv
 
@@ -132,10 +133,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
 UNFOLD = {
     "SITE_TITLE": "Dikaioma Elpidas",
     "SITE_HEADER": "Dikaioma Elpidas CMS",
+    "SITE_ICON": lambda request: static("assets/images/logo.webp"),
+    "DASHBOARD_CALLBACK": "landing_page.views.dashboard_callback",
+    "THEME": "light",
     "TABS": [
         {
             "page": "news_and_events",
