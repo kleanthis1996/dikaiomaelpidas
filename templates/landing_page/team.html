@@ -1,5 +1,6 @@
 {% extends "landing_page/base.html" %}
 {% load static %}
+{% load translations_tags %}
 
 {% block SEO %}
   <title>Meet the team | Dikaioma Elpidas</title>
@@ -27,85 +28,28 @@
             <div class="col-12">
                 <span class="team-grid-title">Our Team Members</span>
                 <div class="row g-4 py-5">
-                    <!-- Team Member 1 -->
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="{% static 'assets/images/meet-team.webp' %}" alt="Team Member">
-                                    <div class="team-info">
-                                        <h5>Jane Doe</h5>
-                                        <p>Marketing Lead</p>
+                    {% if team_members_data %}
+                        {% for member in team_members_data %}
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <img src="{{member.profile_image_url}}" alt="Team Member">
+                                            <div class="team-info">
+                                                <h5>{{ member.full_name}}</h5>
+                                                <p>{% trans member.job_role_name %}</p>
+                                            </div>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h5>{{ member.full_name}}</h5>
+                                            <p>{{ member.description}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="flip-card-back">
-                                    <h5>John Doe</h5>
-                                    <p>Software Engineer</p>
-                                    <p>Specialized in AI and Machine Learning. Loves coding and coffee.</p>
-                                </div>
                             </div>
-                        </div>
-                    </div>
+                        {% endfor %}
+                    {% endif %}
 
-                    <!-- Team Member 2 -->
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="{% static 'assets/images/meet-team.webp' %}" alt="Team Member">
-                                    <div class="team-info">
-                                        <h5>Michael Smith</h5>
-                                        <p>Marketing Lead</p>
-                                    </div>
-                                </div>
-                                <div class="flip-card-back">
-                                    <h5>Michael Smith</h5>
-                                    <p>UI/UX Designer</p>
-                                    <p>Passionate about creating beautiful & user-friendly interfaces.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Team Member 3 -->
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="{% static 'assets/images/meet-team.webp' %}" alt="Team Member">
-                                    <div class="team-info">
-                                        <h5>Robert Brown</h5>
-                                        <p>Marketing Lead</p>
-                                    </div>
-                                </div>
-                                <div class="flip-card-back">
-                                    <h5>Robert Brown</h5>
-                                    <p>Project Manager</p>
-                                    <p>Experienced in agile methodologies and team management.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Team Member 4 -->
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="{% static 'assets/images/meet-team.webp' %}" alt="Team Member">
-                                    <div class="team-info">
-                                        <h5>Jane Doe</h5>
-                                        <p>Marketing Lead</p>
-                                    </div>
-                                </div>
-                                <div class="flip-card-back">
-                                    <h5>Jane Doe</h5>
-                                    <p>Marketing Lead</p>
-                                    <p>Expert in digital marketing and social media growth strategies.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

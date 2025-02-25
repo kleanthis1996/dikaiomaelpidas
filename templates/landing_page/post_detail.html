@@ -35,7 +35,7 @@
     <div class="your-slider">
         {% for post in extra_posts %}
         {% if post.id != post_data.parent_post_id|default:0 %}
-        <div class="mt-4 ms-3"> <!-- Each box takes 1/4th of the row -->
+        <div class="mt-4 ms-lg-3"> <!-- Each box takes 1/4th of the row -->
             <a href="{{ post.post_detail_url }}" class="text-decoration-none">
                 <div class="card p-3">
                     <img src="{{ post.image_url }}" class="card-img-top article-img"
@@ -58,7 +58,20 @@
             slidesToScroll: 1,
             autoplay: false,
             autoplaySpeed: 2000,
-            arrows: true
+            arrows: true,
+            infinite: false,
+            responsive: [
+                {
+                    breakpoint: 768, // For screens smaller than 768px
+                    settings: {
+                        arrows: false,  // Hide arrows on mobile
+                        dots: true, // Show dots instead
+                        slidesToShow: 1, // Show 1 slide at a time
+                        centerMode: true,  // Enables spacing effect
+                        centerPadding: '20px' // Adjusts space
+                    }
+                }
+            ]
         });
     });
 </script>
