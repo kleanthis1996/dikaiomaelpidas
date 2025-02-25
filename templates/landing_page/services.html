@@ -1,5 +1,7 @@
 {% extends "landing_page/base.html" %}
 {% load static %}
+{% load translations_tags %}
+
 
 {% block SEO %}
     <title>Actions & European Programs | Dikaioma Elpidas</title>
@@ -13,9 +15,30 @@
 {% endblock %}
 
 {% block BODY %}
-<br>
-<br>
-<br>
-<br>
-{{ available_programs }}
+<div class="nav-margin">
+    <div class="container-lg container-xlarge">
+        <div>
+            <span class="d-block main-title text-center">Our Specialized Programs</span>
+            <span class="d-block sub-title mt-3 text-center">We offer a diverse range of educational and therapeutic programs tailored to meet the unique needs of individuals with special needs. Each program is designed to foster personal growth, independence, and social inclusion. Through specialized support and innovative methods, we empower our participants to thrive in every aspect of life.</span>
+        </div>
+    </div>
+</div>
+
+<div class="container-lg">
+    <div class="row g-4 mt-5">
+        {% if available_programs %}
+            {% for program in available_programs %}
+                <div class="col-md-4 col-sm-6">
+                    <div class="program_card">
+                        <img src="{{program.image_url}}" alt="{% trans program.name %}">
+                        <div class="program_overlay">
+                            <span>{% trans program.name %}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
 {% endblock %}

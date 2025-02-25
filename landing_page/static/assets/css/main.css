@@ -975,6 +975,35 @@ dropdown input:checked ~ ul li{
     top:-10px!important;
     left:unset!important;
 }
+.program_card {
+    border: none;
+    overflow: hidden;
+    position: relative;
+}
+.program_card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.program_overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    border-radius: 0 0 15px 15px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8646052170868348) 0%, rgba(0, 0, 0, 0.7469581582633054) 6%, rgba(0, 0, 0, 0.6125043767507004) 26%, rgba(0, 212, 255, 0) 57%);
+    top: 0;
+    height: 100%;
+}
+.program_overlay span{
+    font-size: 24px;
+    position: absolute;
+    bottom:7%;
+    left: 5%;
+}
 @media (max-width: 767px)  {
     .featured-blog img{
         height:460px!important;
