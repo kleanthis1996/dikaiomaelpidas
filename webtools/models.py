@@ -1,4 +1,6 @@
 from django.db import models
+from django_ckeditor_5.fields import CKEditor5Field
+
 
 class StatusAbstract(models.Model):
     status = models.BooleanField(
@@ -50,3 +52,15 @@ class ContactInformation(models.Model):
     def __str__(self):
         return self.type
 
+
+
+class Documentation(models.Model):
+    title = models.CharField(max_length=255)
+
+    content = CKEditor5Field(
+        "Content",
+        config_name="default",
+    )
+
+    def __str__(self):
+        return self.title
