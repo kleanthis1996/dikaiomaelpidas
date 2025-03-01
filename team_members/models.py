@@ -35,10 +35,11 @@ class Member(StatusAbstract):
         help_text="Upload the profile image of the team member.",
     )
 
-    description = models.TextField(
-        max_length=500,
+    description = models.ForeignKey(
+        Slug,
         null=True,
-        help_text="Enter a brief description of the team member.",
+        on_delete=models.CASCADE,
+        help_text="Select the slug of team member description.",
     )
 
     def __str__(self):

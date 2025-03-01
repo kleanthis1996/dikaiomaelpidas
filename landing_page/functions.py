@@ -19,7 +19,7 @@ def get_team_members_data():
             "id": member.id,
             "full_name": member.full_name,
             "profile_image_url": member.profile_image.url,
-            "description": member.description,
+            "description": member.description.code,
             "job_role_name": member.job_role.name.code,
 
         })
@@ -97,7 +97,7 @@ def get_available_programs_data():
         result.append({
             "id": program.id,
             "name": program.name.code,
-            "description": program.description,
+            "description": program.description.code,
             "image_url": program.image.url,
         })
     return result
