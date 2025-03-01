@@ -172,3 +172,13 @@ def team(request, lang="en"):
     context = {"contact_information": request.contact_information,
                "team_members_data": team_members_data}
     return render(request, template, context)
+
+
+def dashboard_callback(request, context):
+    context.update({ "navigation": [
+            {"title": "Dashboard", "link": "/", "active": True},
+            {"title": "Analytics", "link": "#"},
+            {"title": "Settings", "link": "#"},
+        ],})
+    return context
+

@@ -1,0 +1,67 @@
+{% extends 'admin/base.html' %}
+
+{% load i18n unfold %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block title %}
+    {% trans 'Dashboard' %} | {{ site_title|default:_('Django site admin') }}
+{% endblock %}
+
+{% block extrahead %}
+    {% if plausible_domain %}
+        <script defer data-domain="{{ plausible_domain }}" src="https://plausible.io/js/script.js"></script>
+    {% endif %}
+{% endblock %}
+
+{% block branding %}
+    {% include "unfold/helpers/site_branding.html" %}
+{% endblock %}
+
+{% block content %}
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+
+    <!-- Welcome Message -->
+    <div class="bg-white shadow rounded-lg p-6 col-span-1 md:col-span-2">
+        <h2 class="text-2xl font-bold">👋 Welcome to Dikaioma Elpidas CMS</h2>
+        <p class="text-gray-600 mt-2">Manage your content, users, and media effortlessly.</p>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-xl font-bold">⚡ Quick Actions</h2>
+        <ul class="mt-3 space-y-2">
+            <li><a href="#" class="text-blue-500 hover:underline">➕ Add New Post</a></li>
+            <li><a href="#" class="text-blue-500 hover:underline">📂 Manage Content</a></li>
+            <li><a href="#" class="text-blue-500 hover:underline">👥 Manage Users</a></li>
+        </ul>
+    </div>
+
+    <!-- Recent Content -->
+    <div class="bg-white shadow rounded-lg p-6 col-span-1 md:col-span-2">
+        <h2 class="text-xl font-bold">📝 Recent Posts</h2>
+        <ul class="mt-3 space-y-2">
+            {% for post in recent_posts %}
+                <li>
+                    <a href="{% url 'admin:myapp_post_change' post.id %}" class="text-gray-800 hover:text-blue-500">
+                        📄 {{ post.title }} ({{ post.created_at|date:"M d, Y" }})
+                    </a>
+                </li>
+            {% empty %}
+                <li class="text-gray-500">No recent posts.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- System Status -->
+    <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-xl font-bold">📊 System Status</h2>
+        <ul class="mt-3 space-y-2">
+            <li>✅ Total Posts: <strong>{{ total_posts }}</strong></li>
+            <li>📌 Drafts Pending Review: <strong>{{ draft_posts }}</strong></li>
+            <li>👥 Registered Users: <strong>{{ total_users }}</strong></li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}
