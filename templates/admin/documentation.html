@@ -1,0 +1,21 @@
+{% extends "unfold/layouts/base.html" %}
+
+
+{% block breadcrumbs %}{% if not is_popup %}
+
+{% endif %}{% endblock %}
+
+{% block content %}
+  <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Title Section -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-800">{{ documentation_detail.title }}</h1>
+        </div>
+        <!-- Content Section -->
+        <div class="mt-6 bg-white shadow-md rounded-lg p-6">
+            <article class="prose lg:prose-lg max-w-none">
+                {{ documentation_detail.content|safe }}
+            </article>
+        </div>
+    </div>
+{% endblock %}

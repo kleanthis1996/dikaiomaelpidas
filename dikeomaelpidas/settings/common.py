@@ -219,6 +219,11 @@ UNFOLD = {
                         "title": "Contact Information",
                         "icon": "phone",
                         "link": reverse_lazy("admin:webtools_contactinformation_changelist"),
+                    },
+                    {
+                        "title": "Documentation",
+                        "icon": "description",
+                        "link": reverse_lazy("admin:webtools_documentation_changelist"),
                     }
                 ],
             },
