@@ -1,4 +1,5 @@
 # django
+from django.contrib.admin.models import LogEntry
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -175,10 +176,14 @@ def team(request, lang="en"):
 
 
 def dashboard_callback(request, context):
-    context.update({ "navigation": [
-            {"title": "Dashboard", "link": "/", "active": True},
-            {"title": "Analytics", "link": "#"},
-            {"title": "Settings", "link": "#"},
-        ],})
+    # Gather Total Posts
+
+    # Gather Total Team Members
+
+    # Gather Total Programs
+
+    # Gather Recent Actions
+    recent_actions = LogEntry.objects.all().order_by('-action_time')[:5]
+    context["recent_actions"] = recent_actions
     return context
 
