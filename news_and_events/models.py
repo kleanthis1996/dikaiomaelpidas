@@ -12,13 +12,13 @@ class PostCategory(models.Model):
     code = models.CharField(
         max_length=255,
         unique=True,
-        help_text=f"Enter the code to be used in the codebase"
+        help_text=f"Enter the code to be used in the codebase."
     )
 
     name = models.ForeignKey(
         Slug,
         on_delete=models.CASCADE,
-        help_text=f"Select the slug of the post category"
+        help_text=f"Select the slug of the post category name."
     )
 
     class Meta:
