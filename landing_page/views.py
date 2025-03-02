@@ -1,10 +1,14 @@
 # django
+from django.contrib.admin.models import LogEntry
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.urls import reverse
 # local
 from landing_page.functions import get_team_members_data, get_posts_data, get_single_post_data, \
     get_available_programs_data
+from news_and_events.models import Post
+from programs.models import Program
+from team_members.models import Member
 from translations.decorators import get_translations_information
 from webtools.decorators import get_contact_information
 
@@ -175,10 +179,17 @@ def team(request, lang="en"):
 
 
 def dashboard_callback(request, context):
-    context.update({ "navigation": [
-            {"title": "Dashboard", "link": "/", "active": True},
-            {"title": "Analytics", "link": "#"},
-            {"title": "Settings", "link": "#"},
-        ],})
+    # Gather Total Posts
+    posts_count = Post.objects.count()
+    context["posts_count"] = posts_count
+    # Gather Total Team Members
+    team_members_count = Member.objects.count()
+    context["team_members_count"] = team_members_count
+    # Gather Total Programs
+    programs_count = Program.objects.count()
+    context["programs_count"] = programs_count
+    # Gather Recent Actions
+    recent_actions = LogEntry.objects.all().order_by('-action_time')[:5]
+    context["recent_actions"] = recent_actions
     return context
 

@@ -11,14 +11,14 @@ class Program(StatusAbstract):
         Slug,
         related_name='program_name_slug',
         on_delete=models.CASCADE,
-        help_text=f"Select the slug of the Program",
+        help_text=f"Select the slug of the program name.",
     )
 
     description = models.ForeignKey(
         Slug,
         related_name='program_description_slug',
         on_delete=models.CASCADE,
-        help_text=f"Select the description of the Program",
+        help_text=f"Select the slug of the program description.",
     )
 
     image = models.ImageField(
