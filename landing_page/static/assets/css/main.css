@@ -41,7 +41,7 @@ a{
     font-size:14px;
 }
 section{
-    margin-top:250px;
+    margin-top:180px;
 }
 
 .mt-6{
@@ -49,7 +49,7 @@ section{
 }
 
 .nav-margin{
-    margin-top:190px;
+    margin-top:150px;
 }
 
 .navbar{
@@ -303,11 +303,11 @@ video{
 }
 
 .mt-165{
-    margin-top:165px;
+    margin-top:80px;
 }
 
 .mb-165{
-    margin-bottom:165px!important;
+    margin-bottom:80px!important;
 }
 
 .fs-45{
@@ -796,7 +796,7 @@ dropdown input:checked ~ ul li{
 }
 
 .mt-335{
-    margin-top:335px;
+    margin-top:150px;
 }
 
 .custom-card {
@@ -965,13 +965,13 @@ dropdown input:checked ~ ul li{
 }
 .slick-prev {
     position:absolute!important;
-    right:3%!important;
+    right:5%!important;
     top:-10px!important;
     left:unset!important;
 }
 .slick-next {
     position:absolute!important;
-    right:1%!important;
+    right:2%!important;
     top:-10px!important;
     left:unset!important;
 }
@@ -1005,9 +1005,9 @@ dropdown input:checked ~ ul li{
     left: 5%;
 }
 .modal-details{
-    height: 100vh;
+    height: max-content;
     overflow-y: scroll;
-    padding-bottom:10%;
+    padding-bottom: 50px;
 }
 .modal-details,
 .modal-header{
@@ -1015,17 +1015,11 @@ dropdown input:checked ~ ul li{
     padding-right: 30px;
 }
 #itemModal{
-    position:absolute;
-    top:0%;
-    left:50%;
-    transform:translate(-50%,0%)!important;
-    margin:0;
-    overflow:hidden;
     background-color: #00000091!important;
 }
 #modalImage{
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     object-fit: cover;
     object-position: top;
     border-radius: 4px;
@@ -1038,6 +1032,9 @@ dropdown input:checked ~ ul li{
 .modal-dialog{
     max-width:80%!important;
     height:100vh;
+}
+.modal-body{
+    padding-left:0px;
 }
 @media (max-width: 767px)  {
     .featured-blog img{

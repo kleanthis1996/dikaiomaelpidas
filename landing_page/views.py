@@ -83,7 +83,7 @@ def posts_list(request, lang="en", page=1):
     # Get all posts data
     posts_data = get_posts_data(lang, posts_category)
     # Paginate based on requested page
-    posts_paginator = Paginator(posts_data, 3)
+    posts_paginator = Paginator(posts_data, 12)
     posts_current_page = posts_paginator.get_page(page)
     context = {"contact_information": request.contact_information,
                "posts_data": posts_current_page}
