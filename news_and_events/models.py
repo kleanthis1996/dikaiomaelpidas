@@ -1,3 +1,5 @@
+# local
+import os
 # django
 from django.db import models
 # local
@@ -49,6 +51,12 @@ class Post(models.Model):
     )
 
     published_date = models.DateField()
+
+    def delete(self, *args, **kwargs):
+        if self.image:
+            if os.path.isfile(self.image.path):
+                os.remove(self.image.path)
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return get_english_text(self.title)

@@ -1,3 +1,5 @@
+# system
+import os
 # django
 from django.db import models
 # local
@@ -26,6 +28,12 @@ class Program(StatusAbstract):
         null=True,
         help_text="Upload the image of the program.",
     )
+
+    def delete(self, *args, **kwargs):
+        if self.image:
+            if os.path.isfile(self.image.path):
+                os.remove(self.image.path)
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return f"{get_english_text(self.name)}"

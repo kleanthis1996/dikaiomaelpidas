@@ -1,4 +1,6 @@
 # django
+import os
+
 from django.db import models
 # local
 from translations.functions import get_english_text
@@ -41,6 +43,12 @@ class Member(StatusAbstract):
         on_delete=models.CASCADE,
         help_text="Select the slug of team member description.",
     )
+
+    def delete(self, *args, **kwargs):
+        if self.profile_image:
+            if os.path.isfile(self.profile_image.path):
+                os.remove(self.profile_image.path)
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return f"{self.full_name} - {get_english_text(self.job_role.name)}"
