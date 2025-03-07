@@ -145,70 +145,12 @@
             <!-- Support Us -->
             <section>
                 <div id="support-section" class="row" data-aos="fade-up">
-                    <div class="col-12">
-                        <div class="main-break-line mx-auto mx-lg-0"></div>
-                        <span class="d-block main-title mt-4 text-center text-lg-start">Get Involved & Support Us</span>
-                        <span class="d-block box-details fs-5 mt-3 p-0 text-center text-lg-start">Your support makes a difference! Choose how you’d like to contribute:</span>
-                        <div class="row w-100 mx-auto mt-5">
-                            <div class="col-12 col-md-6 col-lg-4 mb-4 support-box p-0 ps-lg-0 pe-lg-4">
-                                <div class="box d-flex flex-column justify-content-center me-0 me-md-4 me-lg-0">
-                                    <div class="box-icon">
-                                        <i class="fa-solid fa-graduation-cap"></i>
-                                    </div>
-                                    <span class="d-block box-title fs-4 text-start mt-3">Donate Funds</span>
-                                    <div class="break-line"></div>
-                                    <span class="d-block box-details fs-5 text-start mt-3">Support our mission financially.</span>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-4 support-box p-0 ps-lg-0 pe-lg-4">
-                                <div class="box d-flex flex-column justify-content-center">
-                                    <div class="box-icon">
-                                        <i class="fa-solid fa-graduation-cap"></i>
-                                    </div>
-                                    <span class="d-block box-title fs-4 text-start mt-3">Alternative Gift Giving</span>
-                                    <div class="break-line"></div>
-                                    <span class="d-block box-details fs-5 text-start mt-3">Dedicate your celebration gifts to a cause.</span>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-12 col-lg-4 mb-4 support-box p-0 ps-lg-0">
-                                <div class="box d-flex flex-column justify-content-center">
-                                    <div class="box-icon">
-                                        <i class="fa-solid fa-graduation-cap"></i>
-                                    </div>
-                                    <span class="d-block box-title fs-4 text-start mt-3">Memorial Donations</span>
-                                    <div class="break-line"></div>
-                                    <span class="d-block box-details fs-5 text-start mt-3">Honor a loved one by making a difference.</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row w-100 mx-auto">
-                            <div class="col-12 col-md-6 mb-4 support-box p-0 ps-lg-0 pe-lg-2">
-                                <div class="box d-flex flex-column justify-content-center me-0 me-md-4 me-lg-0">
-                                    <div class="box-icon">
-                                        <i class="fa-solid fa-graduation-cap"></i>
-                                    </div>
-                                    <span class="d-block box-title fs-4 text-start mt-3">Volunteer with Us</span>
-                                    <div class="break-line"></div>
-                                    <span class="d-block box-details fs-5 text-start mt-3">Become part of our growing family.</span>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 mb-4 support-box p-0 ps-lg-3">
-                                <div class="box d-flex flex-column justify-content-center">
-                                    <div class="box-icon">
-                                        <i class="fa-solid fa-graduation-cap"></i>
-                                    </div>
-                                    <span class="d-block box-title fs-4 text-start mt-3">Corporate Giving</span>
-                                    <div class="break-line"></div>
-                                    <span class="d-block box-details fs-5 text-start mt-3">Partner with us for social responsibility.</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a class="justify-content-center main-button blue-btn" href="{% url 'landing_page:support' lang=request.language %}">
-                                <span class="me-2">Get involved</span>
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
+                    <div class="main-break-line mx-auto mx-lg-0"></div>
+                    <span class="d-block main-title mt-4 text-center text-lg-start">Get Involved & Support Us</span>
+                    <span class="d-block box-details fs-5 mt-3 p-0 text-center text-lg-start">Your support makes a difference! Choose how you’d like to contribute:</span>
+                    <div class="row mt-5">
+                        <!-- Include Support section -->
+                        {% include "landing_page/includes/support.html" %}
                     </div>
                 </div>
             </section>

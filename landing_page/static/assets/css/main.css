@@ -128,7 +128,8 @@ video{
     width: 100%!important;
 }
 
-.homepage img{
+#meet-team img,
+#mission-section img{
     height:400px!important;
     object-fit: cover;
     object-position: center;
@@ -167,7 +168,7 @@ video{
     min-height:300px;
 }
 .support-box .box{
-    min-height:268px!important;
+    min-height:327px!important;
     padding:24px!important;
 }
 
@@ -203,6 +204,7 @@ video{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding:10px;
 }
 
 .blue-text{
@@ -238,7 +240,7 @@ video{
 }
 
 .support-box .box-icon{
-    background-color: #777777;
+    background-color: white;
 }
 
 .break-line{
@@ -277,6 +279,11 @@ video{
     background-color:#23A9E2;
 }
 
+#support-section .box{
+    background-color: #F5F5F5;
+    box-shadow: unset!important;
+}
+
 .main-title{
     font-size:64px;
     font-weight:600;
@@ -303,11 +310,11 @@ video{
 }
 
 .mt-165{
-    margin-top:80px;
+    margin-top:120px;
 }
 
 .mb-165{
-    margin-bottom:80px!important;
+    margin-bottom:120px!important;
 }
 
 .fs-45{
@@ -796,7 +803,7 @@ dropdown input:checked ~ ul li{
 }
 
 .mt-335{
-    margin-top:150px;
+    margin-top:180px;
 }
 
 .custom-card {
@@ -1004,6 +1011,9 @@ dropdown input:checked ~ ul li{
     bottom:7%;
     left: 5%;
 }
+.modal{
+    overflow: hidden;
+}
 .modal-details{
     height: max-content;
     overflow-y: scroll;
@@ -1016,6 +1026,9 @@ dropdown input:checked ~ ul li{
 }
 #itemModal{
     background-color: #00000091!important;
+}
+.modal-details::-webkit-scrollbar {
+    display: none;
 }
 #modalImage{
     width: 100%;
@@ -1030,7 +1043,7 @@ dropdown input:checked ~ ul li{
 }
 
 .modal-dialog{
-    max-width:80%!important;
+    max-width:60%!important;
     height:100vh;
 }
 .modal-body{
