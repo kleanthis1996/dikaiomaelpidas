@@ -168,7 +168,7 @@ video{
     min-height:300px;
 }
 .support-box .box{
-    min-height:327px!important;
+    min-height:345px!important;
     padding:24px!important;
 }
 
@@ -193,6 +193,10 @@ video{
     font-weight:400;
     line-height:28px;
     color:#3C3C3C;
+}
+
+#support-section .box-details{
+    min-height:56px!important;
 }
 
 .box-icon{
@@ -282,6 +286,18 @@ video{
 #support-section .box{
     background-color: #F5F5F5;
     box-shadow: unset!important;
+}
+
+#support-section a{
+    transition:0.3s;
+    padding: 8px;
+    border-radius: 50px;
+}
+
+#support-section a:hover{
+    transition:0.3s;
+    background-color: #23A9E2;
+    color:white
 }
 
 .main-title{
