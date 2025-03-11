@@ -1,79 +1,85 @@
 {% load static %}
 
-<div class="col-12 col-md-6 col-lg-4 mb-4 support-box p-0 ps-lg-0 pe-lg-4">
-    <div class="box d-flex flex-column justify-content-center me-0 me-md-4 me-lg-0">
-        <div class="box-icon">
-            <img src="{% static 'assets/images/jcc-logo.png' %}" class="img-fluid" alt="jcc">
-        </div>
-        <span class="d-block box-title fs-4 text-start mt-3">Donate Funds</span>
-        <div class="break-line"></div>
-        <span class="d-block box-details fs-5 text-start mt-3">Support our mission financially.</span>
-        <div class="d-flex justify-content-end">
-            <a href="#" class="w-auto mt-5">
-                <i class="fa-solid fa-arrow-right fs-5"></i>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="col-12 col-md-6 col-lg-4 mb-4 support-box p-0 ps-lg-0 pe-lg-4">
-    <div class="box d-flex flex-column justify-content-center">
-        <div class="box-icon">
-            <i class="fa-solid fa-graduation-cap"></i>
-        </div>
-        <span class="d-block box-title fs-4 text-start mt-3">Alternative Gift Giving</span>
-        <div class="break-line"></div>
-        <span class="d-block box-details fs-5 text-start mt-3">Dedicate your celebration gifts to a cause.</span>
-        <div class="d-flex justify-content-end">
-            <a href="#" class="w-auto mt-5">
-                <i class="fa-solid fa-arrow-right fs-5"></i>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="col-12 col-md-12 col-lg-4 mb-4 support-box p-0 ps-lg-0">
-    <div class="box d-flex flex-column justify-content-center">
-        <div class="box-icon">
-            <i class="fa-solid fa-graduation-cap"></i>
-        </div>
-        <span class="d-block box-title fs-4 text-start mt-3">Memorial Donations</span>
-        <div class="break-line"></div>
-        <span class="d-block box-details fs-5 text-start mt-3">Honor a loved one by making a difference.</span>
-        <div class="d-flex justify-content-end">
-            <a href="#" class="w-auto mt-5">
-                <i class="fa-solid fa-arrow-right fs-5"></i>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="row w-100 mx-auto p-0">
-    <div class="col-12 col-md-6 mb-4 support-box p-0 ps-lg-0 pe-lg-2">
-        <div class="box d-flex flex-column justify-content-center me-0 me-md-4 me-lg-0">
-            <div class="box-icon">
-                <i class="fa-solid fa-graduation-cap"></i>
+    <!-- First Row (Ensures Full Width) -->
+    <div class="row g-3">  <!-- Added row wrapper and gap -->
+        <div class="col-12 col-md-6 col-lg-4 support-box">
+            <div class="box d-flex flex-column justify-content-center">
+                <div class="box-icon">
+                    <img src="{% static 'assets/images/jcc-logo.png' %}" class="img-fluid" alt="jcc">
+                </div>
+                <span class="d-block box-title fs-4 text-start mt-3">Donate Funds</span>
+                <div class="break-line"></div>
+                <span class="d-block box-details fs-5 text-start mt-3">Support our mission financially.</span>
+                <div class="d-flex justify-content-end">
+                    <a href="#" class="w-auto mt-5">
+                        <i class="fa-solid fa-arrow-right fs-5"></i>
+                    </a>
+                </div>
             </div>
-            <span class="d-block box-title fs-4 text-start mt-3">Volunteer with Us</span>
-            <div class="break-line"></div>
-            <span class="d-block box-details fs-5 text-start mt-3">Become part of our growing family.</span>
-            <div class="d-flex justify-content-end">
-                <a href="#" class="w-auto mt-5">
-                    <i class="fa-solid fa-arrow-right fs-5"></i>
-                </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 support-box">
+            <div class="box d-flex flex-column justify-content-center">
+                <div class="box-icon">
+                    <img src="{% static 'assets/images/gift.png' %}" class="img-fluid" alt="Alternative Gift Giving">
+                </div>
+                <span class="d-block box-title fs-4 text-start mt-3">Alternative Gift Giving</span>
+                <div class="break-line"></div>
+                <span class="d-block box-details fs-5 text-start mt-3">Dedicate your celebration gifts to a cause.</span>
+                <div class="d-flex justify-content-end">
+                    <a href="#" class="w-auto mt-5">
+                        <i class="fa-solid fa-arrow-right fs-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4 support-box">
+            <div class="box d-flex flex-column justify-content-center">
+                <div class="box-icon">
+                    <img src="{% static 'assets/images/donate.png' %}" class="img-fluid" alt="Memorial Donations">
+                </div>
+                <span class="d-block box-title fs-4 text-start mt-3">Memorial Donations</span>
+                <div class="break-line"></div>
+                <span class="d-block box-details fs-5 text-start mt-3">Honor a loved one by making a difference.</span>
+                <div class="d-flex justify-content-end">
+                    <a href="#" class="w-auto mt-5">
+                        <i class="fa-solid fa-arrow-right fs-5"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-12 col-md-6 mb-4 support-box p-0 ps-lg-3">
-        <div class="box d-flex flex-column justify-content-center">
-            <div class="box-icon">
-                <i class="fa-solid fa-graduation-cap"></i>
+
+    <!-- Second Row -->
+    <div class="row g-3 mt-3"> <!-- Added spacing between rows -->
+        <div class="col-12 col-md-6 support-box">
+            <div class="box d-flex flex-column justify-content-center">
+                <div class="box-icon">
+                    <img src="{% static 'assets/images/volunteer.png' %}" class="img-fluid" alt="Volunteer with Us">
+                </div>
+                <span class="d-block box-title fs-4 text-start mt-3">Volunteer with Us</span>
+                <div class="break-line"></div>
+                <span class="d-block box-details fs-5 text-start mt-3">Become part of our growing family.</span>
+                <div class="d-flex justify-content-end">
+                    <a href="#" class="w-auto mt-5">
+                        <i class="fa-solid fa-arrow-right fs-5"></i>
+                    </a>
+                </div>
             </div>
-            <span class="d-block box-title fs-4 text-start mt-3">Corporate Giving</span>
-            <div class="break-line"></div>
-            <span class="d-block box-details fs-5 text-start mt-3">Partner with us for social responsibility.</span>
-            <div class="d-flex justify-content-end">
-                <a href="#" class="w-auto mt-5">
-                    <i class="fa-solid fa-arrow-right fs-5"></i>
-                </a>
+        </div>
+        <div class="col-12 col-md-6 support-box">
+            <div class="box d-flex flex-column justify-content-center">
+                <div class="box-icon">
+                    <img src="{% static 'assets/images/corporate.png' %}" class="img-fluid" alt="Corporate Giving">
+                </div>
+                <span class="d-block box-title fs-4 text-start mt-3">Corporate Giving</span>
+                <div class="break-line"></div>
+                <span class="d-block box-details fs-5 text-start mt-3">Partner with us for social responsibility.</span>
+                <div class="d-flex justify-content-end">
+                    <a href="#" class="w-auto mt-5">
+                        <i class="fa-solid fa-arrow-right fs-5"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+

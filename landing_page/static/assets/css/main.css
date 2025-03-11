@@ -33,6 +33,13 @@ body{
 #index .container-lg{
     overflow:unset!important;
 }
+.brush-img{
+    height: 200px !important;
+    position: absolute;
+    left: 45%;
+    z-index: -1;
+    top: -20%;
+}
 a{
     text-decoration: none;
     color: inherit;
@@ -56,7 +63,22 @@ section{
     padding: 0;
     padding-left: 50px;
     padding-right: 50px;
+    transition: all 0.3s ease-in-out;
 }
+
+.more-dropdown .animate{
+    width:auto!important;
+    font-weight: normal;
+    color: #575757;
+}
+
+.more-dropdown .nav-link{
+    border:0!important;
+    padding:unset!important;
+    font-size: 14px;
+    min-width: 122px;
+}
+
 .navbar-brand img {
     height: 80px;
 }
@@ -66,6 +88,10 @@ section{
     margin-right:10px;
     transition:0.3s;
     border-bottom:2px solid #f8f9fa;
+}
+
+.extra-menu .nav-link{
+    border-bottom:unset!important;
 }
 
 .nav-item:hover .nav-link{
@@ -128,8 +154,7 @@ video{
     width: 100%!important;
 }
 
-#meet-team img,
-#mission-section img{
+#meet-team img{
     height:400px!important;
     object-fit: cover;
     object-position: center;
@@ -450,6 +475,7 @@ dropdown label{
     text-align: center;
     border-radius: 4px;
 }
+
 dropdown input{
     display: none;
 }
@@ -476,7 +502,7 @@ dropdown input:checked ~ ul{
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width:100%;
+    width:auto;
     transition:0.3s;
     overflow: hidden;
 }
@@ -667,7 +693,9 @@ dropdown input:checked ~ ul li{
     border-radius: 12px;
     transition:0.3s;
     transition: box-shadow 0.3s ease-in-out;
+    width:100%;
 }
+
 .article-card:hover {
     cursor: pointer;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -1115,7 +1143,7 @@ dropdown input:checked ~ ul li{
         margin-right:13px!important;
     }
     .homepage #meet-team img{
-        height:150px!important;
+        height:200px!important;
     }
     #mission-section img{
         height:340px!important;

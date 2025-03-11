@@ -15,34 +15,46 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'index' %} active{% endif %}"
+                       href="{% url 'landing_page:index' lang=request.language %}">Home</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'about' %} active{% endif %}"
                        href="{% url 'landing_page:about' lang=request.language %}">About us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %} active{% endif %}"
-                       href="{% url 'landing_page:contact' lang=request.language %}">Contact us</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'support' %} active{% endif %}"
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'support' %} active{% endif %} me-0"
                        href="{% url 'landing_page:support' lang=request.language %}">Support us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'events' %} active{% endif %}"
-                       href="{% url 'landing_page:events' lang=request.language page=1 %}">Events</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'services' %} active{% endif %}"
-                       href="{% url 'landing_page:services' lang=request.language %}">Actions & European Programs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'news' %} active{% endif %}"
-                       href="{% url 'landing_page:news' lang=request.language page=1 %}">News & Announcements</a>
                 </li>
             </ul>
 
+            <dropdown class="more-dropdown me-0">
+                <input id="toggleMore" type="checkbox">
+                <label for="toggleMore" class="animate">More<i id="more-arrow" class="ms-2 fa-solid fa-angle-down"></i> </label>
+                <ul class="animate">
+                    <li>
+                        <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %} active{% endif %}"
+                           href="{% url 'landing_page:contact' lang=request.language %}">Contact Us</a>
+                    </li>
+                    <li>
+                        <a class="nav-link{% if  request.resolver_match.url_name == 'events' %} active{% endif %}"
+                           href="{% url 'landing_page:events' lang=request.language page=1 %}">Events</a>
+                    </li>
+                    <li>
+                        <a class="nav-link{% if  request.resolver_match.url_name == 'services' %} active{% endif %}"
+                           href="{% url 'landing_page:services' lang=request.language %}">Actions & European Programs</a>
+                    </li>
+                    <li>
+                        <a class="nav-link{% if  request.resolver_match.url_name == 'news' %} active{% endif %}"
+                           href="{% url 'landing_page:news' lang=request.language page=1 %}">News & Announcements</a>
+                    </li>
+                </ul>
+            </dropdown>
+
+
             <dropdown>
                 <input id="toggle2" type="checkbox">
-                <label for="toggle2" class="animate text-uppercase">{{request.language}}<i id="lang-arrow" class="ms-2 fa-solid fa-angle-down"></i> </label>
+                <label for="toggle2" class="animate text-uppercase"><i class="fa-solid fa-globe"></i></label>
                 <ul class="animate">
                     {% for lang_code, lang_name in request.available_languages %}
                         <li class="animate lang-item text-uppercase" data-value="{{ lang_code }}" {% if lang_code == request.language %}selected{% endif %}> {{ lang_code }}</li>
@@ -62,12 +74,14 @@
             window.location.href = `/${selectedLang}/${currentPath}`;
         });
     });
-    document.getElementById("toggle2").addEventListener("change", function() {
-        const arrow = document.getElementById("lang-arrow");
+    document.getElementById("toggleMore").addEventListener("change", function() {
+        const arrow = document.getElementById("more-arrow");
         arrow.style.transform = this.checked ? "rotate(180deg)" : "rotate(0deg)";
         arrow.style.transition = "transform 0.3s ease-in-out";
     });
     document.querySelector('.navbar-toggler').addEventListener('click', function() {
         this.classList.toggle('active');
     });
+
+
 </script>
