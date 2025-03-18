@@ -163,6 +163,10 @@ UNFOLD = {
                     "link": reverse_lazy("admin:team_members_member_changelist"),
                 },
                 {
+                    "title": "Team Members Categories",
+                    "link": reverse_lazy("admin:team_members_membercategory_changelist"),
+                },
+                {
                     "title": "Job Roles",
                     "link": reverse_lazy("admin:team_members_jobrole_changelist"),
                 }
@@ -180,6 +184,20 @@ UNFOLD = {
                     "title": "Languages",
                     "link": reverse_lazy("admin:translations_language_changelist"),
                 },
+            ]
+        },
+        {
+            "page": "programs",
+            "models": ["programs.program", "programs.programcategory"],
+            "items": [
+                {
+                    "title": "Programs",
+                    "link": reverse_lazy("admin:programs_program_changelist"),
+                },
+                {
+                    "title": "Program Categories",
+                    "link": reverse_lazy("admin:programs_programcategory_changelist"),
+                }
             ]
         }
     ],

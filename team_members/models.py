@@ -28,6 +28,9 @@ class MemberCategory(models.Model):
         max_length=255,
     )
 
+    class Meta:
+        verbose_name_plural = "Member Categories"
+
     def __str__(self):
         return get_english_text(self.name)
 
