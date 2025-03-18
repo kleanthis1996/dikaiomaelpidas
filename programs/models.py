@@ -6,7 +6,27 @@ from translations.models import Slug
 from webtools.models import StatusAbstract
 
 
+class ProgramCategory(models.Model):
+    name = models.ForeignKey(
+        Slug,
+        on_delete=models.CASCADE,
+        help_text="Select the slug of the program category.",
+    )
+
+    code = models.CharField(
+        max_length=255,
+    )
+
+    def __str__(self):
+        return get_english_text(self.name)
+
 class Program(StatusAbstract):
+    category = models.ForeignKey(
+        ProgramCategory,
+        on_delete=models.CASCADE,
+        help_text="Select the program category.",
+    )
+
     name = models.ForeignKey(
         Slug,
         related_name='program_name_slug',
