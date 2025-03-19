@@ -192,6 +192,15 @@ video{
     display: block;
     min-height:300px;
 }
+.body-el .box{
+    min-height: 428px;
+}
+.body-el .box-title{
+    min-height: 72px;
+}
+.body-el .boxes-container .box-details{
+    min-height: 112px;
+}
 .support-box .box{
     min-height:345px!important;
     padding:24px!important;
@@ -394,6 +403,10 @@ video{
 
 .main-button.pink-btn{
     background-color:#ED028B;
+}
+
+#meet-team .main-button{
+    max-width:unset!important;
 }
 
 .program-tag{
@@ -1078,7 +1091,7 @@ dropdown input:checked ~ ul li{
     width: 100%;
     height: 60vh;
     object-fit: cover;
-    object-position: top;
+    object-position: center;
     border-radius: 4px;
 }
 
