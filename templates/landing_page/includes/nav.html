@@ -28,31 +28,23 @@
                     <a class="nav-link{% if  request.resolver_match.url_name == 'support' %} active{% endif %} me-0"
                        href="{% url 'landing_page:support' lang=request.language %}">{% trans 'slug_139' %}</a>
                 </li>
+                <li>
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %} active{% endif %}"
+                       href="{% url 'landing_page:contact' lang=request.language %}">{% trans 'slug_140' %}</a>
+                </li>
+                <li>
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'events' %} active{% endif %}"
+                       href="{% url 'landing_page:events' lang=request.language page=1 %}">{% trans 'slug_141' %}</a>
+                </li>
+                <li>
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'services' %} active{% endif %}"
+                       href="{% url 'landing_page:services' lang=request.language %}">{% trans 'slug_142' %}</a>
+                </li>
+                <li>
+                    <a class="nav-link{% if  request.resolver_match.url_name == 'news' %} active{% endif %}"
+                       href="{% url 'landing_page:news' lang=request.language page=1 %}">{% trans 'slug_143' %}</a>
+                </li>
             </ul>
-
-            <dropdown class="more-dropdown me-0">
-                <input id="toggleMore" type="checkbox">
-                <label for="toggleMore" class="animate">{% trans 'slug_144' %}<i id="more-arrow" class="ms-2 fa-solid fa-angle-down"></i> </label>
-                <ul class="animate">
-                    <li>
-                        <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %} active{% endif %}"
-                           href="{% url 'landing_page:contact' lang=request.language %}">{% trans 'slug_140' %}</a>
-                    </li>
-                    <li>
-                        <a class="nav-link{% if  request.resolver_match.url_name == 'events' %} active{% endif %}"
-                           href="{% url 'landing_page:events' lang=request.language page=1 %}">{% trans 'slug_141' %}</a>
-                    </li>
-                    <li>
-                        <a class="nav-link{% if  request.resolver_match.url_name == 'services' %} active{% endif %}"
-                           href="{% url 'landing_page:services' lang=request.language %}">{% trans 'slug_142' %}</a>
-                    </li>
-                    <li>
-                        <a class="nav-link{% if  request.resolver_match.url_name == 'news' %} active{% endif %}"
-                           href="{% url 'landing_page:news' lang=request.language page=1 %}">{% trans 'slug_143' %}</a>
-                    </li>
-                </ul>
-            </dropdown>
-
 
             <dropdown>
                 <input id="toggle2" type="checkbox">
@@ -76,11 +68,7 @@
             window.location.href = `/${selectedLang}/${currentPath}`;
         });
     });
-    document.getElementById("toggleMore").addEventListener("change", function() {
-        const arrow = document.getElementById("more-arrow");
-        arrow.style.transform = this.checked ? "rotate(180deg)" : "rotate(0deg)";
-        arrow.style.transition = "transform 0.3s ease-in-out";
-    });
+
     document.querySelector('.navbar-toggler').addEventListener('click', function() {
         this.classList.toggle('active');
     });

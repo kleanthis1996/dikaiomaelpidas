@@ -1074,12 +1074,17 @@ dropdown input:checked ~ ul li{
 .modal-details{
     height: max-content;
     overflow-y: scroll;
-    padding-bottom: 50px;
 }
 .modal-details,
 .modal-header{
     padding-left: 30px;
     padding-right: 30px;
+}
+.modal.show .modal-dialog {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    margin: 0 !important;
 }
 #itemModal{
     background-color: #00000091!important;
@@ -1101,7 +1106,6 @@ dropdown input:checked ~ ul li{
 
 .modal-dialog{
     max-width:60%!important;
-    height:100vh;
 }
 .modal-body{
     padding-left:0px;
