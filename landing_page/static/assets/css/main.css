@@ -1080,12 +1080,18 @@ dropdown input:checked ~ ul li{
     padding-left: 30px;
     padding-right: 30px;
 }
-.modal.show .modal-dialog {
-    transform: translate(-50%, -50%);
+.modal.show .modal-dialog,
+.modal-dialog{
+    transform: translate(-50%, -50%)!important;
     left: 50%;
     top: 50%;
     margin: 0 !important;
 }
+
+.homepage{
+    overflow: hidden;
+}
+
 #itemModal{
     background-color: #00000091!important;
 }
@@ -1192,6 +1198,21 @@ dropdown input:checked ~ ul li{
     }
 
 
+}
+@media (min-width: 1200px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 1199px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: none !important;
+    }
+    .navbar-toggler.custom-toggler{
+        display:flex!important;;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
