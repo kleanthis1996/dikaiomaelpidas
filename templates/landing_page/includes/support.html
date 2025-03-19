@@ -1,4 +1,5 @@
 {% load static %}
+{% load translations_tags %}
 
     <!-- First Row (Ensures Full Width) -->
     <div class="row g-3">  <!-- Added row wrapper and gap -->
@@ -7,9 +8,9 @@
                 <div class="box-icon">
                     <img src="{% static 'assets/images/jcc-logo.png' %}" class="img-fluid" alt="jcc">
                 </div>
-                <span class="d-block box-title fs-4 text-start mt-3">Donate Funds</span>
+                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'slug_127' %}</span>
                 <div class="break-line"></div>
-                <span class="d-block box-details fs-5 text-start mt-3">Support our mission financially.</span>
+                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'slug_128' %}</span>
                 <div class="d-flex justify-content-end">
                     <a href="#" class="w-auto mt-5">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
@@ -22,11 +23,11 @@
                 <div class="box-icon">
                     <img src="{% static 'assets/images/gift.png' %}" class="img-fluid" alt="Alternative Gift Giving">
                 </div>
-                <span class="d-block box-title fs-4 text-start mt-3">Alternative Gift Giving</span>
+                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'slug_129' %}</span>
                 <div class="break-line"></div>
-                <span class="d-block box-details fs-5 text-start mt-3">Dedicate your celebration gifts to a cause.</span>
+                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'slug_130' %}</span>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="w-auto mt-5">
+                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="Alternative Gift Giving" data-description="{% trans 'slug_147'|safe %}" data-image="{{program.image_url}}">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
                     </a>
                 </div>
@@ -37,9 +38,9 @@
                 <div class="box-icon">
                     <img src="{% static 'assets/images/donate.png' %}" class="img-fluid" alt="Memorial Donations">
                 </div>
-                <span class="d-block box-title fs-4 text-start mt-3">Memorial Donations</span>
+                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'slug_131' %}</span>
                 <div class="break-line"></div>
-                <span class="d-block box-details fs-5 text-start mt-3">Honor a loved one by making a difference.</span>
+                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'slug_132' %}</span>
                 <div class="d-flex justify-content-end">
                     <a href="#" class="w-auto mt-5">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
@@ -56,9 +57,9 @@
                 <div class="box-icon">
                     <img src="{% static 'assets/images/volunteer.png' %}" class="img-fluid" alt="Volunteer with Us">
                 </div>
-                <span class="d-block box-title fs-4 text-start mt-3">Volunteer with Us</span>
+                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'slug_133' %}</span>
                 <div class="break-line"></div>
-                <span class="d-block box-details fs-5 text-start mt-3">Become part of our growing family.</span>
+                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'slug_134' %}</span>
                 <div class="d-flex justify-content-end">
                     <a href="#" class="w-auto mt-5">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
@@ -71,9 +72,9 @@
                 <div class="box-icon">
                     <img src="{% static 'assets/images/corporate.png' %}" class="img-fluid" alt="Corporate Giving">
                 </div>
-                <span class="d-block box-title fs-4 text-start mt-3">Corporate Giving</span>
+                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'slug_135' %}</span>
                 <div class="break-line"></div>
-                <span class="d-block box-details fs-5 text-start mt-3">Partner with us for social responsibility.</span>
+                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'slug_136' %}</span>
                 <div class="d-flex justify-content-end">
                     <a href="#" class="w-auto mt-5">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
@@ -82,4 +83,38 @@
             </div>
         </div>
     </div>
+
+<!-- Modal -->
+<div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="modalTitle">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="d-flex modal-details flex-column">
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Select the modal element
+    const modal = document.getElementById('itemModal');
+
+    // Event listener for when the modal is about to be shown
+    modal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        const button = event.relatedTarget;
+
+        // Extract info from data attributes
+        const title = button.getAttribute('data-title');
+        const description = button.getAttribute('data-description');
+
+        // Update the modal content
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalBody').textContent = description;
+    });
+</script>
 

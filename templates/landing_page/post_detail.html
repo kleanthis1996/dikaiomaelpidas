@@ -36,7 +36,7 @@
         {% for post in extra_posts %}
         {% if post.id != post_data.parent_post_id|default:0 %}
         <div class="mt-4 ms-lg-3"> <!-- Each box takes 1/4th of the row -->
-            <a href="{{ post.post_detail_url }}" class="text-decoration-none">
+            <a href="{{ post.post_detail_url }}" class="text-decoration-none d-block w-100">
                 <div class="card p-3">
                     <img src="{{ post.image_url }}" class="card-img-top article-img"
                          alt="{{ post.title }}" loading="lazy">

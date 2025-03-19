@@ -139,10 +139,10 @@
                 </div>
             </div>
             <div class="d-flex mt-3 justify-content-center">
-                <a class="justify-content-center main-button pink-btn me-3" href="#">
+                <a class="justify-content-center main-button pink-btn me-3"  href="{% url 'landing_page:team' lang=request.language %}">
                     <span>Meet the team</span>
                 </a>
-                <a class="justify-content-center main-button green-color" href="#">
+                <a class="justify-content-center main-button green-color"  href="{% url 'landing_page:services' lang=request.language %}">
                     <span>Explore Programs</span>
                 </a>
             </div>
