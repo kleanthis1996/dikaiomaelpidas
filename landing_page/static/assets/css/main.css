@@ -347,6 +347,12 @@ video{
     font-size:20px;
     font-weight:400;
     color:#3C3C3C;
+    width:874px;
+}
+
+.support .sub-title,
+.services .sub-title{
+    margin:0 auto;
 }
 
 .secondary-title{
