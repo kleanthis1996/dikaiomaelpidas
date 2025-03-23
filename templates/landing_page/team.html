@@ -52,6 +52,33 @@
 
                 </div>
             </div>
+            <div class="col-12 mt-5">
+                <span class="team-grid-title">Board of Directors</span>
+                <div class="row g-4 py-5">
+                    {% if team_members_data %}
+                    {% for member in team_members_data %}
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="{{member.profile_image_url}}" alt="Team Member">
+                                    <div class="team-info">
+                                        <h5>{{ member.full_name}}</h5>
+                                        <p>{% trans member.job_role_name %}</p>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h5>{{ member.full_name}}</h5>
+                                    <p>{%  trans member.description %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

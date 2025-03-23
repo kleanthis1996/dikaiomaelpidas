@@ -18,31 +18,31 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'index' %} active{% endif %}"
-                       href="{% url 'landing_page:index' lang=request.language %}">{% trans 'slug_137' %}</a>
+                       href="{% url 'landing_page:index' lang=request.language %}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'about' %} active{% endif %}"
-                       href="{% url 'landing_page:about' lang=request.language %}">{% trans 'slug_138' %}</a>
+                       href="{% url 'landing_page:about' lang=request.language %}">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'support' %} active{% endif %} me-0"
-                       href="{% url 'landing_page:support' lang=request.language %}">{% trans 'slug_139' %}</a>
+                       href="{% url 'landing_page:support' lang=request.language %}">Support Us</a>
                 </li>
-                <li>
+                <li  class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'contact' %} active{% endif %}"
-                       href="{% url 'landing_page:contact' lang=request.language %}">{% trans 'slug_140' %}</a>
+                       href="{% url 'landing_page:contact' lang=request.language %}">Contact Us</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'events' %} active{% endif %}"
-                       href="{% url 'landing_page:events' lang=request.language page=1 %}">{% trans 'slug_141' %}</a>
+                       href="{% url 'landing_page:events' lang=request.language page=1 %}">Events</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'services' %} active{% endif %}"
-                       href="{% url 'landing_page:services' lang=request.language %}">{% trans 'slug_142' %}</a>
+                       href="{% url 'landing_page:services' lang=request.language %}">Actions & European Programs</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'news' %} active{% endif %}"
-                       href="{% url 'landing_page:news' lang=request.language page=1 %}">{% trans 'slug_143' %}</a>
+                       href="{% url 'landing_page:news' lang=request.language page=1 %}">News & Announcements</a>
                 </li>
             </ul>
 
