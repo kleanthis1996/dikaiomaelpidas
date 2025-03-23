@@ -156,7 +156,7 @@ UNFOLD = {
         },
         {
             "page": "team_members",
-            "models": ["team_members.member", "team_members.jobrole"],
+            "models": ["team_members.member", "team_members.membercategory", "team_members.jobrole"],
             "items": [
                 {
                     "title": "Team Members",

@@ -8,8 +8,8 @@ from django.http import JsonResponse
 from django.views.generic import TemplateView
 
 from news_and_events.models import Post, PostCategory, PostVariation
-from programs.models import Program
-from team_members.models import Member, JobRole
+from programs.models import Program, ProgramCategory
+from team_members.models import Member, JobRole, MemberCategory
 from translations.models import Slug, Translation, Language
 # Local
 from webtools.models import Documentation
@@ -39,6 +39,9 @@ def create_mock_data(request):
     :return:
     """
     # Create Programs
+    # Get categories and add 4 in first category and 5 in the other one
+    standard_programs_category = ProgramCategory.objects.get(code="standard_programs")
+    european_programs_category = ProgramCategory.objects.get(code="european_programs")
     for i in range(0, 9):
         # Create test slug for title
         test_title_slug = Slug.objects.create(
@@ -82,12 +85,16 @@ def create_mock_data(request):
             # Create the object
             Program.objects.create(
                 name=test_title_slug,
+                category= standard_programs_category if i>4 else european_programs_category,
                 description=test_description_slug,
                 image=django_file  # Assign the file to the image field
             )
 
     # Create Team Members
     destination_path = os.path.relpath(f"mediafiles/test_images/test_person.jpg")
+    # Get the 2 categories, 3 members under each one
+    teachers_category = MemberCategory.objects.get(code="teachers")
+    board_of_directors_category = MemberCategory.objects.get(code="board_of_directors")
     # Create 3 test roles and add 3 team members under each one
     for i in range(0, 3):
         test_job_role_name = Slug.objects.create(
@@ -107,7 +114,7 @@ def create_mock_data(request):
             name=test_job_role_name,
         )
 
-        for i in range(0, 3):
+        for j in range(0, 6):
             test_description_slug = Slug.objects.create(
                 description=f"Test Member Description {i}",
             )
@@ -123,8 +130,10 @@ def create_mock_data(request):
             )
             with open(destination_path, "rb") as img_file:
                 django_file = File(img_file)
+
                 Member.objects.create(
                     job_role=test_job_role,
+                    category = teachers_category if j>3 else board_of_directors_category,
                     full_name=f"Test Name",
                     profile_image=django_file,
                     description=test_description_slug,

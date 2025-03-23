@@ -23,6 +23,7 @@ class ProgramCategory(models.Model):
     def __str__(self):
         return get_english_text(self.name)
 
+
 class Program(StatusAbstract):
     category = models.ForeignKey(
         ProgramCategory,
