@@ -1171,6 +1171,7 @@ dropdown input:checked ~ ul li{
     #mission-section img{
         height:340px!important;
         width:100%!important;
+        object-fit: cover;
     }
     #programs-section .main-button{
         margin-top:0px!important;
@@ -1199,19 +1200,14 @@ dropdown input:checked ~ ul li{
 
 
 }
-@media (min-width: 1200px) {
-    .navbar-expand-lg .navbar-collapse {
-        display: flex !important;
-        flex-basis: auto;
-    }
+.mission-img{
+    height: 100%;
+    object-fit: cover;
 }
 
 @media (max-width: 1199px) {
-    .navbar-expand-lg .navbar-collapse {
-        display: none !important;
-    }
-    .navbar-toggler.custom-toggler{
-        display:flex!important;;
+    .navbar-nav li:last-child{
+        display:none;
     }
 }
 

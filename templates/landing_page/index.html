@@ -80,7 +80,7 @@
             <section style="margin-top:80px;">
                 <div id="mission-section" class="row mt-5 justify-content-center "  >
                     <div class="col-12 col-md-5 order-1 order-md-0 position-relative" data-aos="fade-right" >
-                        <img height="400" src="{% static 'assets/images/mission.webp' %}" class="img-fluid radius-40" alt="Mission of Dikaioma Elpidas">
+                        <img height="400" src="{% static 'assets/images/mission.webp' %}" class="img-fluid radius-40 mission-img" alt="Mission of Dikaioma Elpidas">
                         <img height="200" src="{% static 'assets/images/brush-blue-2.png' %}" class="img-fluid brush-img" alt="Blue brush">
                     </div>
                     <div class="col-12 col-md-5 d-flex align-items-center order-0 order-md-1" data-aos="fade-left">
@@ -124,26 +124,26 @@
             <!-- What we offer -->
             <section>
                 <div id="programs-section" class="row" data-aos="fade-up">
-                    <span class="hero-subtitle box-details green-text p-0 text-center text-lg-start">{% trans 'slug_121' %}</span>
-                    <span class="main-title mt-2 text-center text-lg-start">{% trans 'slug_122' %}</span>
-                    <span class="d-block box-details fs-5 mt-2 mb-5 p-0 text-center text-lg-start">{% trans 'slug_123' %}</span>
-                    <div>
-                        <div class="row">
-                            <div class="col-12 p-0 px-3 px-lg-0">
-                                {% for program in available_programs %}
-                                    <span class="program-tag">{% trans program.name %}</span>
-                                {% endfor %}
-                            </div>
-                        </div>
+                    <div class="col-12">
+                        <span class="d-block hero-subtitle box-details green-text p-0 text-start">{% trans 'slug_121' %}</span>
+                        <span class="d-block main-title mt-2 text-start">{% trans 'slug_122' %}</span>
+                        <span class="d-block box-details fs-5 mt-2 mb-5 p-0 text-center text-lg-start">{% trans 'slug_123' %}</span>
                     </div>
+
+                    <div class="col-12">
+                        {% for program in available_programs %}
+                            <span class="program-tag">{% trans program.name %}</span>
+                        {% endfor %}
+                    </div>
+
                     <div class="d-flex justify-content-end">
                         <a class="justify-content-center main-button text-dark" href="{% url 'landing_page:services' lang=request.language %}">
                             <span class="me-2">{% trans 'slug_124' %}</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
-
                 </div>
+
             </section>
 
             <!-- Support Us -->
@@ -165,7 +165,10 @@
 
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+{% include "landing_page/includes/modal.html" %}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
     </script>
