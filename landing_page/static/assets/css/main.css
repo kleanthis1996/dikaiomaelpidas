@@ -1309,6 +1309,12 @@ dropdown input:checked ~ ul li{
     }
 
 }
+@media (max-width: 992px){
+    .sub-title{
+        width:100%;
+    }
+}
+
 
 @media (min-width: 992px) and (max-width: 1399px) {
     .box {
