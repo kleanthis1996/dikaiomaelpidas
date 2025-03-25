@@ -17,11 +17,35 @@ class JobRole(models.Model):
        return get_english_text(self.name)
 
 
+class MemberCategory(models.Model):
+    name = models.ForeignKey(
+        Slug,
+        on_delete=models.CASCADE,
+        help_text="Select the slug of the name of the member category.",
+    )
+
+    code =models.CharField(
+        max_length=255,
+    )
+
+    class Meta:
+        verbose_name_plural = "Member Categories"
+
+    def __str__(self):
+        return get_english_text(self.name)
+
+
 class Member(StatusAbstract):
     job_role = models.ForeignKey(
         JobRole,
         on_delete=models.CASCADE,
         help_text="Select the job role of the team member.",
+    )
+
+    category = models.ForeignKey(
+        MemberCategory,
+        on_delete=models.CASCADE,
+        help_text="Select the category of the team member.",
     )
 
     full_name = models.CharField(

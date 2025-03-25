@@ -1,9 +1,9 @@
-# local
+# django
 from django.urls import reverse_lazy
-
+# local
 from news_and_events.models import Post, PostVariation
-from programs.models import Program
-from team_members.models import Member
+from programs.models import Program, ProgramCategory
+from team_members.models import Member, MemberCategory
 from translations.models import Language
 
 
@@ -12,10 +12,14 @@ def get_team_members_data():
     Function to get team members data from db for meet the team page
     :return:
     """
-    team_members_data = Member.objects.select_related("job_role").filter(status=True)
-    response = []
+    team_members_data = Member.objects.select_related("job_role", "category").filter(status=True)
+    response = {}
+    # Parse default response
+    team_members_categories = MemberCategory.objects.all()
+    for team_members_category in team_members_categories:
+        response[team_members_category.code] = []
     for member in team_members_data:
-        response.append({
+        response[member.category.code].append({
             "id": member.id,
             "full_name": member.full_name,
             "profile_image_url": member.profile_image.url,
@@ -91,10 +95,13 @@ def get_available_programs_data():
     Function to get available programs data from db for programs page
     :return:
     """
-    available_programs_data = Program.objects.filter(status=True)
-    result = []
+    available_programs_data = Program.objects.select_related("category").filter(status=True)
+    result = {}
+    program_categories = ProgramCategory.objects.all()
+    for category in program_categories:
+        result[category.code] = []
     for program in available_programs_data:
-        result.append({
+        result[program.category.code].append({
             "id": program.id,
             "name": program.name.code,
             "description": program.description.code,
