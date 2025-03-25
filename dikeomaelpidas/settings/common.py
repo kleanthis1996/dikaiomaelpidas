@@ -141,6 +141,24 @@ UNFOLD = {
     "THEME": "light",
     "TABS": [
         {
+            "page": "client_message",
+            "models": ["client_messages.contactusmessage", "client_messages.volunteersector", "client_messages.volunteerapplication"],
+            "items": [
+                {
+                    "title": "Contact us Messages",
+                    "link": reverse_lazy("admin:client_messages_contactusmessage_changelist"),
+                },
+                {
+                    "title": "Volunteer Sectors",
+                    "link": reverse_lazy("admin:client_messages_volunteersector_changelist"),
+                },
+                {
+                    "title": "Volunteer Applications",
+                    "link": reverse_lazy("admin:client_messages_volunteerapplication_changelist"),
+                }
+            ]
+        },
+        {
             "page": "news_and_events",
             "models": ["news_and_events.post", "news_and_events.postcategory"],
             "items": [

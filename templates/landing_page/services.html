@@ -27,7 +27,7 @@
 <div class="container-lg">
     <div class="row g-4 mt-5">
         {% if available_programs %}
-            {% for program in available_programs %}
+            {% for program in available_programs.standard_programs %}
                 <div class="col-12 col-md-6 col-lg-4" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="{% trans program.name %}" data-description="{% trans program.description %}" data-image="{{program.image_url}}">
                     <div class="program_card">
                         <img src="{{program.image_url}}" alt="{% trans program.name %}">

@@ -57,6 +57,7 @@ class ContactUsMessage(models.Model):
 class VolunteerSector(models.Model):
     code = models.CharField(
         max_length=50,
+        blank=True,
     )
 
     name = models.ForeignKey(
@@ -65,6 +66,9 @@ class VolunteerSector(models.Model):
         related_name='volunteer_sectors',
     )
 
+    is_other = models.BooleanField(
+        default=False,
+    )
 
 class VolunteerApplication(models.Model):
     STATUS_PENDING = "PE"
