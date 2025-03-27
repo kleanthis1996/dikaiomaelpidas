@@ -5,8 +5,9 @@ from django.contrib.auth.admin import GroupAdmin as BaseGroupAdmin
 from django.contrib.auth.models import User, Group
 from django.urls import path, reverse_lazy
 from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 # local
-from webtools.models import ContactInformation, Documentation
+from webtools.models import ContactInformation, Documentation, Announcement
 from webtools.views import DocumentationDetailView
 # third party
 from unfold.admin import ModelAdmin
@@ -54,3 +55,12 @@ class DocumentationAdmin(ModelAdmin):
 
     def has_change_permission(self, request, obj=None):
         return request.user.is_superuser  # Only superusers can edit
+
+
+@admin.register(Announcement)
+class AnnouncementAdmin(ModelAdmin):
+    list_display = ("id", "title", "get_image", "status", "created_at")
+
+    def get_image(self, obj):
+        return mark_safe(f'<img src="/mediafiles/{obj.profile_image}" width="50" height="30" />')
+    get_image.short_description = "Image"

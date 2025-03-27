@@ -257,6 +257,11 @@ UNFOLD = {
                         "link": reverse_lazy("admin:webtools_contactinformation_changelist"),
                     },
                     {
+                        "title": "Announcements",
+                        "icon": "campaign",
+                        "link": reverse_lazy("admin:webtools_announcement_changelist"),
+                    },
+                    {
                         "title": "Documentation",
                         "icon": "description",
                         "link": reverse_lazy("admin:webtools_documentation_changelist"),

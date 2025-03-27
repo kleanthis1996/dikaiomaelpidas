@@ -53,7 +53,6 @@ class ContactInformation(models.Model):
         return self.type
 
 
-
 class Documentation(models.Model):
     title = models.CharField(max_length=255)
 
@@ -61,6 +60,25 @@ class Documentation(models.Model):
         "Content",
         config_name="default",
     )
+
+    def __str__(self):
+        return self.title
+
+
+class Announcement(StatusAbstract):
+    title = models.CharField(
+        max_length=255,
+        help_text="Title of the announcement. For internal use only."
+    )
+
+    image = models.ImageField(
+        upload_to='images/announcements/',
+        blank=True,
+        null=True,
+        help_text=f"Upload the image of the announcement."
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
