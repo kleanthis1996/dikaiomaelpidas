@@ -27,7 +27,6 @@ class TranslationAdmin(ModelAdmin):
 
 @admin.register(Slug)
 class SlugAdmin(ModelAdmin):
-    form = SlugForm
     list_display = ("code", "description", "get_available_translation_languages")
     list_filter = ("translation__language",)
     search_fields = ("code", "description")
@@ -38,3 +37,19 @@ class SlugAdmin(ModelAdmin):
         return list(available_languages)
 
     get_available_translation_languages.short_description = "Available languages"
+
+    def get_form(self, request, obj=None, **kwargs):
+        # Get the default form
+        form = super().get_form(request, obj, **kwargs)
+
+        # Ensure self.exclude is a list
+        exclude = list(self.exclude) if self.exclude else []
+
+        if not request.user.is_superuser:
+            exclude.append('code')  # Add 'code' to exclude if not superuser
+        elif 'code' in exclude:
+            exclude.remove('code')  # Ensure superusers can see it
+
+        # Set the exclude attribute dynamically
+        kwargs['exclude'] = exclude
+        return super().get_form(request, obj, **kwargs)
