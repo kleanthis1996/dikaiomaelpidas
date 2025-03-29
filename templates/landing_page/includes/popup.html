@@ -1,0 +1,80 @@
+<!-- Announcement Popup -->
+<div id="announcement-popup" class="popup hidden">
+    <div class="popup-content">
+        <span id="popup-close">&times;</span>
+        <img id="popup-image" src="" alt="Announcement">
+    </div>
+</div>
+
+<style>
+    /* Basic popup styling */
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        display: none;
+    }
+
+    .popup-content {
+        position: relative;
+    }
+
+    .popup img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    #popup-close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+<script>
+    // Fetch the announcement
+    fetch("{% url 'webtools:api-get-latest-active-announcement' %}")
+        .then(response => {
+            if (response.status === 204) return null;  // No announcement
+            return response.json();
+        })
+        .then(announcement => {
+            if (announcement && !isAnnouncementDismissed(announcement.id)) {
+                showAnnouncementPopup(announcement);
+            }
+        });
+
+    function showAnnouncementPopup(announcement) {
+        document.getElementById("popup-image").src = announcement.image_name;
+        document.getElementById("announcement-popup").style.display = "block";
+
+        document.getElementById("popup-close").addEventListener("click", function () {
+            document.getElementById("announcement-popup").style.display = "none";
+            dismissAnnouncement(announcement.id);
+        });
+    }
+
+    // Save dismissed announcement in cookies for 10 days
+    function dismissAnnouncement(announcementId) {
+        document.cookie = `dismissed_announcement=${announcementId}; max-age=${10 * 24 * 60 * 60}; path=/`;
+    }
+
+    // Check if the announcement was dismissed
+    function isAnnouncementDismissed(announcementId) {
+        let cookieValue = document.cookie.split("; ").find(row => row.startsWith("dismissed_announcement="));
+        return cookieValue ? cookieValue.split("=")[1] === announcementId.toString() : false;
+    }
+</script>

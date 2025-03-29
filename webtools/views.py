@@ -12,7 +12,7 @@ from programs.models import Program, ProgramCategory
 from team_members.models import Member, JobRole, MemberCategory
 from translations.models import Slug, Translation, Language
 # Local
-from webtools.models import Documentation
+from webtools.models import Documentation, Announcement, StatusAbstract
 # Third Party
 from unfold.views import UnfoldModelAdminViewMixin
 
@@ -222,3 +222,19 @@ def create_mock_data(request):
             content="Λόρεμ ίψουμ δολορ σιτ αμέτ, κονσεκτετούρ αδισπίσινγκ ελιτ. Νούλα φακιλίσι. Φούσκε τινκτούντ, πουρους βελ φακιλίσις τέμπους, βελίτ σάπιεν φερμέντουμ έρος, σιτ αμέτ βενενάτις λίγκουλα νίσι ιν ιούστο. Μόρμπι ουλτρίκιες λίμπερο ιν ρίσους φεουγκιάτ, νεκ ουλλαμκόρπερ νουνκ βενενάτις. Βεστίμπουλουμ νεκ πουρους νεκ μέτους λαορέετ βεχίκουλα. Αένεαν ιδ νέκουε νον όντιο σκελερίσκουε δινγκνίσσιμ. Κρας σαγίττις, ρίσους βελ σκελερίσκουε κονσέκουατ, νουνκ λίμπερο φερμέντουμ άρκου, νεκ ουλτρίκες ιούστο πουρους ακ τούρπις. Αλίκουαμ ερατ βόλουτπατ. Σουσπενδίσσε ποτεντί. Ιντεγκερ σοδάλες, νούλλα ουτ βεχίκουλα κονσέκουατ, όρτσι ελίτ ουλλαμκόρπερ μέτους, ουτ γκραβίδα φελίς ιούστο ευ όντιο."
         )
     return JsonResponse({"message": "Success"})
+
+
+def get_latest_active_announcement(request):
+    """
+    API used to fetch latest active announcements.
+    :param request:
+    :return:
+    """
+    result = {}
+    latest_active_announcement = Announcement.objects.filter(status=True).order_by("-created_at").first()
+    if latest_active_announcement:
+        result = {
+            "id": latest_active_announcement.id,
+            "image_name": f"/mediafiles/{latest_active_announcement.image}"
+        }
+    return JsonResponse(result, safe=False)

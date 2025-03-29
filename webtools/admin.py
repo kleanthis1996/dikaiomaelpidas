@@ -62,5 +62,5 @@ class AnnouncementAdmin(ModelAdmin):
     list_display = ("id", "title", "get_image", "status", "created_at")
 
     def get_image(self, obj):
-        return mark_safe(f'<img src="/mediafiles/{obj.profile_image}" width="50" height="30" />')
+        return mark_safe(f'<img src="/mediafiles/{obj.image}" width="50" height="30" />')
     get_image.short_description = "Image"
