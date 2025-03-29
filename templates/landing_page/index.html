@@ -3,7 +3,7 @@
 {% load translations_tags %}
 
 {% block SEO %}
-    <title>{% trans 'slug_137' %} | {% trans 'slug_146' %}</title>
+    <title>{% trans 'tab_title' %} | {% trans 'menu_home' %}</title>
     <meta name="description" content="Dikaioma Elpidas is a school dedicated to inclusive education
      and therapeutic support for individuals with special needs. Our vision is to empower every student with the skills,
      care, and opportunities they deserve in a nurturing and supportive environment.">
@@ -33,11 +33,11 @@
                                 <div class="box-icon">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
-                                <span class="d-block box-title fs-4 text-start mt-3">About Us</span>
+                                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'hero_about_us' %}</span>
                                 <div class="break-line"></div>
-                                <span class="d-block box-details fs-5 text-start mt-3">Learn about our journey, values, and commitment to transforming lives.</span>
+                                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'hero_about_us_subtitle' %}</span>
                                 <a class="card-btn justify-content-end mt-5" href="{% url 'landing_page:about' lang=request.language %}">
-                                    <span class="me-2">Read More</span>
+                                    <span class="me-2">{% trans 'general_read_more' %}</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -48,11 +48,11 @@
                                 <div class="box-icon">
                                     <i class="fa-regular fa-face-smile"></i>
                                 </div>
-                                <span class="d-block box-title fs-4 text-start mt-3">Meet the Team</span>
+                                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'hero_meet_the_team' %}</span>
                                 <div class="break-line"></div>
-                                <span class="d-block box-details fs-5 text-start mt-3">Get to know the dedicated professionals behind our mission.</span>
+                                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'hero_meet_the_team_subtitle' %}</span>
                                 <a class="card-btn justify-content-end mt-5" href="{% url 'landing_page:team' lang=request.language %}">
-                                    <span class="me-2">Read More</span>
+                                    <span class="me-2">{% trans 'general_read_more' %}</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -63,11 +63,11 @@
                                 <div class="box-icon">
                                     <i class="fa-solid fa-graduation-cap"></i>
                                 </div>
-                                <span class="d-block box-title fs-4 text-start mt-3">Actions & European Programs</span>
+                                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'menu_actions' %}</span>
                                 <div class="break-line"></div>
-                                <span class="d-block box-details fs-5 text-start mt-3">Explore the diverse activities and initiatives that shape our community.</span>
+                                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'hero_actions_programs' %}</span>
                                 <a class="card-btn justify-content-end mt-5" href="{% url 'landing_page:services' lang=request.language %}">
-                                    <span class="me-2">Learn More</span>
+                                    <span class="me-2">{% trans 'general_read_more' %}</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -88,17 +88,17 @@
                         <div class="row">
                             <div class="col-12 mb-4 mb-lg-0">
                                 <div class="main-break-line"></div>
-                                <span class="d-block main-title mt-4">Discover Our Mission</span>
-                                <span class="d-block box-details fs-5  text-start mt-3 p-0">We are dedicated to making a difference in the lives of individuals with special needs by providing comprehensive educational and therapeutic programs. Our mission is to foster inclusion, independence, and personal growth through innovative and specialized support.}</span>
+                                <span class="d-block main-title mt-4">{% trans 'discover_our_mission' %}</span>
+                                <span class="d-block box-details fs-5  text-start mt-3 p-0">{% trans 'discover_our_mission_text' %}</span>
                                 <a class="justify-content-center main-button blue-btn d-none d-md-block" href="{% url 'landing_page:about' lang=request.language %}">
-                                    <span class="me-2">Read More</span>
+                                    <span class="me-2">{% trans 'general_read_more' %}</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                     <a class="justify-content-center main-button blue-btn d-block d-md-none order-2" href="#">
-                        <span class="me-2">Read More</span>
+                        <span class="me-2">{% trans 'general_read_more' %}</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -107,14 +107,14 @@
             <!-- Meet our team -->
             <section>
                 <div id="meet-team" class="row justify-content-center text-center" data-aos="fade-up">
-                    <div class="col-12"> <!-- Added col-12 to make the row full width -->
+                    <div class="col-12">
                         <div class="main-break-line mx-auto"></div>
-                        <span class="d-block main-title mt-4">Meet Our Team</span>
-                        <span class="d-block box-details fs-5 mt-3">We are proud to have a dedicated team of professionals who are committed to making a difference.</span>
+                        <span class="d-block main-title mt-4">{% trans 'meet_our_team_title' %}</span>
+                        <span class="d-block box-details fs-5 mt-3">{% trans 'meet_our_team_text_1' %}</span>
                         <img src="{% static 'assets/images/meet-team.webp' %}" class="img-fluid radius-40 mt-5 w-100" alt="Team of Dikaioma Elpidas">
-                        <span class="d-block box-details fs-5 mt-4">Learn more about our passionate educators, therapists, and staff members who bring our vision to life.</span>
+                        <span class="d-block box-details fs-5 mt-4">{% trans 'meet_our_team_text_2' %}</span>
                         <a class="d-inline-flex align-items-center main-button pink-btn" href="{% url 'landing_page:team' lang=request.language %}">
-                            <span class="me-2">Meet the team</span>
+                            <span class="me-2">{% trans 'general_read_more' %}</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
@@ -126,9 +126,9 @@
             <section>
                 <div id="programs-section" class="row" data-aos="fade-up">
                     <div class="col-12">
-                        <span class="d-block hero-subtitle box-details green-text p-0 text-start">Educational & Therapeutic Programs</span>
-                        <span class="d-block main-title mt-2 text-start">What We Offer</span>
-                        <span class="d-block box-details fs-5 mt-2 mb-5 p-0 text-center text-lg-start">Our programs are designed to support individuals with special needs through:</span>
+                        <span class="d-block hero-subtitle box-details green-text p-0 text-start">{% trans 'what_we_offer_subtitle_1' %}</span>
+                        <span class="d-block main-title mt-2 text-start">{% trans 'what_we_offer_title' %}</span>
+                        <span class="d-block box-details fs-5 mt-2 mb-5 p-0 text-center text-lg-start">{% trans 'what_we_offer_subtitle_2' %}</span>
                     </div>
 
                     <div class="col-12">
@@ -139,7 +139,7 @@
 
                     <div class="d-flex justify-content-end">
                         <a class="justify-content-center main-button text-dark" href="{% url 'landing_page:services' lang=request.language %}">
-                            <span class="me-2">Explore Programs</span>
+                            <span class="me-2">{% trans 'general_explore_programs' %}</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
@@ -152,8 +152,8 @@
                 <div id="support-section" class="row" data-aos="fade-up">
                     <div class="col-12">
                         <div class="main-break-line mx-auto mx-lg-0"></div>
-                        <span class="d-block main-title mt-4 text-center text-lg-start">Get Involved & Support Us</span>
-                        <span class="d-block box-details fs-5 mt-3 p-0 text-center text-lg-start">Your support makes a difference! Choose how you’d like to contribute:</span>
+                        <span class="d-block main-title mt-4 text-center text-lg-start">{% trans 'get_involved_title' %}</span>
+                        <span class="d-block box-details fs-5 mt-3 p-0 text-center text-lg-start">{% trans 'get_involved_subtitle' %}</span>
                     </div>
                     <div class="mt-5">
                         <!-- Include Support section -->
