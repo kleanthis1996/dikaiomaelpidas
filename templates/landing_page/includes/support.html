@@ -8,9 +8,9 @@
                 <div class="box-icon">
                     <img src="{% static 'assets/images/jcc-logo.png' %}" class="img-fluid" alt="jcc">
                 </div>
-                <span class="d-block box-title fs-4 text-start mt-3">Donate Funds</span>
+                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'get_involved_supporter_title' %}</span>
                 <div class="break-line"></div>
-                <span class="d-block box-details fs-5 text-start mt-3">Help us make a difference by supporting our mission.</span>
+                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'get_involved_supporter_subtitle' %}</span>
                 <div class="d-flex justify-content-end">
                     <a href="#" class="w-auto mt-5">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
@@ -23,11 +23,11 @@
                 <div class="box-icon">
                     <img src="{% static 'assets/images/gift.png' %}" class="img-fluid" alt="Alternative Gift Giving">
                 </div>
-                <span class="d-block box-title fs-4 text-start mt-3">Alternative Gift Giving</span>
+                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'get_involved_contribution' %}</span>
                 <div class="break-line"></div>
-                <span class="d-block box-details fs-5 text-start mt-3">Dedicate your celebration gifts to a cause.</span>
+                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'get_involved_contribution_subtitle' %}</span>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="Alternative Gift Giving" data-description="{% trans 'slug_147'|safe %}" data-image="{{program.image_url}}">
+                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="{% trans 'get_involved_contribution' %}" data-description="{% trans 'get_involved_contribution_subtitle' %}" data-image="{{program.image_url}}">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
                     </a>
                 </div>
@@ -38,11 +38,11 @@
                 <div class="box-icon">
                     <img src="{% static 'assets/images/donate.png' %}" class="img-fluid" alt="Memorial Donations">
                 </div>
-                <span class="d-block box-title fs-4 text-start mt-3">Memorial Donations</span>
+                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'get_involved_memorial' %}</span>
                 <div class="break-line"></div>
-                <span class="d-block box-details fs-5 text-start mt-3">Honor a loved one by making a difference.</span>
+                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'get_involved_memorial_subtitle' %}</span>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="Alternative Gift Giving" data-description="{% trans 'slug_147'|safe %}" data-image="{{program.image_url}}">
+                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="{% trans 'get_involved_memorial' %}" data-description="{% trans 'get_involved_memorial_subtitle' %}" data-image="{{program.image_url}}">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
                     </a>
                 </div>
@@ -57,11 +57,11 @@
                 <div class="box-icon">
                     <img src="{% static 'assets/images/volunteer.png' %}" class="img-fluid" alt="Volunteer with Us">
                 </div>
-                <span class="d-block box-title fs-4 text-start mt-3">Volunteer with Us</span>
+                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'get_involved_volunteer' %}</span>
                 <div class="break-line"></div>
-                <span class="d-block box-details fs-5 text-start mt-3">Become part of our growing family.</span>
+                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'get_involved_volunteer_subtitle' %}</span>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="Alternative Gift Giving" data-description="{% trans 'slug_147'|safe %}" data-image="{{program.image_url}}">
+                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="{% trans 'get_involved_volunteer' %}" data-description="{% trans 'get_involved_volunteer_subtitle' %}" data-image="{{program.image_url}}">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
                     </a>
                 </div>
@@ -72,11 +72,11 @@
                 <div class="box-icon">
                     <img src="{% static 'assets/images/corporate.png' %}" class="img-fluid" alt="Corporate Giving">
                 </div>
-                <span class="d-block box-title fs-4 text-start mt-3">Corporate Giving</span>
+                <span class="d-block box-title fs-4 text-start mt-3">{% trans 'get_involved_company_support' %}</span>
                 <div class="break-line"></div>
-                <span class="d-block box-details fs-5 text-start mt-3">Partner with us for social responsibility.</span>
+                <span class="d-block box-details fs-5 text-start mt-3">{% trans 'get_involved_company_support_subtitle' %}</span>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="Alternative Gift Giving" data-description="{% trans 'slug_147'|safe %}" data-image="{{program.image_url}}">
+                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="{% trans 'get_involved_company_support' %}" data-description="{% trans 'get_involved_company_support_subtitle' %}" data-image="{{program.image_url}}">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
                     </a>
                 </div>
