@@ -401,10 +401,20 @@ video{
     filter: brightness(1.1);
     transition:0.3s;
 }
+#programs-section .main-button .fa-arrow-right{
+    transition: 0.3s;
+    padding: 8px;
+    border-radius: 50px;
+}
+
+#programs-section .main-button:hover .fa-arrow-right{
+    transition: 0.3s;
+    background-color: #8CC63E;
+    color: white;
+}
 
 .main-button.blue-btn{
     background-color:#23A9E2;
-
 }
 
 .main-button.pink-btn{
@@ -1073,6 +1083,7 @@ dropdown input:checked ~ ul li{
     position: absolute;
     bottom:7%;
     left: 5%;
+    width:90%!important;
 }
 .modal{
     overflow: hidden;
@@ -1170,6 +1181,8 @@ dropdown input:checked ~ ul li{
     }
     .program-tag{
         margin-right:13px!important;
+        width:100%!important;
+        text-align:center;
     }
     .homepage #meet-team img{
         height:200px!important;
@@ -1203,7 +1216,24 @@ dropdown input:checked ~ ul li{
     .form-container .form-row .form-group{
         width: 100%;
     }
-
+    .navbar-nav li:last-child{
+        display:block!important;
+    }
+    #modalImage{
+        height:200px!important;
+    }
+    .modal-dialog{
+        max-width: 90% !important;
+    }
+    .modal.show .modal-dialog, .modal-dialog{
+        transform: translate(-50%, 10%) !important;
+        left: 50%;
+        top: 0% !important;
+        margin: 0 !important;
+    }
+    .modal-body{
+        padding-right:0px;
+    }
 
 }
 .mission-img{

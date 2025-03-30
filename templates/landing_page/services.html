@@ -4,7 +4,7 @@
 
 
 {% block SEO %}
-    <title>Actions & European Programs | Dikaioma Elpidas</title>
+    <title>{% trans 'tab_title' %} | {% trans 'menu_actions' %}</title>
     <meta name="description" content="Discover the actions and European programs offered by Dikaioma Elpidas,
      designed to enhance inclusive education and therapeutic support for individuals with special needs.
      Learn more about our initiatives, collaborations, and opportunities for growth">
@@ -18,8 +18,8 @@
 <div class="nav-margin">
     <div class="container-lg container-xlarge">
         <div>
-            <span class="d-block main-title text-center">Our Specialized Programs</span>
-            <span class="d-block sub-title mt-3 text-center">We offer a diverse range of educational and therapeutic programs tailored to meet the unique needs of individuals with special needs. Each program is designed to foster personal growth, independence, and social inclusion. Through specialized support and innovative methods, we empower our participants to thrive in every aspect of life.</span>
+            <span class="d-block main-title text-center">{% trans 'actions_european_programs_title' %}</span>
+            <span class="d-block sub-title mt-3 text-center">{% trans 'actions_european_programs_subtitle' %}</span>
         </div>
     </div>
 </div>
@@ -40,7 +40,7 @@
         {% endif %}
     </div>
 
-    <div class="row mt-165 justif-content-center">
+    <div class="row mt-165 justify-content-center">
         <div id="meet-team" class="row justify-content-center text-center">
             <div class="col-12"> <!-- Added col-12 to make the row full width -->
                 <div class="main-break-line mx-auto"></div>
