@@ -38,11 +38,8 @@
                 <li><a href="{% url 'admin:news_and_events_post_add' %}" class="text-blue-500 hover:underline">➕ Add New Post</a></li>
                 <li><a href="{% url 'admin:team_members_member_add' %}" class="text-blue-500 hover:underline">➕ Add New Team Member</a></li>
                 <li><a href="{% url 'admin:programs_program_add' %}" class="text-blue-500 hover:underline">➕ Add New Program</a></li>
+                <li><a href="{% url 'admin:webtools_announcement_add' %}" class="text-blue-500 hover:underline">➕ Add New Announcement</a></li>
                 <li><a href="{% url 'admin:auth_user_changelist' %}" class="text-blue-500 hover:underline">👥 Manage Users</a></li>
-                {% if request.user.is_superuser %}
-                    <li><a href="{% url 'webtools:api-create-mock-data' %}" class="text-blue-500 hover:underline">➕
-                        Create Mock Data</a></li>
-                {% endif %}
             </ul>
         </div>
 
