@@ -6,14 +6,75 @@
 {% endif %}{% endblock %}
 
 {% block content %}
-  <div class="max-w-4xl mx-auto px-4 py-8">
+    <style>
+        /* Reset Tailwind and restore styles for rendered CKEditor content */
+        .ckeditor-content {
+            all: revert !important;
+        }
+
+        /* Ensure CKEditor content is properly displayed */
+        .ckeditor-content h1 {
+            font-size: 2.2em !important;
+            font-weight: bold !important;
+            margin-bottom: 10px !important;
+        }
+
+        .ckeditor-content h2 {
+            font-size: 1.8em !important;
+            font-weight: bold !important;
+            margin-bottom: 8px !important;
+        }
+
+        .ckeditor-content h3 {
+            font-size: 1.5em !important;
+            font-weight: bold !important;
+            margin-bottom: 6px !important;
+        }
+
+        .ckeditor-content h4 {
+            font-size: 1.2em !important;
+            font-weight: bold !important;
+            margin-bottom: 4px !important;
+        }
+
+        .ckeditor-content p {
+            font-size: 1rem !important;
+            margin-bottom: 10px !important;
+        }
+
+        .ckeditor-content ul {
+            list-style-type: disc !important;
+            padding-left: 20px !important;
+        }
+
+        .ckeditor-content ol {
+            list-style-type: decimal !important;
+            padding-left: 20px !important;
+        }
+
+        .ckeditor-content blockquote {
+            border-left: 4px solid #ccc !important;
+            padding-left: 10px !important;
+            font-style: italic !important;
+            color: #666 !important;
+        }
+
+        .ckeditor-content pre {
+            background-color: #f5f5f5 !important;
+            padding: 10px !important;
+            border-radius: 5px !important;
+            font-family: monospace !important;
+            white-space: pre-wrap !important;
+        }
+    </style>
+    <div class="max-w-4xl mx-auto px-4 py-8">
         <!-- Title Section -->
         <div class="bg-white shadow-md rounded-lg p-6">
             <h1 class="text-2xl md:text-3xl font-bold text-gray-800">{{ documentation_detail.title }}</h1>
         </div>
         <!-- Content Section -->
         <div class="mt-6 bg-white shadow-md rounded-lg p-6">
-            <article class="prose lg:prose-lg max-w-none">
+            <article class="prose lg:prose-lg max-w-none ckeditor-content">
                 {{ documentation_detail.content|safe }}
             </article>
         </div>

@@ -136,6 +136,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 UNFOLD = {
     "SITE_TITLE": "Dikaioma Elpidas",
     "SITE_HEADER": "Dikaioma Elpidas CMS",
+    "STYLES": [lambda request: static("assets/css/ck_editor_fix.css")],
     "SITE_ICON": lambda request: static("assets/images/logo.webp"),
     "DASHBOARD_CALLBACK": "landing_page.views.dashboard_callback",
     "THEME": "light",

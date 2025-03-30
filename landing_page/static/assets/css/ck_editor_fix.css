@@ -1,0 +1,45 @@
+/* Ensure CKEditor’s outer container remains intact */
+.ck-editor {
+    all: unset !important; /* Prevent Tailwind from breaking the editor UI */
+}
+
+/* Reset only Tailwind's interference inside CKEditor content */
+.ck-editor__editable {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    color: black !important;
+    background: white !important;
+    padding: 12px !important;
+    border-radius: 4px !important;
+    min-height: 250px !important;
+    max-height: 500px !important;
+    overflow-y: auto !important;
+}
+
+/* Restore heading styles */
+.ck-editor__editable h1 { font-size: 2.2em !important; font-weight: bold !important; margin-bottom: 10px !important; }
+.ck-editor__editable h2 { font-size: 1.8em !important; font-weight: bold !important; margin-bottom: 8px !important; }
+.ck-editor__editable h3 { font-size: 1.5em !important; font-weight: bold !important; margin-bottom: 6px !important; }
+.ck-editor__editable h4 { font-size: 1.2em !important; font-weight: bold !important; margin-bottom: 4px !important; }
+
+/* Restore paragraph and list styles */
+.ck-editor__editable p { font-size: 1rem !important; margin-bottom: 10px !important; }
+.ck-editor__editable ul { list-style-type: disc !important; padding-left: 20px !important; }
+.ck-editor__editable ol { list-style-type: decimal !important; padding-left: 20px !important; }
+
+/* Restore blockquotes */
+.ck-editor__editable blockquote {
+    border-left: 4px solid #ccc !important;
+    padding-left: 10px !important;
+    font-style: italic !important;
+    color: #666 !important;
+}
+
+/* Restore code blocks */
+.ck-editor__editable pre {
+    background-color: #f5f5f5 !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    font-family: monospace !important;
+    white-space: pre-wrap !important;
+}
