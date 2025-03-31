@@ -1,6 +1,7 @@
 {% load static %}
 {% load translations_tags %}
 
+
     <!-- First Row (Ensures Full Width) -->
     <div class="row g-3">  <!-- Added row wrapper and gap -->
         <div class="col-12 col-md-6 col-lg-4 support-box">
@@ -27,7 +28,7 @@
                 <div class="break-line"></div>
                 <span class="d-block box-details fs-5 text-start mt-3">{% trans 'get_involved_contribution_subtitle' %}</span>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="{% trans 'get_involved_contribution' %}" data-description="{% trans 'get_involved_contribution_subtitle' %}" data-image="{{program.image_url}}">
+                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#involvedModal" data-title="{% trans 'get_involved_contribution' %}" data-first-paragraph="{% trans 'get_involved_contribution_par_1' %}" data-sec-paragraph="{% trans 'get_involved_contribution_par_2' %}" data-third-paragraph="{% trans 'get_involved_contribution_par_3' %}">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
                     </a>
                 </div>
@@ -42,7 +43,7 @@
                 <div class="break-line"></div>
                 <span class="d-block box-details fs-5 text-start mt-3">{% trans 'get_involved_memorial_subtitle' %}</span>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="{% trans 'get_involved_memorial' %}" data-description="{% trans 'get_involved_memorial_subtitle' %}" data-image="{{program.image_url}}">
+                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#involvedModal" data-title="{% trans 'get_involved_memorial' %}" data-first-paragraph="{% trans 'get_involved_memorial_par_1' %}" data-sec-paragraph="{% trans 'get_involved_memorial_par_2' %}" data-third-paragraph="{% trans 'get_involved_memorial_par_3' %}">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
                     </a>
                 </div>
@@ -61,7 +62,7 @@
                 <div class="break-line"></div>
                 <span class="d-block box-details fs-5 text-start mt-3">{% trans 'get_involved_volunteer_subtitle' %}</span>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="{% trans 'get_involved_volunteer' %}" data-description="{% trans 'get_involved_volunteer_subtitle' %}" data-image="{{program.image_url}}">
+                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#involvedModal" data-title="{% trans 'get_involved_volunteer' %}" data-first-paragraph="{% trans 'get_involved_volunteer_par_1' %}" data-sec-paragraph="{% trans 'get_involved_volunteer_par_2' %}" data-third-paragraph="{% trans 'get_involved_volunteer_par_3' %}">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
                     </a>
                 </div>
@@ -76,7 +77,7 @@
                 <div class="break-line"></div>
                 <span class="d-block box-details fs-5 text-start mt-3">{% trans 'get_involved_company_support_subtitle' %}</span>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="{% trans 'get_involved_company_support' %}" data-description="{% trans 'get_involved_company_support_subtitle' %}" data-image="{{program.image_url}}">
+                    <a href="#" class="w-auto mt-5" data-bs-toggle="modal" data-bs-target="#involvedModal" data-title="{% trans 'get_involved_company_support' %}" data-first-paragraph="{% trans 'get_involved_company_support_par_1' %}" data-sec-paragraph="{% trans 'get_involved_company_support_par_2' %}" data-third-paragraph="{% trans 'get_involved_company_support_par_3' %}">
                         <i class="fa-solid fa-arrow-right fs-5"></i>
                     </a>
                 </div>

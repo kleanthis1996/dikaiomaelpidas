@@ -1,0 +1,43 @@
+{% load static %}
+{% load translations_tags %}
+
+<!-- Modal -->
+<div class="modal fade" id="involvedModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="modalTitle">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="d-flex modal-details flex-column">
+                <div class="modal-body" id="first-paragraph"></div>
+                <div class="modal-body" id="sec-paragraph"></div>
+                <div class="modal-body" id="third-paragraph"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Select the modal element
+    const modal = document.getElementById('involvedModal');
+
+    // Event listener for when the modal is about to be shown
+    modal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        const button = event.relatedTarget;
+
+        // Extract info from data attributes
+        const title = button.getAttribute('data-title');
+        const first_paragraph = button.getAttribute('data-first-paragraph');
+        const second_paragraph = button.getAttribute('data-sec-paragraph');
+        const third_paragraph = button.getAttribute('data-third-paragraph');
+
+        // Update the modal content
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('first-paragraph').textContent = first_paragraph;
+        document.getElementById('sec-paragraph').textContent = second_paragraph;
+        document.getElementById('third-paragraph').textContent = third_paragraph;
+    });
+</script>
+
