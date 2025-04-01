@@ -24,7 +24,7 @@
 
 <div class="container-lg">
     <div class="row g-4 mt-5">
-        {% if available_programs %}
+        {% if available_programs.standard_programs %}
             {% for program in available_programs.standard_programs %}
                 <div class="col-12 col-md-6 col-lg-4" data-bs-toggle="modal" data-bs-target="#itemModal" data-title="{% trans program.name %}" data-description="{% trans program.description %}" data-image="{{program.image_url}}">
                     <div class="program_card">
@@ -40,13 +40,16 @@
 
     <div class="row mt-165 justify-content-center">
         <div id="meet-team" class="row justify-content-center text-center">
-            <div class="col-12">
-                <div class="main-break-line mx-auto"></div>
-                <span class="d-block main-title mt-4">Attending EU stuff title goes here</span>
-                <span class="d-block box-details fs-5 mt-3">We are proud to have a dedicated team of professionals who are committed to making a difference.</span>
-                <img src="{% static 'assets/images/meet-team.webp' %}" class="img-fluid radius-40 mt-5 w-100" alt="Team of Dikaioma Elpidas">
-                <span class="d-block box-details fs-5 mt-4">{% trans 'slug_120' %}</span>
-            </div>
+            {% if available_programs.european_programs %}
+                {% for european_program in available_programs.european_programs %}
+                    <div class="col-12">
+                        <div class="main-break-line mx-auto mt-5"></div>
+                        <span class="d-block main-title mt-4">{% trans european_program.name %}</span>
+                        <span class="d-block box-details fs-5 mt-3">{% trans european_program.description %}</span>
+                        <img src="{{european_program.image_url}}" class="img-fluid radius-40 mt-5 w-100" alt="{% trans european_program.name %}">
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>
