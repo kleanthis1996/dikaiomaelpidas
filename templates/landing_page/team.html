@@ -28,8 +28,8 @@
             <div class="col-12">
                 <span class="team-grid-title">Our Team Members</span>
                 <div class="row g-4 py-5">
-                    {% if team_members_data %}
-                        {% for member in team_members_data %}
+                    {% if team_members_data.teachers %}
+                        {% for member in team_members_data.teachers %}
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="flip-card">
                                     <div class="flip-card-inner">
@@ -55,8 +55,8 @@
             <div class="col-12 mt-5">
                 <span class="team-grid-title">Board of Directors</span>
                 <div class="row g-4 py-5">
-                    {% if team_members_data %}
-                    {% for member in team_members_data %}
+                    {% if team_members_data.board_of_directors %}
+                    {% for member in team_members_data.board_of_directors %}
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="flip-card">
                             <div class="flip-card-inner">
