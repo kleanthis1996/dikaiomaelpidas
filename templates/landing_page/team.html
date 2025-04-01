@@ -3,7 +3,7 @@
 {% load translations_tags %}
 
 {% block SEO %}
-  <title>Meet the team | Dikaioma Elpidas</title>
+    <title>Meet the team | Dikaioma Elpidas</title>
     <meta name="description" content="Meet the dedicated team at Dikaioma Elpidas,
      passionate educators and specialists committed to providing inclusive education and therapeutic support
      for individuals with special needs. Learn more about the people making a difference every day.">
@@ -15,34 +15,36 @@
 
 {% block BODY %}
 
-<div class="nav-margin">
-    <div class="container-lg container-xlarge">
-        <div>
-            <span class="d-block main-title text-center">Meet the Team at Δικαίωμα Ελπίδας</span>
-            <span class="d-block sub-title mt-3 text-center">Dedicated professionals, united by a passion for inclusion and education.</span>
-        </div>
-        <div class="row">
-            <div class="col-12 mt-165 mb-165">
-                <img class="team-img radius-40 img-fluid" src="{% static 'assets/images/meet-team.webp' %}" alt="Featured Blog Image" loading="lazy">
+    <div class="nav-margin">
+        <div class="container-lg container-xlarge">
+            <div>
+                <span class="d-block main-title text-center">Meet the Team at Δικαίωμα Ελπίδας</span>
+                <span class="d-block sub-title mt-3 text-center">Dedicated professionals, united by a passion for inclusion and education.</span>
             </div>
-            <div class="col-12">
-                <span class="team-grid-title">Our Team Members</span>
-                <div class="row g-4 py-5">
+            <div class="row">
+                <div class="col-12 mt-165 mb-165">
+                    <img class="team-img radius-40 img-fluid" src="{% static 'assets/images/meet-team.webp' %}"
+                         alt="Featured Blog Image" loading="lazy">
+                </div>
+                <div class="col-12">
                     {% if team_members_data.teachers %}
+                        <span class="team-grid-title">Our Team Members</span>
+                        <div class="row g-4 py-5">
+
                         {% for member in team_members_data.teachers %}
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="flip-card">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img src="{{member.profile_image_url}}" alt="Team Member">
+                                            <img src="{{ member.profile_image_url }}" alt="Team Member">
                                             <div class="team-info">
-                                                <h5>{{ member.full_name}}</h5>
+                                                <h5>{{ member.full_name }}</h5>
                                                 <p>{% trans member.job_role_name %}</p>
                                             </div>
                                         </div>
                                         <div class="flip-card-back">
-                                            <h5>{{ member.full_name}}</h5>
-                                            <p>{%  trans member.description %}</p>
+                                            <h5>{{ member.full_name }}</h5>
+                                            <p>{% trans member.description %}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -50,38 +52,39 @@
                         {% endfor %}
                     {% endif %}
 
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 mt-5">
-                <span class="team-grid-title">Board of Directors</span>
-                <div class="row g-4 py-5">
+                <div class="col-12 mt-5">
                     {% if team_members_data.board_of_directors %}
-                    {% for member in team_members_data.board_of_directors %}
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="{{member.profile_image_url}}" alt="Team Member">
-                                    <div class="team-info">
-                                        <h5>{{ member.full_name}}</h5>
-                                        <p>{% trans member.job_role_name %}</p>
+                        <span class="team-grid-title">Board of Directors</span>
+                        <div class="row g-4 py-5">
+
+                        {% for member in team_members_data.board_of_directors %}
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <img src="{{ member.profile_image_url }}" alt="Team Member">
+                                            <div class="team-info">
+                                                <h5>{{ member.full_name }}</h5>
+                                                <p>{% trans member.job_role_name %}</p>
+                                            </div>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h5>{{ member.full_name }}</h5>
+                                            <p>{% trans member.description %}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="flip-card-back">
-                                    <h5>{{ member.full_name}}</h5>
-                                    <p>{%  trans member.description %}</p>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+                        {% endfor %}
                     {% endif %}
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 {% endblock %}
