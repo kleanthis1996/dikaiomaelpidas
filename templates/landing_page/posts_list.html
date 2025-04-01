@@ -22,31 +22,18 @@
 {% block BODY %}
 <div class="nav-margin">
     <div class="container-lg container-xlarge">
-        <div>
-            {% if  request.resolver_match.url_name == 'news' %}
-                <span class="d-block main-title">News & Announcements</span>
-            {% elif request.resolver_match.url_name == 'events' %}
-                <span class="d-block main-title">Events</span>
-            {% endif %}
-        </div>
-
         <!-- Featured Blog -->
         <div class="featured-blog mt-4">
             <img src="{% static 'assets/images/meet-team.webp' %}" alt="Featured Blog Image" loading="lazy">
             <div class="overlay px-lg-5">
-                <h3>Featured blog, this should be the blog that will stay for a longer time!</h3>
-                <p class="mt-4">February 07, 2025</p>
+                {% if  request.resolver_match.url_name == 'news' %}
+                <h3 class="main-title">News & Announcements</h3>
+                {% elif request.resolver_match.url_name == 'events' %}
+                <h3 class="main-title">Events</h3>
+                {% endif %}
             </div>
         </div>
-        <div class="mt-5 pt-5">
-            <!-- Sort Dropdown -->
-            <div class="d-flex justify-content-end mb-3 align-items-center">
-                <label for="sortSelect" class="me-2">Sort by:</label>
-                <select class="form-select w-auto" id="sortSelect">
-                    <option value="latest">Latest</option>
-                    <option value="oldest">Oldest</option>
-                </select>
-            </div>
+        <div class="mt-5">
 
             <!-- Article Grid -->
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="articlesContainer">

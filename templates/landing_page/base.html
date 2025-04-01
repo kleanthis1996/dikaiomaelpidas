@@ -35,7 +35,7 @@
         {# to be extended in templates #}
     {% endblock %}
 </head>
-<body class="{{ request.resolver_match.url_name }} body-{{request.language}}" id="{{ request.resolver_match.url_name }}">
+<body class="{{ request.resolver_match.url_name }} body-{{request.language}} p-0" id="{{ request.resolver_match.url_name }}">
 
 {% include "landing_page/includes/nav.html" %}
 {% block BODY %}

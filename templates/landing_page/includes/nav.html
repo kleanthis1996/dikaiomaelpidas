@@ -7,6 +7,16 @@
         <a class="navbar-brand" href="{% url 'landing_page:index' lang=request.language %}">
             <img src="{% static 'assets/images/logo.webp' %}" alt="Dikaioma Elpidas Logo">
         </a>
+
+        <dropdown class="d-block d-lg-none mob-langs">
+            <input id="toggle3" type="checkbox">
+            <label for="toggle3" class="animate text-uppercase"><i class="fa-solid fa-globe"></i></label>
+            <ul class="animate">
+                {% for lang_code, lang_name in request.available_languages %}
+                <li class="animate lang-item text-uppercase" data-value="{{ lang_code }}" {% if lang_code == request.language %}selected{% endif %}> {{ lang_code }}</li>
+                {% endfor %}
+            </ul>
+        </dropdown>
         <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="bar bar1"></span>

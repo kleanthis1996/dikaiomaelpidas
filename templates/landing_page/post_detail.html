@@ -3,8 +3,10 @@
 {% load translations_tags %}
 
 {% block SEO %}
-<title>{{ post_data.title }} | {% trans 'tab_title' %}</title>
-<meta name="description" content='{{ post_data.content|safe|slice:":300" }}'>
+<title>{% trans post_data.title %} | {% trans 'tab_title' %}</title>
+<meta property="og:title" name="description" content='{% trans post_data.title %}'>
+<meta property="og:image" content="{{ post_data.image_url }}">
+<meta property="og:description" name="description" content='{{ post_data.content|slice:":300" }}'>
 {% endblock %}
 
 {% block EXTRA_HEAD %}
@@ -28,7 +30,7 @@
     </div>
 </div>
 
-<div>
+<div class="continue-reading-container">
     <span class="d-block article-title text-start mx-3">Continue reading</span>
     <div class="your-slider">
         {% for post in extra_posts %}

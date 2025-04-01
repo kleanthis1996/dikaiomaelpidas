@@ -27,6 +27,9 @@
 body{
     padding-top: 0px!important;
 }
+html{
+    overflow-y:scroll;
+}
 .container-lg{
     overflow: hidden;
 }
@@ -61,8 +64,8 @@ section{
 
 .navbar{
     padding: 0;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 50px!important;
+    padding-right: 50px!important;
     transition: all 0.3s ease-in-out;
 }
 
@@ -78,7 +81,10 @@ section{
     font-size: 14px;
     min-width: 122px;
 }
-
+.continue-reading-container{
+    width:80%!important;
+    margin:0 auto;
+}
 .navbar-brand img {
     height: 80px;
 }
@@ -394,6 +400,15 @@ video{
     transition:0.3s;
 }
 
+#programs-section .main-button{
+    max-width:200px!important;
+}
+
+.mob-langs{
+    margin-left: auto;
+    margin-right: 20px;
+}
+
 #about .main-button{
     width:205px!important;
 }
@@ -704,9 +719,7 @@ dropdown input:checked ~ ul li{
     color: white;
 }
 .featured-blog .overlay h3 {
-    font-weight: 600;
     max-width:720px;
-    font-size:36px;
 }
 .featured-blog .overlay p {
     font-size: 14px;
@@ -1060,6 +1073,12 @@ dropdown input:checked ~ ul li{
     border: none;
     overflow: hidden;
     position: relative;
+    transition:0.3s;
+}
+.program_card:hover{
+    cursor:pointer;
+    filter:brightness(1.2);
+    transition:0.3s;
 }
 .program_card img {
     width: 100%;
@@ -1343,6 +1362,9 @@ dropdown input:checked ~ ul li{
 @media (max-width: 992px){
     .sub-title{
         width:100%;
+    }
+    .continue-reading-container{
+        width:100%!important;
     }
 }
 
