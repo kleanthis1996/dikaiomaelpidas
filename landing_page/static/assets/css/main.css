@@ -356,7 +356,50 @@ video{
     color:#3C3C3C;
     width:874px;
 }
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    background: #000000b3;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+}
+.popup-content {
+    position: relative;
+    width:max-content;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
 
+.popup img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    width:400px;
+}
+
+#popup-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    background: white;
+    border-radius: 50%;
+    width: 25px;
+    text-align: center;
+    filter: drop-shadow(2px 3px 4px #000);
+}
+
+.hidden {
+    display: none;
+}
 .support .sub-title,
 .services .sub-title{
     margin:0 auto;
@@ -1364,6 +1407,9 @@ dropdown input:checked ~ ul li{
         width:100%;
     }
     .continue-reading-container{
+        width:100%!important;
+    }
+    .popup-content{
         width:100%!important;
     }
 }
