@@ -320,6 +320,7 @@ video{
 #support-section .box{
     background-color: #F5F5F5;
     box-shadow: unset!important;
+    height:100%!important;
 }
 
 #support-section a{
