@@ -31,10 +31,6 @@
                        href="{% url 'landing_page:index' lang=request.language %}">{% trans 'menu_home' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{% if  request.resolver_match.url_name == 'about' %} active{% endif %}"
-                       href="{% url 'landing_page:about' lang=request.language %}">{% trans 'menu_about_us' %}</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link{% if  request.resolver_match.url_name == 'support' %} active{% endif %} me-0"
                        href="{% url 'landing_page:support' lang=request.language %}">{% trans 'menu_support_us' %}</a>
                 </li>

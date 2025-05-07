@@ -1,8 +1,10 @@
 {% extends "landing_page/base.html" %}
 {% load static %}
+{% load translations_tags %}
+
 
 {% block SEO %}
-    <title>Contact us | Dikaioma Elpidas</title>
+    <title>{% trans 'menu_home' %} | {% trans 'tab_title' %}</title>
     <meta name="description" content="Get in touch with Dikaioma Elpidas for more information about
      our inclusive education programs and therapeutic support for individuals with special needs.
       We’re here to answer your questions and support your journey">
@@ -16,8 +18,8 @@
     <div class="nav-margin">
         <div class="container-lg container-xlarge d-lg-flex align-items-lg-center justify-content-lg-between">
             <div>
-                <span class="d-block main-title">Get in Touch with Us</span>
-                <span class="d-block sub-title mt-3">Have questions or want to support our mission? Reach out, we’d love to hear from you!</span>
+                <span class="d-block main-title">{% trans 'contact_us_title' %}</span>
+                <span class="d-block sub-title mt-3">{% trans 'contact_us_subtitle' %}</span>
             </div>
 
             <div class="contact-social-icons d-flex flex-row flex-lg-column mt-4 mt-lg-0">
@@ -33,8 +35,8 @@
         <div class="container-lg mt-165 mb-165">
             <div class="row justify-content-around align-items-center">
                 <div class="col-12 col-lg-6 col-xxl-4 order-1 order-lg-0 mt-5 mt-lg-0">
-                    <span class="d-block secondary-title">Contact Information</span>
-                    <span class="d-block box-details fs-6 text-start mt-4">Questions, comments, or suggestions? Simply fill in the form and we’ll be in touch shortly.</span>
+                    <span class="d-block secondary-title">{% trans 'contact_us_info' %}</span>
+                    <span class="d-block box-details fs-6 text-start mt-4">{% trans 'contact_us_info_text' %}</span>
                     <div class="d-flex mt-3 align-items-center">
                         <i class="contact-icons blue-text fa-solid fa-location-dot me-2"></i>
                         <a href="https://www.google.com/maps/dir/34.9208576,33.6068608/34.93273,33.63369/@34.9266741,33.5981407,14z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?entry=ttu&g_ep=EgoyMDI1MDMxOS4yIKXMDSoASAFQAw%3D%3D" class="d-block fs-6">Omonoias 9, Larnaca 6058, Cyprus</a>
@@ -73,14 +75,14 @@
                                 <textarea id="message" name="message" placeholder="Type your message here"></textarea>
                             </div>
 
-                            <button type="submit" class="submit-btn">Submit</button>
+                            <button type="submit" class="submit-btn">{% trans 'general_submit' %}</button>
                         </form>
                         <div id="contact-us-loader"></div>
                         <div id="contact-us-message-sent">
-                            <span class="d-block text-center success-msg-title">Thanks for getting in touch</span>
-                            <span class="d-block text-center success-msg-subtitle mt-2">Your email has been sent</span>
+                            <span class="d-block text-center success-msg-title">{% trans 'contact_us_thanks' %}</span>
+                            <span class="d-block text-center success-msg-subtitle mt-2">{% trans 'contact_us_email_sent' %}</span>
                             <a class="justify-content-center main-button pink-btn mx-auto" href="#" onclick="window.location.reload();"">
-                                <span class="me-2">Send again</span>
+                                <span class="me-2">{% trans 'contact_us_send_again' %}</span>
                             </a>
                         </div>
                     </div>

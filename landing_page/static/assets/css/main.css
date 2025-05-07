@@ -197,6 +197,10 @@ video{
     z-index: 1; /* Ensure boxes are on top of video */
     display: block;
     min-height:300px;
+    height:100%;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .body-el .box{
     min-height: 428px;
@@ -432,7 +436,6 @@ video{
 }
 
 .main-button{
-    max-width:184px;
     width:max-content;
     height:44px;
     border-radius:8px;
